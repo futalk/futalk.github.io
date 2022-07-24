@@ -1,0 +1,83 @@
+- class_name: 友情链接
+  class_desc: 那些人，那些事
+  link_list:
+    - name: Hexo
+      link: https://hexo.io/zh-tw/
+      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
+      descr: 快速、簡單且強大的網誌框架
+
+- class_name: 网站
+  class_desc: 值得推荐的网站
+  link_list:
+    - name: Youtube
+      link: https://www.youtube.com/
+      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+      descr: Youtube
+    - name: bilibili
+      link: https://www.bilibili.com/
+      avatar: 
+      descr: 
+    - name: 菜鸟教程
+      link: https://www.runoob.com/
+      avatar: https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/202207120933382.png
+      descr: 学的不仅是技术，更是梦想！
+    - name: W3Cschoool
+      link: http://home.ustc.edu.cn/~xie1993/index.htm
+      avatar: https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/202207120936619.png
+      descr: w3cschool菜鸟教程提供了最全的的web技术基础教程。
+    - name: Github
+      link: https://github.com/
+      avatar: 
+      descr: 全球最大同性交友平台
+
+- class_name: 安全资讯
+  class_desc: 一些关于安全资讯的网站。
+  link_list:
+    - name: OWASP Top 10 2021 介紹
+      link: https://owasp.org/Top10/zh_CN/
+      avatar: 
+      descr: 欢迎來到最新版本的 OWASP Top 10！! OWASP Top 10 2021 是一个全新的名单
+    - name: HACKER NEWS
+      link: https://news.ycombinator.com/newest
+      avatar: 
+      descr: Hacker News Security
+    - name: wooyun
+      link: http://wooyun.2xss.cc/
+      avatar: 
+      descr: 乌云网镜像丨乌云知识库丨Wooyun镜像丨乌云漏洞平台
+      
+
+- class_name: 在线编译
+  class_desc: 在线运行代码的网站
+  link_list:
+    - name: ideone
+      link: https://www.ideone.com/
+      avatar: 
+      descr: 
+    - name: Code Editor
+      link: https://www.online-ide.com/
+      avatar: 
+      descr: 
+    - name: onlinegdb
+      link: https://www.onlinegdb.com/
+      avatar: 
+      descr: 
+    - name: codepad
+      link: http://codepad.org/
+      avatar: 
+      descr: 
+    - name: dooccn.com
+      link: https://www.dooccn.com/php/
+      avatar: 
+      descr: 
+    - name: IT屋
+      link: https://www.it1352.com/OnLineTools/Index
+      avatar: 
+      descr: 
+    - name: 在线123
+      link: http://www.gjw123.com/tools-runcode
+      avatar: 
+      descr: 
+
+
+      

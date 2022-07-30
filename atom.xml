@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Putdownd--Blog</title>
+  <icon>http://example.com/icon.png</icon>
+  <subtitle>躺平的BLOG</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-07-30T01:01:13.969Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>putdown</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文件上传</title>
+    <link href="http://example.com/2022/07/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    <id>http://example.com/2022/07/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</id>
+    <published>2022-07-30T00:21:18.000Z</published>
+    <updated>2022-07-30T01:01:13.969Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;文件上传漏洞&quot;&gt;&lt;a href=&quot;#文件上传漏洞&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入- 其他注入漏洞</title>
+    <link href="http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-%E5%85%B6%E4%BB%96%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-%E5%85%B6%E4%BB%96%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</id>
+    <published>2022-07-29T04:20:25.000Z</published>
+    <updated>2022-07-29T05:12:32.621Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;各种提交方式注入的挖掘&quot;&gt;&lt;a href=&quot;#各种提交方式注入的挖掘&quot; class=&quot;headerlink&quot; title=&quot;各种提交方式注入的挖掘&quot;&gt;&lt;/a&gt;各种提交方式注入的挖掘&lt;/h1&gt;&lt;h2 id=&quot;常见的提交方式&quot;&gt;&lt;a href=&quot;#常见的提交方式&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入- Oracle&amp;Postgresql注入漏洞</title>
+    <link href="http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-Oracle-Postgresql%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-Oracle-Postgresql%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E/</id>
+    <published>2022-07-29T04:19:13.000Z</published>
+    <updated>2022-07-29T04:53:46.788Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;oracle数据库介绍&quot;&gt;&lt;a href=&quot;#oracle数据库介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入- Mysql</title>
+    <link href="http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-Mysql/"/>
+    <id>http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-Mysql/</id>
+    <published>2022-07-29T03:35:13.000Z</published>
+    <updated>2022-07-29T03:51:04.601Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Mysql-介绍&quot;&gt;&lt;a href=&quot;#Mysql-介绍&quot; class=&quot;headerlink&quot; title=&quot;Mysql 介绍&quot;&gt;&lt;/a&gt;Mysql 介绍&lt;/h1&gt;&lt;p&gt;MySQL是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入- Sqlserver</title>
+    <link href="http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-Sqlserver/"/>
+    <id>http://example.com/2022/07/29/SQL%E6%B3%A8%E5%85%A5-Sqlserver/</id>
+    <published>2022-07-29T03:03:39.000Z</published>
+    <updated>2022-07-29T03:32:48.531Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Sqlserver-介绍&quot;&gt;&lt;a href=&quot;#Sqlserver-介绍&quot; class=&quot;headerlink&quot; title=&quot;Sqlserver 介绍&quot;&gt;&lt;/a&gt;Sqlserver</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>nmap</title>
+    <link href="http://example.com/2022/07/28/nmap/"/>
+    <id>http://example.com/2022/07/28/nmap/</id>
+    <published>2022-07-28T08:59:38.000Z</published>
+    <updated>2022-07-29T12:02:26.577Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;端口扫描之王———-NMAP&quot;&gt;&lt;a href=&quot;#端口扫描之王———-NMAP&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>metasploit</title>
+    <link href="http://example.com/2022/07/28/metasploit/"/>
+    <id>http://example.com/2022/07/28/metasploit/</id>
+    <published>2022-07-28T04:29:35.000Z</published>
+    <updated>2022-07-28T04:41:42.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Metasploit&quot;&gt;&lt;a href=&quot;#Metasploit&quot; class=&quot;headerlink&quot; title=&quot;Metasploit&quot;&gt;&lt;/a&gt;Metasploit&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Metasploit就是一个漏洞框架。它的全称叫做The</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>sqlmap</title>
+    <link href="http://example.com/2022/07/27/sqlmap/"/>
+    <id>http://example.com/2022/07/27/sqlmap/</id>
+    <published>2022-07-27T01:51:33.000Z</published>
+    <updated>2022-07-29T11:57:12.847Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SQLMAP介绍&quot;&gt;&lt;a href=&quot;#SQLMAP介绍&quot; class=&quot;headerlink&quot; title=&quot;SQLMAP介绍&quot;&gt;&lt;/a&gt;SQLMAP介绍&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sqlmap</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>burpsuite+火狐</title>
+    <link href="http://example.com/2022/07/27/burpsuite-%E7%81%AB%E7%8B%90/"/>
+    <id>http://example.com/2022/07/27/burpsuite-%E7%81%AB%E7%8B%90/</id>
+    <published>2022-07-27T00:25:18.000Z</published>
+    <updated>2022-07-27T00:49:31.582Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;BurpSuite-安装&quot;&gt;&lt;a href=&quot;#BurpSuite-安装&quot; class=&quot;headerlink&quot; title=&quot;BurpSuite 安装&quot;&gt;&lt;/a&gt;BurpSuite 安装&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;往期文章&lt;figure</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>sqli-labs靶场1-10</title>
+    <link href="http://example.com/2022/07/26/sqli-labs%E9%9D%B6%E5%9C%BA1-10/"/>
+    <id>http://example.com/2022/07/26/sqli-labs%E9%9D%B6%E5%9C%BA1-10/</id>
+    <published>2022-07-26T08:09:31.000Z</published>
+    <updated>2022-07-26T08:12:28.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考: &lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python学习笔记</title>
+    <link href="http://example.com/2022/07/26/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://example.com/2022/07/26/python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-07-25T23:27:06.000Z</published>
+    <updated>2022-07-26T12:24:01.084Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;鱼C-python笔记-一直更新在此页&quot;&gt;&lt;a href=&quot;#鱼C-python笔记-一直更新在此页&quot; class=&quot;headerlink&quot; title=&quot;鱼C python笔记(一直更新在此页)&quot;&gt;&lt;/a&gt;鱼C</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SQL注入</title>
+    <link href="http://example.com/2022/07/25/SQL%E6%B3%A8%E5%85%A5/"/>
+    <id>http://example.com/2022/07/25/SQL%E6%B3%A8%E5%85%A5/</id>
+    <published>2022-07-24T23:58:35.000Z</published>
+    <updated>2022-07-29T12:01:41.064Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;注入漏洞形成原理&quot;&gt;&lt;a href=&quot;#注入漏洞形成原理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Burp Suite 安装</title>
+    <link href="http://example.com/2022/07/22/BurpSuite-%E5%AE%89%E8%A3%85%E6%BF%80%E6%B4%BB/"/>
+    <id>http://example.com/2022/07/22/BurpSuite-%E5%AE%89%E8%A3%85%E6%BF%80%E6%B4%BB/</id>
+    <published>2022-07-22T08:08:45.000Z</published>
+    <updated>2022-07-29T11:52:58.532Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Burp-Suite简介&quot;&gt;&lt;a href=&quot;#Burp-Suite简介&quot; class=&quot;headerlink&quot; title=&quot;Burp Suite简介&quot;&gt;&lt;/a&gt;Burp Suite简介&lt;/h1&gt;&lt;p&gt;Burp</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统&amp;数据库</title>
+    <link href="http://example.com/2022/07/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://example.com/2022/07/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
+    <published>2022-07-19T07:29:41.000Z</published>
+    <updated>2022-07-29T11:51:41.550Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;操作系统-amp-数据库&quot;&gt;&lt;a href=&quot;#操作系统-amp-数据库&quot; class=&quot;headerlink&quot; title=&quot;操作系统&amp;amp;数据库&quot;&gt;&lt;/a&gt;操作系统&amp;amp;数据库&lt;/h1&gt;&lt;img src=&quot;/img/系统&amp;数据库</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据包</title>
+    <link href="http://example.com/2022/07/15/%E6%95%B0%E6%8D%AE%E5%8C%85/"/>
+    <id>http://example.com/2022/07/15/%E6%95%B0%E6%8D%AE%E5%8C%85/</id>
+    <published>2022-07-15T00:33:45.000Z</published>
+    <updated>2022-07-29T11:50:36.043Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Https-x2F-Http&quot;&gt;&lt;a href=&quot;#Https-x2F-Http&quot; class=&quot;headerlink&quot; title=&quot;Https&amp;#x2F;Http&quot;&gt;&lt;/a&gt;Https&amp;#x2F;Http&lt;/h1&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>信息收集</title>
+    <link href="http://example.com/2022/07/13/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
+    <id>http://example.com/2022/07/13/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</id>
+    <published>2022-07-13T02:02:52.000Z</published>
+    <updated>2022-07-21T00:13:17.289Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;WEB安全测试信息收集&lt;/p&gt;
+&lt;h1 id=&quot;常规信息收集讲解&quot;&gt;&lt;a href=&quot;#常规信息收集讲解&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>渗透测试专业术语</title>
+    <link href="http://example.com/2022/07/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/"/>
+    <id>http://example.com/2022/07/12/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</id>
+    <published>2022-07-12T05:15:43.000Z</published>
+    <updated>2022-07-21T00:12:50.272Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;渗透测试专业术语介绍&quot;&gt;&lt;a href=&quot;#渗透测试专业术语介绍&quot; class=&quot;headerlink&quot; title=&quot;渗透测试专业术语介绍&quot;&gt;&lt;/a&gt;渗透测试专业术语介绍&lt;/h1&gt;&lt;h3 id=&quot;域名&quot;&gt;&lt;a href=&quot;#域名&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>网络基础知识</title>
+    <link href="http://example.com/2022/07/11/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://example.com/2022/07/11/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <published>2022-07-11T01:21:21.000Z</published>
+    <updated>2022-07-29T11:49:10.371Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;网络基础知识&quot;&gt;&lt;a href=&quot;#网络基础知识&quot; class=&quot;headerlink&quot; title=&quot;网络基础知识&quot;&gt;&lt;/a&gt;网络基础知识&lt;/h1&gt;&lt;h1 id=&quot;网络层次划分&quot;&gt;&lt;a href=&quot;#网络层次划分&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Windows基础</title>
+    <link href="http://example.com/2022/06/29/Windows%E5%9F%BA%E7%A1%80/"/>
+    <id>http://example.com/2022/06/29/Windows%E5%9F%BA%E7%A1%80/</id>
+    <published>2022-06-29T00:26:35.000Z</published>
+    <updated>2022-07-21T00:13:34.979Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;windows版本&quot;&gt;&lt;a href=&quot;#windows版本&quot; class=&quot;headerlink&quot; title=&quot;windows版本&quot;&gt;&lt;/a&gt;windows版本&lt;/h1&gt;&lt;p&gt;个人&amp;#x2F;普通用户: winxp、win7、win8、win10 win10</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据库语句</title>
+    <link href="http://example.com/2022/06/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5/"/>
+    <id>http://example.com/2022/06/28/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5/</id>
+    <published>2022-06-28T00:36:28.000Z</published>
+    <updated>2022-07-21T00:13:00.950Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;数据库的基本语句&quot;&gt;&lt;a href=&quot;#数据库的基本语句&quot; class=&quot;headerlink&quot; title=&quot;数据库的基本语句&quot;&gt;&lt;/a&gt;数据库的基本语句&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

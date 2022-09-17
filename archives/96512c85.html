@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>nmap | Putdownd--Blog</title><meta name="keywords" content="工具"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="端口扫描之王———-NMAP Nmap是一款非常强大的实用工具,可用于：检测活在网络上的主机（主机发现）检测主机上开放的端口（端口发现或枚举）检测到相应的端口（服务发现）的软件和版本检测操作系统，硬件地址，以及软件版本检测脆弱性的漏洞（Nmap的脚本）Nmap是一个非常普遍的工具，它有命令行界面和图形用户界面。本人包括以下方面的内容:介绍Nmap扫描中的重要参数操作系统检测Nmap使用教程Nmap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nmap">
+<meta property="og:url" content="http://example.com/archives/96512c85.html">
+<meta property="og:site_name" content="Putdownd--Blog">
+<meta property="og:description" content="端口扫描之王———-NMAP Nmap是一款非常强大的实用工具,可用于：检测活在网络上的主机（主机发现）检测主机上开放的端口（端口发现或枚举）检测到相应的端口（服务发现）的软件和版本检测操作系统，硬件地址，以及软件版本检测脆弱性的漏洞（Nmap的脚本）Nmap是一个非常普遍的工具，它有命令行界面和图形用户界面。本人包括以下方面的内容:介绍Nmap扫描中的重要参数操作系统检测Nmap使用教程Nmap">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-07-28T08:59:38.000Z">
+<meta property="article:modified_time" content="2022-08-16T07:47:08.252Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="/img/5868e2d58ee0499398f987e5a0b30d44.png"><link rel="canonical" href="http://example.com/archives/96512c85"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'nmap',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-16 15:47:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd--Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">nmap</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-28T08:59:38.000Z" title="发表于 2022-07-28 16:59:38">2022-07-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-16T07:47:08.252Z" title="更新于 2022-08-16 15:47:08">2022-08-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="nmap"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="端口扫描之王———-NMAP"><a href="#端口扫描之王———-NMAP" class="headerlink" title="端口扫描之王———-NMAP"></a>端口扫描之王———-NMAP</h1><ul>
+<li>Nmap是一款非常强大的实用工具,可用于：检测活在网络上的主机（主机发现）检测主机上开放的端口（端口发现或枚举）检测到相应的端口（服务发现）的软件和版本检测操作系统，硬件地址，以及软件版本检测脆弱性的漏洞（Nmap的脚本）Nmap是一个非常普遍的工具，它有命令行界面和图形用户界面。本人包括以下方面的内容:介绍Nmap扫描中的重要参数操作系统检测Nmap使用教程Nmap使用不同的技术来执行扫描，包括：TCP的connect（）扫描，TCP反向的ident扫描，FTP反弹扫描等。所有这些扫描的类型有自己的优点和缺点，我们接下来将讨论这些问题。 Nmap的使用取决于目标主机,因为有一个简单的（基本）扫描和预先扫描之间的差异。我们需要使用一些先进的技术来绕过防火墙和入侵检测&#x2F;防御系统，以获得正确的结果。<h1 id="主机探测"><a href="#主机探测" class="headerlink" title="主机探测"></a>主机探测</h1>扫描单个主机<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.2</span><br></pre></td></tr></table></figure>
+扫描整个子网,命令如下:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.1/24</span><br></pre></td></tr></table></figure>
+扫描多个目标,命令如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.2 192.168.1.5</span><br></pre></td></tr></table></figure>
+扫描一个范围内的目标,如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.1-100 (扫描IP地址为192.168.1.1-192.168.1.100内的所有主机)</span><br></pre></td></tr></table></figure>
+如果你有一个ip地址列表，将这个保存为一个txt文件，和namp在同一目录下,扫描这个txt内的所有主机，命令如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -iL target.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>如果你想看到你扫描的所有主机的列表，用以下命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sL 192.168.1.1/24</span><br></pre></td></tr></table></figure>
+<p>扫描除过某一个ip外的所有子网主机,命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.1/24 -exclude 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>扫描除过某一个文件中的ip外的子网主机命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.1/24 -excludefile xxx.txt(xxx.txt中的文件将会从扫描的主机中排除)</span><br></pre></td></tr></table></figure>
+
+<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><p>常用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -F -sT -v nmap.org</span><br></pre></td></tr></table></figure>
+
+<p>-F：扫描100个最有可能开放的端口   -v 获取扫描的信息   -sT：采用的是TCP扫描 不写也是可以的，默认采用的就是TCP扫描<br>-p: 指定要扫描的端口<br>-p: 80,90,3306,10-100</p>
+<h2 id="扫描端口状态"><a href="#扫描端口状态" class="headerlink" title="扫描端口状态"></a>扫描端口状态</h2><ul>
+<li><p>Open：端口处于开放状态，例如：当nmap使用TCP SYN对目标主机某一范围的端口进行扫描时，我们知道 TCP SYN报文是TCP建立连接的第一步，所以，如果目标主机返回SYN+ACK的报文，我们就认为此端口开放了并且使用了TCP服务。</p>
+</li>
+<li><p>Closed：端口处于关闭状态。例如：TCP SYN类型的扫描，如果返回RST类型的报文，则端口处于管理状态。这里我们值得注意的是关闭的端口也是可访问的，只是没有上层的服务在监听这个端口，而且，只是在我们扫描的这个时刻为关闭，当我们在另一个时间段进行扫描的时候，这些关闭的端口可能会处于open的状态。</p>
+</li>
+<li><p>Filtered（过滤的）：由于报文无法到达指定的端口，nmap不能够决定端口的开放状态，这主要是由于网络或者主机安装了一些防火墙所导致的。当nmap收到icmp报文主机不可达报文（例如：type为3，code为13（communication administratively prohibit）报文）或者目标主机无应答，常常会将目标主机的状态设置为filtered。</p>
+</li>
+<li><p>Unfiltered（未被过滤的）：当nmap不能确定端口是否开放的时候所打上的状态，这种状态和filtered的区别在于：unfiltered的端口能被nmap访问，但是nmap根据返回的报文无法确定端口的开放状态，而filtered的端口直接就没就没能够被nmap访问。端口被定义为Unfilterd只会发生在TCP ack扫描类型时当返回RST的报文。而端口被定义为filtered 状态的原因是是报文被防火墙设备，路由器规则，或者防火墙软件拦截，无法送达到端口，这通常表现为发送NMAP的主机收到ICMP报错报文，如：TYPE为3，code为13的报文（通信被认为的禁止 communication administratively prohibited），或者主机通过多次重复发送没有收到任何回应）。</p>
+</li>
+<li><p>Open|filtered状态，这种状态主要是nmap无法区别端口处于open状态还是filtered状态。这种状态只会出现在open端口对报文不做回应的扫描类型中，如：udp，ip protocol ，TCP null，fin，和xmas扫描类型。</p>
+</li>
+<li><p>Closed|filtered状态，这种状态主要出现在nmap无法区分端口处于closed还是filtered时。此状态只会出现在IP ID idle scan（这个类型我现在也不太理解，过段时间进行总结一些）中。</p>
+</li>
+</ul>
+<h1 id="TCP扫描（-sT）"><a href="#TCP扫描（-sT）" class="headerlink" title="TCP扫描（-sT）"></a>TCP扫描（-sT）</h1><ul>
+<li><p>这是一种最为普通的扫描方法，这种扫描方法的特点是：扫描的速度快，准确性高，对操作者没有权限上的要求，但是容易被防火墙和IDS(防入侵系统)发现</p>
+</li>
+<li><p>运行的原理：通过建立TCP的三次握手连接来进行信息的传递</p>
+</li>
+<li><p>Client端发送SYN</p>
+</li>
+<li><p>Server端返回SYN&#x2F;ACK，表明端口开放</p>
+</li>
+<li><p>Client端返回ACK，表明连接已建立</p>
+</li>
+<li><p>Client端主动断开连接。</p>
+</li>
+</ul>
+<h1 id="SYN扫描（-sS）"><a href="#SYN扫描（-sS）" class="headerlink" title="SYN扫描（-sS）"></a>SYN扫描（-sS）</h1><ul>
+<li>这是一种秘密的扫描方式之一，因为在SYN扫描中Client端和Server端没有形成3次握手，所以没有建立一个正常的TCP连接，因此不被防火墙和日志所记录，一般不会再目标主机上留下任何的痕迹，但是这种扫描是需要root权限（对于windows用户来说，是没有root权限这个概念的，root权限是linux的最高权限，对应windows的管理员权限）</li>
+</ul>
+<h1 id="端口扫描-1"><a href="#端口扫描-1" class="headerlink" title="端口扫描"></a>端口扫描</h1><p>使用UDP ping探测主机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -PU 192.168.1.0/24</span><br></pre></td></tr></table></figure>
+<p>服务版本探测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>精准地确认端口上运行的服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV --script unusual-port 192.168.1.1</span><br></pre></td></tr></table></figure>
+
+<h1 id="探测目标主机的操作系统"><a href="#探测目标主机的操作系统" class="headerlink" title="探测目标主机的操作系统"></a>探测目标主机的操作系统</h1><ul>
+<li><p>OS操作系统类型的探测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O 192.168.1.19</span><br></pre></td></tr></table></figure></li>
+<li><p>osscan-guess 猜测匹配操作系统 (猜测认为最接近目标的匹配操作系统类型。)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O --osscan-guess 192.168.1.180</span><br></pre></td></tr></table></figure></li>
+<li><p>如果远程主机有防火墙，IDS和IPS系统，你可以使用-PN命令来确保不ping远程主机，因为有时候防火墙会阻止掉ping请求.-PN命令告诉Nmap不用ping远程主机。使用-PN参数可以绕过PING命令,但是不影响主机的系统的发现。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O -PN 192.168.1.180</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>全面扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A 192.168.1.19</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="nmap-信息收集脚本"><a href="#nmap-信息收集脚本" class="headerlink" title="nmap 信息收集脚本"></a>nmap 信息收集脚本</h1><img src="/img/nmap脚本.png">
+
+<p>对目标进行IP反查</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sn --script hostmap-ip2hosts www.hao123.com</span><br></pre></td></tr></table></figure>
+<p>对目标DNS信息的收集</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script dns-brute www.test.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script dns-brute dns-brute.threads=10 www.test.com</span><br></pre></td></tr></table></figure>
+<p>了解目标系统的详细信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 445 192.168.23.1 --script membase-http-info</span><br></pre></td></tr></table></figure>
+<h1 id="nmap-信息收集"><a href="#nmap-信息收集" class="headerlink" title="nmap 信息收集"></a>nmap 信息收集</h1><p>检查打印服务漏洞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script smb-security-mode.nse -p 445 192.168.21.3</span><br></pre></td></tr></table></figure>
+<p>扫描目标的xss漏洞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p80 --script http-stored-xss.nse www.test.com</span><br></pre></td></tr></table></figure>
+<p>扫描目标的SQL注入漏洞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p8001 --script http-sql-injection.nse 192.168.0.200</span><br></pre></td></tr></table></figure>
+<p>对目标地址进行HTTP头信息探测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80 --script=http-headers test.com</span><br></pre></td></tr></table></figure>
+<p>爬行web目录结构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80 --script=http-sitemap-generator www.test.com</span><br></pre></td></tr></table></figure>
+<p>Snmp服务获取目标正在运行着的服务，通过Snmp服务对目标系统的服务或账户进行列举</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sU -p 161 --script=snmp-win32-services 192.168.87.129</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="密码破解"><a href="#密码破解" class="headerlink" title="密码破解"></a>密码破解</h1><p>暴力破解VNC</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script vnc-brute --script-args brute.guesses=6,brute.emptypass=true,userdb=/root/dictionary/user.txt,brute.useraspass=true,passdb=/root/dictionary/pass.txt,brute.retries=3,brute.threads=2,brute.delay=3 42.96.170.128</span><br></pre></td></tr></table></figure>
+<p>破解telnet</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst --script-args telnet-brute.timeout=8s 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>ftp弱口令暴力破解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap --script ftp-brute --script-args brute.emptypass=true,ftp-brute.timeout=30,userdb=/root/dirtionary/usernames.txt,brute.useraspass=true,passdb=/root/dirtionary/passwords.txt,brute.threads=3,brute.delay=6 192.168.1.1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="漏洞探测"><a href="#漏洞探测" class="headerlink" title="漏洞探测"></a>漏洞探测</h1><p>扫描系统漏洞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script vuln 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>IIS 短文件泄露</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 8080 --script http-iis-short-name-brute 192.168.1.1</span><br></pre></td></tr></table></figure>
+<p>拒绝服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --max-parallelism 800--script http-slowloris www.xxxxx.com</span><br></pre></td></tr></table></figure>
+<p>验证http 中开启了put 方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script http-put --script-args http-put.url=/uploads/testput.txt,http-put.file=/root/put.txt 218.19.141.16</span><br></pre></td></tr></table></figure>
+<p>验证MySQL 匿名访问</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script mysql-empty-password 203.195.139.153</span><br></pre></td></tr></table></figure>
+
+<h1 id="防火墙躲避"><a href="#防火墙躲避" class="headerlink" title="防火墙躲避"></a>防火墙躲避</h1><p>-f 分片绕过<br>-D 使用诱饵隐蔽扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NMAP -D 1.1.1.1,222.222.222.222 www.xxxxx.com</span><br></pre></td></tr></table></figure>
+<p>–source-port  源端口欺骗</p>
+<h1 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h1><p>侦测服务版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV -T4 -Pn -oG ServiceDetect -iL LiveHosts.txt</span><br></pre></td></tr></table></figure>
+<p>扫做系统扫描</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O -T4 -Pn -oG OSDetect -iL LiveHosts.txt</span><br></pre></td></tr></table></figure>
+<p>系统和服务检测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O -sV -T4 -Pn -p U:53,111,137,T:21-25,80,139,8080 -oG OS_Service_Detect-iL LiveHosts.txt</span><br></pre></td></tr></table></figure>
+<p>修改默认MTU 大小，但必须为8 的倍数(8,16,24,32等等)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --mtu 24</span><br></pre></td></tr></table></figure>
+
+<p>生成随机数量的欺骗</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -D RND:10 [target]</span><br></pre></td></tr></table></figure>
+<p>手动指定欺骗使用的IP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -D decoy1,decoy2,decoy3 etc.</span><br></pre></td></tr></table></figure>
+<p>僵尸网络扫描,首先需要找到僵尸网络的IP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sI [Zombie IP] [Target IP]</span><br></pre></td></tr></table></figure>
+<p>指定源端口号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --source-port 80 IP</span><br></pre></td></tr></table></figure>
+<p>在每个扫描数据包后追加随机数量的数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --data-length 25IP</span><br></pre></td></tr></table></figure>
+<p>MAC 地址欺骗，可以生成不同主机的MAC 地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --spoof-mac Dell/Apple/3Com IP</span><br></pre></td></tr></table></figure>
+<h1 id="导出格式"><a href="#导出格式" class="headerlink" title="导出格式"></a>导出格式</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-oS (ScRipT KIdd|3oUTpuT)保存扫描结果输出。</span><br><span class="line">-oN 按照人们阅读的格式记录屏幕上的输出，如果是在扫描多台机器，则该选项很有用。</span><br><span class="line">-oX 以xml格式向指定的文件记录信息</span><br><span class="line">-oG 以一种易于检索的格式记录信息，即每台主机都以单独的行来记录所有的端口和0s信息。-oS 把输出进行傻瓜型排版</span><br><span class="line">-oA 导出所有格式。普通格式(-oN)、XML格式(-oX)和易于检索的格式（-oG）jilu xinxi</span><br></pre></td></tr></table></figure>
+<h1 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h1><img src="/img/微信图片_20220728172112.jpg">
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/archives/96512c85.html">http://example.com/archives/96512c85.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Putdownd--Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/e1f1921e.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SQL注入- Sqlserver</div></div></a></div><div class="next-post pull-right"><a href="/archives/71f4c5ab.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">metasploit</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/a73cee8b.html" title="Burp Suite 安装"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-22</div><div class="title">Burp Suite 安装</div></div></a></div><div><a href="/archives/46a16768.html" title="burpsuite+火狐"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-27</div><div class="title">burpsuite+火狐</div></div></a></div><div><a href="/archives/71f4c5ab.html" title="metasploit"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">metasploit</div></div></a></div><div><a href="/archives/e5da2ca1.html" title="sqlmap"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-27</div><div class="title">sqlmap</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E4%B9%8B%E7%8E%8B%E2%80%94%E2%80%94%E2%80%94-NMAP"><span class="toc-text">端口扫描之王———-NMAP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E6%8E%A2%E6%B5%8B"><span class="toc-text">主机探测</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="toc-text">端口扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E7%AB%AF%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-text">扫描端口状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP%E6%89%AB%E6%8F%8F%EF%BC%88-sT%EF%BC%89"><span class="toc-text">TCP扫描（-sT）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SYN%E6%89%AB%E6%8F%8F%EF%BC%88-sS%EF%BC%89"><span class="toc-text">SYN扫描（-sS）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F-1"><span class="toc-text">端口扫描</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A2%E6%B5%8B%E7%9B%AE%E6%A0%87%E4%B8%BB%E6%9C%BA%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">探测目标主机的操作系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E8%84%9A%E6%9C%AC"><span class="toc-text">nmap 信息收集脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">nmap 信息收集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3"><span class="toc-text">密码破解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%8E%A2%E6%B5%8B"><span class="toc-text">漏洞探测</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E8%BA%B2%E9%81%BF"><span class="toc-text">防火墙躲避</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-text">高级用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-text">导出格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="toc-text">思维导图</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

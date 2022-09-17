@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>http数据包 | Putdownd--Blog</title><meta name="keywords" content="http"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Https&#x2F;Http   HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。 HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP之上，所有传输的内容都经过加密的。 HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，HTTP是80，HTTPS是443。 HTTPS可以有效的防止">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http数据包">
+<meta property="og:url" content="http://example.com/archives/4b510cae.html">
+<meta property="og:site_name" content="Putdownd--Blog">
+<meta property="og:description" content="Https&#x2F;Http   HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。 HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP之上，所有传输的内容都经过加密的。 HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，HTTP是80，HTTPS是443。 HTTPS可以有效的防止">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-07-15T00:33:45.000Z">
+<meta property="article:modified_time" content="2022-08-16T07:47:08.267Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="/img/5868e2d58ee0499398f987e5a0b30d44.png"><link rel="canonical" href="http://example.com/archives/4b510cae"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'http数据包',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-16 15:47:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd--Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">http数据包</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-15T00:33:45.000Z" title="发表于 2022-07-15 08:33:45">2022-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-16T07:47:08.267Z" title="更新于 2022-08-16 15:47:08">2022-08-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="http数据包"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Https-x2F-Http"><a href="#Https-x2F-Http" class="headerlink" title="Https&#x2F;Http"></a>Https&#x2F;Http</h1><img src="/img/Https.Http.png">
+
+<ul>
+<li>HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。</li>
+<li>HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP之上，所有传输的内容都经过加密的。</li>
+<li>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，HTTP是80，HTTPS是443。</li>
+<li>HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。</li>
+</ul>
+<h1 id="Request-请求数据包数据格式"><a href="#Request-请求数据包数据格式" class="headerlink" title="Request 请求数据包数据格式"></a>Request 请求数据包数据格式</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Request Headers</span><br><span class="line">POST /adduser HTTP/1.1</span><br><span class="line">Host: localhost:8030</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-Length: 16</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Origin: chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm</span><br><span class="line">User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)</span><br><span class="line">Chrome/66.0.3359.181 Safari/537.36</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Accept: */*</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br></pre></td></tr></table></figure>
+
+<h2 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h2><p>请求行由三个标记组成：请求方法;请求 URL;HTTP 版本，它们用空格分享。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html HTTP/1.1</span><br></pre></td></tr></table></figure>
+<h2 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h2><ul>
+<li>常见的几种请求方法:<br>GET、POST、COOKIE、OPTIONS、PUT、MOVE、DELETE、TRACE</li>
+<li>服务器端的接受:<br>GET、POST、COOKIE、REQUEST</li>
+</ul>
+<hr>
+<ul>
+<li>HTTP 规划定义了 8 种可能的请求方法：<blockquote>
+<p>GET：检索 URL 中标识资源的一个简单请求<br>HEAD：与 GET 方法相同，服务器只返回状态行和头标，并不返回请求文档<br>POST：服务器接受被写入客户端输出流中的数据的请求<br>PUT：服务器保存请求数据作为指定 URL 新内容的请求<br>DELETE：服务器删除 URL 中命令的资源的请求<br>OPTIONS：关于服务器支持的请求方法信息的请求<br>TRACE：web 服务器反馈 Http 请求和其头标的请求<br>CONNECT ：已文档化，但当前未实现的一个方法，预留做隧道处理</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="HTTP-Request-Header-请求头"><a href="#HTTP-Request-Header-请求头" class="headerlink" title="HTTP Request Header 请求头"></a>HTTP Request Header 请求头</h2><ul>
+<li>由关键字&#x2F;值对组成，每行一对，关键字和值用冒号分享。请求头标通知服务器腾于客户端的功能和标识。<br>Accept：指定客户端能够接收的内容类型。<br>Accept-Charset：浏览器可以接受的字符编码集。<br>Accept-Encoding：指定浏览器可以支持的web服务器返回内容压缩编码类型。<br>Accept-Language：浏览器可接受的语言。<br>Accept-Ranges：可以请求网页实体的一个或者多个子范围字段。<br>AuthorizationHTTP：授权的授权证书。<br>Cache-Control：指定请求和响应遵循的缓存机制。<br>Connection：表示是否需要持久连接。（HTTP 1.1默认进行持久连接）<br>CookieHTTP：请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器。<br>Content-Length：请求的内容长度。<br>Content-Type：请求的与实体对应的MIME信息。<br>Date：请求发送的日期和时间。<br>Expect：请求的特定的服务器行为。<br>From：发出请求的用户的Email。<br>Host：指定请求的服务器的域名和端口号。<br>If-Match：只有请求内容与实体相匹配才有效。<br>If-Modified-Since：如果请求的部分在指定时间之后被修改则请求成功，未被修改则返回304代码。<br>If-None-Match：如果内容未改变返回304代码，参数为服务器先前发送的Etag，与服务器回应的Etag比较判断是否改变。<br>If-Range：如果实体未改变，服务器发送客户端丢失的部分，否则发送整个实体。<br>If-Unmodified-Since：只在实体在指定时间之后未被修改才请求成功。<br>Max-Forwards：限制信息通过代理和网关传送的时间。<br>Pragma：用来包含实现特定的指令。<br>Proxy-Authorization：连接到代理的授权证书。<br>Range：只请求实体的一部分，指定范围。<br>Referer：先前网页的地址，当前请求网页紧随其后,即来路。<br>TE：客户端愿意接受的传输编码，并通知服务器接受接受尾加头信息。<br>Upgrade：向服务器指定某种传输协议以便服务器进行转换（如果支持。<br>User-AgentUser-Agent：的内容包含发出请求的用户信息。<br>Via：通知中间网关或代理服务器地址，通信协议。<br>Warning：关于消息实体的警告信息</li>
+</ul>
+<hr>
+<ul>
+<li><p>空行:最后一个请求头标之后是空行，发送回车符和退行，通知服务器以下不再有头标。</p>
+</li>
+<li><p>请求数据:使用 POST 传送，最常使用的是 Content-Type 和 Content-Length 头标。  </p>
+</li>
+<li><p>GET 对比 POST : <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.runoob.com/tags/html-httpmethods.html">https://www.runoob.com/tags/html-httpmethods.html</a></p>
+</li>
+</ul>
+<h1 id="Response-返回数据包数据格式"><a href="#Response-返回数据包数据格式" class="headerlink" title="Response 返回数据包数据格式"></a>Response 返回数据包数据格式</h1><h2 id="Response-请求数据包数据格式"><a href="#Response-请求数据包数据格式" class="headerlink" title="Response 请求数据包数据格式"></a>Response 请求数据包数据格式</h2><ul>
+<li>一个响应由四个部分组成；状态行、响应头标、空行、响应数据。</li>
+</ul>
+<p>1.状态行：协议版本、数字形式的状态代码和状态描述，个元素之间以空格分隔<br>2.响应头标：包含服务器类型、日期、长度、内容类型等<br>3.空行：响应头与响应体之间用空行隔开<br>4.响应数据：浏览器会将实体内容中的数据取出来，生成相应的页面</p>
+<h2 id="HTTP-响应码："><a href="#HTTP-响应码：" class="headerlink" title="HTTP 响应码："></a>HTTP 响应码：</h2><p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/202207150942458.png"></p>
+<p>更多: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.runoob.com/http/http-status-codes.html">https://www.runoob.com/http/http-status-codes.html</a></p>
+<h1 id="MIME-类型"><a href="#MIME-类型" class="headerlink" title="MIME 类型"></a>MIME 类型</h1><p>MIME (Multipurpose Internet Mail Extensions) 是描述消息内容类型的标准，用来表示文档、文件或字节流的性质和格式。<br>MIME 的组成结构非常简单，由类型与子类型两个字符串中间用 &#x2F; 分隔而组成，不允许有空格。type 表示可以被分多个子类的独立类别，subtype 表示细分后的每个类型。<br>MIME类型对大小写不敏感，但是传统写法都是小写。<br>两种主要的 MIME 类型在默认类型中扮演了重要的角色：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text/plain 表示文本文件的默认值。</span><br><span class="line">application/octet-stream 表示所有其他情况的默认值。</span><br></pre></td></tr></table></figure>
+
+<p>MIME 类型通用结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type/subtype</span><br></pre></td></tr></table></figure>
+<p>更多MIME对照表: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.runoob.com/http/mime-types.html">https://www.runoob.com/http/mime-types.html</a></p>
+<h2 id="常见的-MIME-类型"><a href="#常见的-MIME-类型" class="headerlink" title="常见的 MIME 类型"></a>常见的 MIME 类型</h2><p>超文本标记语言文本 .html、.html：text&#x2F;html<br>普通文本 .txt： text&#x2F;plain<br>RTF 文本 .rtf： application&#x2F;rtf<br>GIF 图形 .gif： image&#x2F;gif<br>JPEG 图形 .jpeg、.jpg： image&#x2F;jpeg<br>au 声音文件 .au： audio&#x2F;basic<br>MIDI 音乐文件 mid、.midi： audio&#x2F;midi、audio&#x2F;x-midi<br>RealAudio 音乐文件 .ra、.ram： audio&#x2F;x-pn-realaudio<br>MPEG 文件 .mpg、.mpeg： video&#x2F;mpeg<br>AVI 文件 .avi： video&#x2F;x-msvideo<br>GZIP 文件 .gz： application&#x2F;x-gzip<br>TAR 文件 .tar： application&#x2F;x-tar</p>
+<h1 id="HTTP头中安全隐患"><a href="#HTTP头中安全隐患" class="headerlink" title="HTTP头中安全隐患"></a>HTTP头中安全隐患</h1><p>在PHP中通过会使用$_SERVER[“HTTP_CLIENT_IP”]或者$_SERVER[“HTTP_X_FORWARDED_FOR”]来获取IP。<br>因此，我们就可以通过修改http头中的’ X-Forwarded-For: ‘ ‘ client-ip：’来进行攻击。<br>例如：<br>1、突破服务器访问限制ip<br>2、http头注入攻击等。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/archives/4b510cae.html">http://example.com/archives/4b510cae.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Putdownd--Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/http/">http</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/4644d087.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">操作系统&amp;数据库</div></div></a></div><div class="next-post pull-right"><a href="/archives/312e3d12.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">信息收集</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Https-x2F-Http"><span class="toc-text">Https&#x2F;Http</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Request-%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">Request 请求数据包数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%A1%8C"><span class="toc-text">请求行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F"><span class="toc-text">请求方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-Request-Header-%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="toc-text">HTTP Request Header 请求头</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Response-%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE%E5%8C%85%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">Response 返回数据包数据格式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Response-%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E5%8C%85%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="toc-text">Response 请求数据包数据格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-%E5%93%8D%E5%BA%94%E7%A0%81%EF%BC%9A"><span class="toc-text">HTTP 响应码：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MIME-%E7%B1%BB%E5%9E%8B"><span class="toc-text">MIME 类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84-MIME-%E7%B1%BB%E5%9E%8B"><span class="toc-text">常见的 MIME 类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E5%A4%B4%E4%B8%AD%E5%AE%89%E5%85%A8%E9%9A%90%E6%82%A3"><span class="toc-text">HTTP头中安全隐患</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

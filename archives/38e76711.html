@@ -1,0 +1,498 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux基础操作 | Putdownd--Blog</title><meta name="keywords" content="linux"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux 一些基础知识 Linux常见发行版本 RedHat Linux SuSE Linux Ubuntu Linux Mandrake Linux Caldera Linux Turbolinux Debian GNU&#x2F;Linux Gentoo Linux Linpus LinuxLinux的优点开源　免费　稳定　安全　高性能Linux内核版本Linux 的版本号分为两部分，即内核">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础操作">
+<meta property="og:url" content="http://example.com/archives/38e76711.html">
+<meta property="og:site_name" content="Putdownd--Blog">
+<meta property="og:description" content="Linux 一些基础知识 Linux常见发行版本 RedHat Linux SuSE Linux Ubuntu Linux Mandrake Linux Caldera Linux Turbolinux Debian GNU&#x2F;Linux Gentoo Linux Linpus LinuxLinux的优点开源　免费　稳定　安全　高性能Linux内核版本Linux 的版本号分为两部分，即内核">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-06-27T01:01:41.000Z">
+<meta property="article:modified_time" content="2022-08-16T07:47:08.236Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="/img/5868e2d58ee0499398f987e5a0b30d44.png"><link rel="canonical" href="http://example.com/archives/38e76711"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux基础操作',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-16 15:47:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd--Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux基础操作</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-27T01:01:41.000Z" title="发表于 2022-06-27 09:01:41">2022-06-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-16T07:47:08.236Z" title="更新于 2022-08-16 15:47:08">2022-08-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux基础操作"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Linux 一些基础知识</p>
+<h1 id="Linux常见发行版本"><a href="#Linux常见发行版本" class="headerlink" title="Linux常见发行版本"></a>Linux常见发行版本</h1><ul>
+<li>RedHat Linux</li>
+<li>SuSE Linux</li>
+<li>Ubuntu Linux</li>
+<li>Mandrake Linux</li>
+<li>Caldera Linux</li>
+<li>Turbolinux</li>
+<li>Debian GNU&#x2F;Linux</li>
+<li>Gentoo Linux</li>
+<li>Linpus Linux<h2 id="Linux的优点"><a href="#Linux的优点" class="headerlink" title="Linux的优点"></a>Linux的优点</h2>开源　免费　稳定　安全　高性能<h1 id="Linux内核版本"><a href="#Linux内核版本" class="headerlink" title="Linux内核版本"></a>Linux内核版本</h1>Linux 的版本号分为两部分，即内核版本与发行版本。内核版本号由3个数字组成：A.B.C<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A：内核主版本号。这是很少发生变化，只有当发生重大变化的代码和内核发生才会发生。</span><br><span class="line">B：内核次版本号。是指一些重大修改的内核。偶数表示稳定版本；奇数表示开发中版本。</span><br><span class="line">C：内核修订版本号。是指轻微修订的内核。这个数字当有安全补丁,bug修复，新的功能或驱动程序，内核便会有变化。</span><br></pre></td></tr></table></figure>
+<h1 id="磁盘分区表示"><a href="#磁盘分区表示" class="headerlink" title="磁盘分区表示"></a>磁盘分区表示</h1>Linux中将硬盘、分区等设备均表示为文件</li>
+</ul>
+<p>以 &#x2F;dev&#x2F;hda5 为例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dev:硬件设备文件所在的目录</span><br><span class="line">hd: hd 表示IDE设备;sd 表示SCSI设备</span><br><span class="line">a: 硬盘的顺序号，以字母a、b、c……表示</span><br><span class="line">5: 分区的顺序号，以数字1、2、3……表示</span><br></pre></td></tr></table></figure>
+<h1 id="文件系统类型"><a href="#文件系统类型" class="headerlink" title="文件系统类型"></a>文件系统类型</h1><h2 id="Linux中默认使用的文件系统类型"><a href="#Linux中默认使用的文件系统类型" class="headerlink" title="Linux中默认使用的文件系统类型"></a>Linux中默认使用的文件系统类型</h2><ul>
+<li>EXT4， 第3代扩展（Extended）文件系统</li>
+<li>SWAP，交换文件系统<h2 id="Linux支持的其它文件系统类型"><a href="#Linux支持的其它文件系统类型" class="headerlink" title="Linux支持的其它文件系统类型"></a>Linux支持的其它文件系统类型</h2></li>
+<li>FAT16、FAT32、NTFS</li>
+<li>XFS、JFS</li>
+</ul>
+<h1 id="Linux-系统启动过程"><a href="#Linux-系统启动过程" class="headerlink" title="Linux 系统启动过程"></a>Linux 系统启动过程</h1><ul>
+<li>内核的引导。</li>
+<li>运行 init。</li>
+<li>系统初始化。</li>
+<li>建立终端 。</li>
+<li>用户登录系统。<h1 id="Linux系统目录结构"><a href="#Linux系统目录结构" class="headerlink" title="Linux系统目录结构"></a>Linux系统目录结构</h1><img src="/img/src=http___gitee.com_Makeryangyu_Static_raw_master_image-20200515163315845.png&refer=http___gitee.webp"></li>
+</ul>
+<p>&#x2F;bin : 系统命令<br>(&#x2F;usr&#x2F;bin、&#x2F;usr&#x2F;local&#x2F;bin)：是Binary的缩写，这个⽬录存放最经常使⽤的命令。</p>
+<p>&#x2F;sbin: 存放系统管理员命令<br>（&#x2F;usr&#x2F;sbin、&#x2F;usr&#x2F;localsbin）：s就是Super User的意思，这⾥存放的是系统管理员的系统管理程序。</p>
+<p>&#x2F;home: 普通用户的家目录<br>存放普通⽤户的主⽬录，在Linux中每个⽤户都有⼀个⾃⼰的⽬录，⼀般该⽬录是以⽤户的账号命令的。</p>
+<p>&#x2F;root: 管理员家目录<br>该⽬录为系统管理员，也称作超级管理员的主⽬录。</p>
+<p>&#x2F;boot: linux系统启动文件<br>存放的是启动Linux时使⽤的⼀些核⼼⽂件，包括⼀些链接⽂件以及镜像⽂件。</p>
+<p>&#x2F;proc: 关联系统虚拟设备<br>这个⽬录是⼀个虚拟⽬录，它是系统内存的映射，访问这个⽬录来获取系统信息。</p>
+<p>&#x2F;srv : 该⽬录存放⼀些服务启动之后需要提取的数据。<br>service缩写，该⽬录存放⼀些服务启动之后需要提取的数据。</p>
+<p>&#x2F;tmp : Linux系统的垃圾桶<br>这个⽬录⽤来存放⼀些临时⽂件。</p>
+<p>&#x2F;dev：类似于windows的设备管理器，把所有的硬件⽤⽂件的形式存储。</p>
+<p>&#x2F;media: 多媒体目录<br>linux系统会⾃动识别⼀些设备，⾃动识别⼀些设备，例如：U盘、光驱等。</p>
+<p>&#x2F;mnt : 挂载一些硬件设备的目录<br>系统提供该⽬录是为了让⽤户临时挂载别的⽂件系统</p>
+<p>&#x2F;opt : 下载文件常用目录<br>这是给主机额外安装软件所摆放的⽬录。</p>
+<p>&#x2F;usr : 存放系统安装软件的目录<br>这是另⼀个给主机额外安装软件所安装的⽬录。⼀般是通过编译源代码的⽅式安装程序。</p>
+<p>&#x2F;var : 存放系统日志<br>这个⽬录中存放着不断扩充的东⻄，习惯将经常被修改的⽬录放在这个⽬录下。</p>
+<p>&#x2F;etc : 系统配置目录</p>
+<p>&#x2F;run : 存放系统运行临时数据目录</p>
+<h1 id="Linux系统常用命令"><a href="#Linux系统常用命令" class="headerlink" title="Linux系统常用命令"></a>Linux系统常用命令</h1><h3 id="Linux命令的分类"><a href="#Linux命令的分类" class="headerlink" title="Linux命令的分类"></a>Linux命令的分类</h3><p>Linux命令</p>
+<ul>
+<li><p>用于实现某一类功能的指令或程序 </p>
+</li>
+<li><p>命令的执行依赖于解释器程序（例如：&#x2F;bin&#x2F;bash）<br>Linux命令的分类</p>
+</li>
+<li><p>内部命令：属于Shell解释器的一部分</p>
+</li>
+<li><p>外部命令：独立于Shell解释器之外的程序文件</p>
+<h3 id="Linux命令行格式"><a href="#Linux命令行格式" class="headerlink" title="Linux命令行格式"></a>Linux命令行格式</h3></li>
+<li><p>命令字  [选项]  [参数]</p>
+</li>
+<li><p>选项及参数含义</p>
+</li>
+<li><p>选项：用于调节命令的具体功能</p>
+</li>
+<li><p>以 “-”引导短格式选项（单个字符），例如“-l”</p>
+</li>
+<li><p>以“–”引导长格式选项（多个字符），例如“–color”</p>
+</li>
+<li><p>多个短格式选项可以写在一起，只用一个“-”引导，例如“-al”</p>
+</li>
+<li><p>参数：命令操作的对象，如文件、目录名等</p>
+<h1 id="Linux系统命令"><a href="#Linux系统命令" class="headerlink" title="Linux系统命令"></a>Linux系统命令</h1><h3 id="获得命令帮助"><a href="#获得命令帮助" class="headerlink" title="获得命令帮助"></a>获得命令帮助</h3></li>
+<li><p>内部命令help</p>
+</li>
+<li><p>查看Bash内部命令的帮助信息</p>
+</li>
+<li><p>命令的“–help”选项</p>
+</li>
+<li><p>适用于大多数外部命令 </p>
+</li>
+<li><p>使用man命令阅读手册页</p>
+</li>
+<li><p>使用方向键滚动文本</p>
+</li>
+<li><p>使用Page Up和Page Down键翻页 </p>
+</li>
+<li><p>按Q或q键退出阅读环境、按“&#x2F;”键后查找内容</p>
+<h3 id="Linux系统命令-1"><a href="#Linux系统命令-1" class="headerlink" title="Linux系统命令"></a>Linux系统命令</h3></li>
+<li><p>uname       查看系统内核信息 -r查看内核版本号 -a  显示详细信息</p>
+</li>
+<li><p>hostname    查看或临时修改主机名称</p>
+</li>
+<li><p>ifconfig    查看系统ip信息</p>
+</li>
+<li><p>cat &#x2F;proc&#x2F;cpuinfo    查看系统cpu信息</p>
+</li>
+<li><p>cat &#x2F;proc&#x2F;meminfo    查看系统内存信息</p>
+</li>
+<li><p>halt        关机</p>
+</li>
+<li><p>reboot      重启</p>
+</li>
+<li><p>pwd	    查看工作目录</p>
+</li>
+<li><p>cd	    切换目录</p>
+</li>
+<li><p>du	    统计目录及文件空间占用情况 -sh统计目录大小</p>
+<h3 id="目录操作命令-ls"><a href="#目录操作命令-ls" class="headerlink" title="目录操作命令 - ls"></a>目录操作命令 - ls</h3></li>
+<li><p>ls命令</p>
+</li>
+<li><p>用途：列表（List）显示目录内容 </p>
+</li>
+<li><p>格式：ls  [选项]…  [目录或文件名]</p>
+</li>
+<li><p>常用命令选项</p>
+</li>
+<li><p>-l ：以长格式显示</p>
+</li>
+<li><p>-a：显示所有子目录和文件的信息，包括隐藏文件</p>
+</li>
+<li><p>-A：类似于“-a”，但不显示“.”和“..”目录的信息</p>
+</li>
+<li><p>-d：显示目录本身的属性</p>
+</li>
+<li><p>-h：以更易读的字节单位（K、M等）显示信息</p>
+</li>
+<li><p>-R：递归显示内容</p>
+</li>
+<li><p>–color：以颜色区分不同类型文件</p>
+<h3 id="权限设置命令"><a href="#权限设置命令" class="headerlink" title="权限设置命令"></a>权限设置命令</h3></li>
+<li><p>Chmod </p>
+</li>
+<li><p>U 是所有者用户  g 是组 o其他人 a所有人</p>
+</li>
+<li><p>R读  w写 x可执行</p>
+</li>
+<li><p>用法</p>
+</li>
+<li><p>Chmod u+w  给所有者用户添加写入权限</p>
+</li>
+<li><p>Chmod g-r     给所在分组去掉读取权限</p>
+</li>
+<li><p>权限用数字代替</p>
+</li>
+<li><p>R&#x3D;4    w&#x3D;2  x&#x3D;1     权限值等于每个权限数字相加</p>
+</li>
+<li><p>Chmod 777     给所有权限设置为可读可写可执行</p>
+</li>
+<li><p>Chown  设置所有者和所在分组用户</p>
+</li>
+<li><p>Chown  Apache:Apache    test   登录吧test目录所有者和所组设置为Apache用户</p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3></li>
+<li><p>touch       创建文件或跟新文件时间标记</p>
+</li>
+<li><p>mkdir       创建目录命令   -p递归创建目录</p>
+</li>
+<li><p>cp	    复制文件或目录  -r递归复制  -f强制覆盖 -p保持源文件属性不变</p>
+</li>
+<li><p>-i覆盖文件目录提醒</p>
+</li>
+<li><p>rm 	    删除文件或目录  -r递归删除  -f 强制删除不提醒  -i 删除时用户提醒</p>
+</li>
+<li><p>mv          移动文件或目录</p>
+</li>
+<li><p>wc	    统计文件中出现的单词数量字节数量和行数</p>
+</li>
+<li><p>Cat       查看文件内容命令</p>
+<h3 id="文件或目录查找命令"><a href="#文件或目录查找命令" class="headerlink" title="文件或目录查找命令"></a>文件或目录查找命令</h3></li>
+<li><p>find命令<br>  用途：用于查找文件或目录<br>  格式：find  [查找范围]  [查找条件]</p>
+</li>
+<li><p>常用查找条件<br>-name：按文件名称查找<br>-size：按文件大小查找<br>-user：按文件属主查找<br>-type：按文件类型查找</p>
+<h3 id="压缩命令-gzip-bzip2"><a href="#压缩命令-gzip-bzip2" class="headerlink" title="压缩命令  gzip  bzip2"></a>压缩命令  gzip  bzip2</h3><p>gzip命令不仅能压缩文件也能实现文件的解压操作，利用gzip命令可以将普通文件压缩成.gz为后缀 的压缩文件，压缩成功后原始文件消失。且可指定压缩机别，该命令的压缩级别范围是1~9级，默认为6，1的压缩比最差，速度最快；9的压缩比最好，速度较慢。  </p>
+</li>
+<li><p>加压：gzip -q [文件名] (或gzip [文件名])</p>
+</li>
+<li><p>解压：gzip -d [文件名]</p>
+</li>
+</ul>
+<p>利用bzip2命令可以将普通文件压缩成.bz2为后缀 的压缩文件，压缩成功后原始文件消失。</p>
+<ul>
+<li><p>加压：bzip2 -q[文件名]</p>
+</li>
+<li><p>解压：bzip2 -d [文件名]</p>
+</li>
+<li><p>bzip2需要下载才能使用</p>
+<h3 id="归档命令-tar"><a href="#归档命令-tar" class="headerlink" title="归档命令  tar"></a>归档命令  tar</h3></li>
+<li><p>tar  归档命令  释放归档文件  没有压缩功能<br>格式 tar  选项  归档文件名   源文件或目录  </p>
+</li>
+<li><p>-c  创建归档文件           扩展名为.tar</p>
+</li>
+<li><p>-v 输出详细信息       -f   表示使用归档文件   如 -cvf  创建归档文件</p>
+</li>
+<li><p>tar  -cvf  4.tar 1 2 3   将文件1 2 3 打包归档为4.tar</p>
+</li>
+<li><p>tar  -xvf  4.tar         解包归档文件4.tar            -xvf  解包归档文件</p>
+</li>
+<li><p>-x  解开归档文件    -t  列表查看包内的文件（不释放解包）</p>
+</li>
+<li><p>tar -tvf 4.tar   -r   追加TAR文件至归档结尾</p>
+</li>
+<li><p>tar -rvf 4.tar 5 把5加入4.tar</p>
+</li>
+<li><p>-p   解包时保留原始文件及目录的权限</p>
+</li>
+<li><p>-C （大）   解包时指定释放的目标文件夹</p>
+</li>
+<li><p>-z  调用gzip 程序   进行解压或压缩  -j  调用bzip2  程序进行压缩或解压</p>
+</li>
+<li><p>tar -cvzf  test.tar.gz   被压缩的文件1  被压缩的文件2   创建归档压缩文件 后缀为gz</p>
+</li>
+<li><p>tar -cvjf  test.tar.bz2  被压缩的文件1  被压缩的文件2   创建归档压缩文件 后缀为bz2</p>
+</li>
+<li><p>tar -xvzf  test.tar.gz  -C  &#x2F;usr&#x2F;src  解压释放归档到 &#x2F;usr&#x2F;src 里面</p>
+</li>
+<li><p>tar -xvjf  test.tar.bz2 -C  &#x2F;usr&#x2F;src  解压释放归档到 &#x2F;usr&#x2F;src 里面</p>
+<h3 id="添加用户账号"><a href="#添加用户账号" class="headerlink" title="添加用户账号"></a>添加用户账号</h3></li>
+<li><p>useradd命令</p>
+</li>
+<li><p>格式：useradd  [选项]…  用户名</p>
+</li>
+<li><p>常用命令选项</p>
+</li>
+<li><p>-u：指定 UID 标记号</p>
+</li>
+<li><p>-d：指定宿主目录，缺省为 &#x2F;home&#x2F;用户名</p>
+</li>
+<li><p>-e：指定帐号失效时间</p>
+</li>
+<li><p>-g：指定用户的基本组名（或UID号）</p>
+</li>
+<li><p>-G：指定用户的附加组名（或GID号）</p>
+</li>
+<li><p>-M：不为用户建立并初始化宿主目录</p>
+</li>
+<li><p>-s：指定用户的登录Shell</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# useradd -d /ftphome/mike -g mike -G ftpuser -s /sbin/nologin mike </span><br></pre></td></tr></table></figure>
+<h3 id="删除用户账号——userdel"><a href="#删除用户账号——userdel" class="headerlink" title="删除用户账号——userdel"></a>删除用户账号——userdel</h3></li>
+<li><p>userdel命令</p>
+</li>
+<li><p>格式：userdel  [-r]  用户名</p>
+</li>
+<li><p>添加 -r 选项时，表示连用户的宿主目录一并删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# userdel -r stu01</span><br><span class="line">[root@localhost ~]# ls -ld /home/stu01/</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3></li>
+<li><p>Ps  -aux  查看系统进程</p>
+</li>
+<li><p>Top          动态查看系统进程</p>
+</li>
+<li><p>Kill   1234   杀死进程1234</p>
+<h3 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h3></li>
+<li><p>Ifconfig  eth0  192.168.1.20&#x2F;24   临时修改eth0 网卡ip</p>
+</li>
+<li><p>Route –n  查看系统路由信息</p>
+</li>
+<li><p>Netstat    查看网络连接情况</p>
+</li>
+<li><p>netstat命令</p>
+</li>
+<li><p>查看系统的网络连接状态、路由表、接口统计等信息</p>
+</li>
+<li><p>格式：netstat [选项]</p>
+</li>
+<li><p>常用选项：</p>
+</li>
+<li><p>-a：显示所有活动连接</p>
+</li>
+<li><p>-n：以数字形式显示</p>
+</li>
+<li><p>-p：显示进程信息</p>
+</li>
+<li><p>-t：查看TCP协议相关信息</p>
+</li>
+<li><p>-u：查看UDP协议相关信息</p>
+</li>
+<li><p>-r：显示路由表信息</p>
+</li>
+<li><h3 id="网络接口配置文件"><a href="#网络接口配置文件" class="headerlink" title="网络接口配置文件"></a>网络接口配置文件</h3></li>
+<li><p>&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;目录下的</p>
+</li>
+<li><p>ifcfg-eth0：第1块以太网卡的配置文件</p>
+</li>
+<li><p>ifcfg-eth1：第2块以太网卡的配置文件</p>
+</li>
+</ul>
+<p>修改了配置文件要重启网络服务: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Service  network restart</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# ls /etc/sysconfig/network-scripts/ifcfg-*</span><br><span class="line">/etc/sysconfig/network-scripts/ifcfg-eth0</span><br><span class="line">/etc/sysconfig/network-scripts/ifcfg-lo  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]#vim /etc/sysconfig/network-scripts/ifcfg-eth0</span><br><span class="line">DEVICE=eth0</span><br><span class="line">ONBOOT=yes</span><br><span class="line">BOOTPROTO=static</span><br><span class="line">IPADDR=192.168.4.1</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.4.2</span><br></pre></td></tr></table></figure>
+
+<h3 id="域名解析配置文件"><a href="#域名解析配置文件" class="headerlink" title="域名解析配置文件"></a>域名解析配置文件</h3><p>&#x2F;etc&#x2F;resolv.conf<br>用途：保存本机需要使用的DNS服务器的IP地址  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vi /etc/resolv.conf</span><br><span class="line">search localdomain</span><br><span class="line">nameserver 1.1.1.1</span><br><span class="line">nameserver 8.8.8.8</span><br></pre></td></tr></table></figure>
+
+<h1 id="Linux-vi-x2F-vim"><a href="#Linux-vi-x2F-vim" class="headerlink" title="Linux vi&#x2F;vim"></a>Linux vi&#x2F;vim</h1><p>Vim 是从 vi 发展出来的一个文本编辑器。代码补全、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。<br>简单的来说， vi 是老式的字处理器，不过功能已经很齐全了，但是还是有可以进步的地方。 vim 则可以说是程序开发者的一项很好用的工具。<br><img src="/img/vi-vim-cheat-sheet-sch.gif"></p>
+<p>vi&#x2F;vim 的使用<br>基本上 vi&#x2F;vim 共分为三种模式，分别是命令模式（Command mode），输入模式（Insert mode）和底线命令模式（Last line mode）。 这三种模式的作用分别是：  </p>
+<p>命令模式：<br>用户刚刚启动 vi&#x2F;vim，便进入了命令模式。<br>此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。比如我们此时按下i，并不会输入一个字符，i被当作了一个命令。<br>以下是常用的几个命令：</p>
+<ul>
+<li>i 切换到输入模式，以输入字符。</li>
+<li>x 删除当前光标所在处的字符。</li>
+<li>: 切换到底线命令模式，以在最底一行输入命令。</li>
+<li>若想要编辑文本：启动Vim，进入了命令模式，按下i，切换到输入模式。</li>
+<li>命令模式只有一些最基本的命令，因此仍要依靠底线命令模式输入更多命令。</li>
+</ul>
+<p>输入模式<br>在命令模式下按下i就进入了输入模式。<br>在输入模式中，可以使用以下按键：</p>
+<ul>
+<li>字符按键以及Shift组合，输入字符</li>
+<li>ENTER，回车键，换行</li>
+<li>BACK SPACE，退格键，删除光标前一个字符</li>
+<li>DEL，删除键，删除光标后一个字符</li>
+<li>方向键，在文本中移动光标</li>
+<li>HOME&#x2F;END，移动光标到行首&#x2F;行尾</li>
+<li>Page Up&#x2F;Page Down，上&#x2F;下翻页</li>
+<li>Insert，切换光标为输入&#x2F;替换模式，光标将变成竖线&#x2F;下划线</li>
+<li>ESC，退出输入模式，切换到命令模式</li>
+</ul>
+<p>底线命令模式<br>在命令模式下按下:（英文冒号）就进入了底线命令模式。<br>底线命令模式可以输入单个或多个字符的命令，可用的命令非常多。</p>
+<ul>
+<li>q 退出程序</li>
+<li>w 保存文件</li>
+<li>wq 保存并退出</li>
+<li>按ESC键可随时退出底线命令模式。<h1 id="Linux-yum-命令"><a href="#Linux-yum-命令" class="headerlink" title="Linux yum 命令"></a>Linux yum 命令</h1>yum（ Yellow dog Updater, Modified）是一个在 Fedora 和 RedHat 以及 SUSE 中的 Shell 前端软件包管理器。<br>基于 RPM 包管理，能够从指定的服务器自动下载 RPM 包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。<br>yum 提供了查找、安装、删除某一个、一组甚至全部软件包的命令。  <h2 id="yum常用命令"><a href="#yum常用命令" class="headerlink" title="yum常用命令"></a>yum常用命令</h2></li>
+<li>列出所有可更新的软件清单命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum check-update</span><br></pre></td></tr></table></figure></li>
+<li>更新所有软件命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure></li>
+<li>仅安装指定的软件命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>仅更新指定的软件命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>列出所有可安裝的软件清单命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list</span><br></pre></td></tr></table></figure></li>
+<li>删除软件包命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>查找软件包命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum search &lt;keyword&gt;</span><br></pre></td></tr></table></figure></li>
+<li>清除缓存命令:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum clean packages: 清除缓存目录下的软件包             </span><br><span class="line">yum clean headers: 清除缓存目录下的 headers            </span><br><span class="line">yum clean oldheaders: 清除缓存目录下旧的 headers </span><br><span class="line">yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除缓存目录下的软件包及旧的 headers</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Linux-apt-命令"><a href="#Linux-apt-命令" class="headerlink" title="Linux apt 命令"></a>Linux apt 命令</h2><ul>
+<li>apt（Advanced Packaging Tool）是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器。</li>
+<li>apt 命令提供了查找、安装、升级、删除某一个、一组甚至全部软件包的命令，而且命令简洁而又好记。</li>
+<li>apt 命令执行需要超级管理员权限(root)。<h2 id="apt-常用命令"><a href="#apt-常用命令" class="headerlink" title="apt 常用命令"></a>apt 常用命令</h2></li>
+<li>列出所有可更新的软件清单命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure></li>
+<li>升级软件包：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure></li>
+<li>列出可更新的软件包及版本信息：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list --upgradeable</span><br></pre></td></tr></table></figure></li>
+<li>升级软件包，升级前先删除需要更新软件包：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt full-upgrade</span><br></pre></td></tr></table></figure></li>
+<li>安装指定的软件命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>安装多个软件包：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install &lt;package_1&gt; &lt;package_2&gt; &lt;package_3&gt;</span><br></pre></td></tr></table></figure></li>
+<li>更新指定的软件命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>显示软件包具体信息,例如：版本号，安装大小，依赖关系等等：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt show &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>删除软件包命令：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>清理不再使用的依赖和库文件: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt autoremove</span><br></pre></td></tr></table></figure></li>
+<li>移除软件包及配置文件: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge &lt;package_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>查找软件包命令： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt search &lt;keyword&gt;</span><br></pre></td></tr></table></figure></li>
+<li>列出所有已安装的包：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list --installed</span><br></pre></td></tr></table></figure></li>
+<li>列出所有已安装的包的版本信息：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt list --all-versions</span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/archives/38e76711.html">http://example.com/archives/38e76711.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Putdownd--Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/78f500d6.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">数据库语句</div></div></a></div><div class="next-post pull-right"><a href="/archives/f25a4449.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">谷歌Hacker语法</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%B8%B8%E8%A7%81%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-text">Linux常见发行版本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">Linux的优点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-text">Linux内核版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E8%A1%A8%E7%A4%BA"><span class="toc-text">磁盘分区表示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B"><span class="toc-text">文件系统类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E4%B8%AD%E9%BB%98%E8%AE%A4%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B"><span class="toc-text">Linux中默认使用的文件系统类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E6%94%AF%E6%8C%81%E7%9A%84%E5%85%B6%E5%AE%83%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B"><span class="toc-text">Linux支持的其它文件系统类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">Linux 系统启动过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text">Linux系统目录结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux系统常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">Linux命令的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A0%BC%E5%BC%8F"><span class="toc-text">Linux命令行格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux系统命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9"><span class="toc-text">获得命令帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4-1"><span class="toc-text">Linux系统命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4-ls"><span class="toc-text">目录操作命令 - ls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">权限设置命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4"><span class="toc-text">文件或目录查找命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4-gzip-bzip2"><span class="toc-text">压缩命令  gzip  bzip2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E6%A1%A3%E5%91%BD%E4%BB%A4-tar"><span class="toc-text">归档命令  tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7"><span class="toc-text">添加用户账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E8%B4%A6%E5%8F%B7%E2%80%94%E2%80%94userdel"><span class="toc-text">删除用户账号——userdel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="toc-text">查看进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-text">网络配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">网络接口配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">域名解析配置文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-vi-x2F-vim"><span class="toc-text">Linux vi&#x2F;vim</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-yum-%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux yum 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#yum%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">yum常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-apt-%E5%91%BD%E4%BB%A4"><span class="toc-text">Linux apt 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apt-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">apt 常用命令</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

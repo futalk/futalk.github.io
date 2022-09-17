@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Putdownd--Blog</title>
+  <icon>http://example.com/icon.png</icon>
+  <subtitle>躺平的BLOG</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-09-17T05:08:14.978Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>putdown</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC9</title>
+    <link href="http://example.com/archives/a3a268b3.html"/>
+    <id>http://example.com/archives/a3a268b3.html</id>
+    <published>2022-09-17T01:28:39.000Z</published>
+    <updated>2022-09-17T05:08:14.978Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场介绍&quot;&gt;&lt;a href=&quot;#靶场介绍&quot; class=&quot;headerlink&quot; title=&quot;靶场介绍&quot;&gt;&lt;/a&gt;靶场介绍&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 9&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>netcat反弹shell</title>
+    <link href="http://example.com/archives/74651124.html"/>
+    <id>http://example.com/archives/74651124.html</id>
+    <published>2022-09-16T12:03:46.000Z</published>
+    <updated>2022-09-16T12:39:13.296Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;netcat基本命令&quot;&gt;&lt;a href=&quot;#netcat基本命令&quot; class=&quot;headerlink&quot; title=&quot;netcat基本命令&quot;&gt;&lt;/a&gt;netcat基本命令&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>burpsuit联动xray</title>
+    <link href="http://example.com/archives/7da502be.html"/>
+    <id>http://example.com/archives/7da502be.html</id>
+    <published>2022-09-16T11:26:45.000Z</published>
+    <updated>2022-09-16T12:00:57.544Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;burpsuit设置&quot;&gt;&lt;a href=&quot;#burpsuit设置&quot; class=&quot;headerlink&quot; title=&quot;burpsuit设置&quot;&gt;&lt;/a&gt;burpsuit设置&lt;/h1&gt;&lt;h2 id=&quot;代理&quot;&gt;&lt;a href=&quot;#代理&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC8</title>
+    <link href="http://example.com/archives/d4a55825.html"/>
+    <id>http://example.com/archives/d4a55825.html</id>
+    <published>2022-09-16T10:59:06.000Z</published>
+    <updated>2022-09-16T11:00:08.116Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场简介&quot;&gt;&lt;a href=&quot;#靶场简介&quot; class=&quot;headerlink&quot; title=&quot;靶场简介&quot;&gt;&lt;/a&gt;靶场简介&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 8&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC7</title>
+    <link href="http://example.com/archives/441a45b4.html"/>
+    <id>http://example.com/archives/441a45b4.html</id>
+    <published>2022-09-14T06:10:23.000Z</published>
+    <updated>2022-09-16T11:23:45.497Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场介绍&quot;&gt;&lt;a href=&quot;#靶场介绍&quot; class=&quot;headerlink&quot; title=&quot;靶场介绍&quot;&gt;&lt;/a&gt;靶场介绍&lt;/h1&gt;&lt;h3 id=&quot;About-Release&quot;&gt;&lt;a href=&quot;#About-Release&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC6</title>
+    <link href="http://example.com/archives/331d7522.html"/>
+    <id>http://example.com/archives/331d7522.html</id>
+    <published>2022-09-12T03:24:26.000Z</published>
+    <updated>2022-09-12T03:26:35.985Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场简介&quot;&gt;&lt;a href=&quot;#靶场简介&quot; class=&quot;headerlink&quot; title=&quot;靶场简介&quot;&gt;&lt;/a&gt;靶场简介&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 6&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC5</title>
+    <link href="http://example.com/archives/aa142498.html"/>
+    <id>http://example.com/archives/aa142498.html</id>
+    <published>2022-09-11T03:02:21.000Z</published>
+    <updated>2022-09-11T03:03:37.138Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场信息&quot;&gt;&lt;a href=&quot;#靶场信息&quot; class=&quot;headerlink&quot; title=&quot;靶场信息&quot;&gt;&lt;/a&gt;靶场信息&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 5&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC4</title>
+    <link href="http://example.com/archives/dd13140e.html"/>
+    <id>http://example.com/archives/dd13140e.html</id>
+    <published>2022-09-08T05:08:39.000Z</published>
+    <updated>2022-09-08T05:09:37.133Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场信息&quot;&gt;&lt;a href=&quot;#靶场信息&quot; class=&quot;headerlink&quot; title=&quot;靶场信息&quot;&gt;&lt;/a&gt;靶场信息&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 4&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC3.2</title>
+    <link href="http://example.com/archives/31f7836.html"/>
+    <id>http://example.com/archives/31f7836.html</id>
+    <published>2022-09-07T11:21:52.000Z</published>
+    <updated>2022-09-07T11:23:12.431Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场介绍&quot;&gt;&lt;a href=&quot;#靶场介绍&quot; class=&quot;headerlink&quot; title=&quot;靶场介绍&quot;&gt;&lt;/a&gt;靶场介绍&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 3.2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC2</title>
+    <link href="http://example.com/archives/3470b13b.html"/>
+    <id>http://example.com/archives/3470b13b.html</id>
+    <published>2022-09-05T03:43:25.000Z</published>
+    <updated>2022-09-05T03:44:58.406Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场介绍&quot;&gt;&lt;a href=&quot;#靶场介绍&quot; class=&quot;headerlink&quot; title=&quot;靶场介绍&quot;&gt;&lt;/a&gt;靶场介绍&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: DC: 2&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Date</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vulnhub靶机DC系列-DC1</title>
+    <link href="http://example.com/archives/ad79e081.html"/>
+    <id>http://example.com/archives/ad79e081.html</id>
+    <published>2022-09-04T09:14:15.000Z</published>
+    <updated>2022-09-04T09:44:16.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场介绍&quot;&gt;&lt;a href=&quot;#靶场介绍&quot; class=&quot;headerlink&quot; title=&quot;靶场介绍&quot;&gt;&lt;/a&gt;靶场介绍&lt;/h1&gt;&lt;p&gt;Name: DC: 1&lt;br&gt;Date release: 28 Feb 2019&lt;br&gt;Author:</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql-labs靶场 32-65</title>
+    <link href="http://example.com/archives/f6a7800a.html"/>
+    <id>http://example.com/archives/f6a7800a.html</id>
+    <published>2022-08-25T08:08:02.000Z</published>
+    <updated>2022-08-25T08:22:18.679Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;宽字节&quot;&gt;&lt;a href=&quot;#宽字节&quot; class=&quot;headerlink&quot; title=&quot;宽字节&quot;&gt;&lt;/a&gt;宽字节&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sql-labs 26a-31</title>
+    <link href="http://example.com/archives/2f30fe91.html"/>
+    <id>http://example.com/archives/2f30fe91.html</id>
+    <published>2022-08-24T08:05:34.000Z</published>
+    <updated>2022-08-24T08:09:08.623Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Less-26a&quot;&gt;&lt;a href=&quot;#Less-26a&quot; class=&quot;headerlink&quot; title=&quot;Less-26a&quot;&gt;&lt;/a&gt;Less-26a&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pikachu-靶场</title>
+    <link href="http://example.com/archives/9434f5cf.html"/>
+    <id>http://example.com/archives/9434f5cf.html</id>
+    <published>2022-08-17T09:08:10.000Z</published>
+    <updated>2022-08-17T09:08:55.786Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;系统介绍&quot;&gt;&lt;a href=&quot;#系统介绍&quot; class=&quot;headerlink&quot; title=&quot;系统介绍&quot;&gt;&lt;/a&gt;系统介绍&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>upload-labs</title>
+    <link href="http://example.com/archives/80f02bc5.html"/>
+    <id>http://example.com/archives/80f02bc5.html</id>
+    <published>2022-08-14T07:40:44.000Z</published>
+    <updated>2022-08-16T07:47:08.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;靶场地址&quot;&gt;&lt;a href=&quot;#靶场地址&quot; class=&quot;headerlink&quot; title=&quot;靶场地址&quot;&gt;&lt;/a&gt;靶场地址&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XSS-labs</title>
+    <link href="http://example.com/archives/e4b595d3.html"/>
+    <id>http://example.com/archives/e4b595d3.html</id>
+    <published>2022-08-13T08:49:42.000Z</published>
+    <updated>2022-08-16T07:47:08.252Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;xss-labs&quot;&gt;&lt;a href=&quot;#xss-labs&quot; class=&quot;headerlink&quot; title=&quot;xss-labs&quot;&gt;&lt;/a&gt;xss-labs&lt;/h1&gt;&lt;p&gt;xss-labs靶场的项目地址:&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqli-labs靶场 23-26</title>
+    <link href="http://example.com/archives/fb99ab33.html"/>
+    <id>http://example.com/archives/fb99ab33.html</id>
+    <published>2022-08-12T06:56:15.000Z</published>
+    <updated>2022-08-16T07:47:08.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考crow: &lt;a href=&quot;https://github.com/crow821/crowsec&quot;&gt;https://github.com/crow821/crowsec&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Less-23&quot;&gt;&lt;a href=&quot;#Less-23&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XSS跨站脚本</title>
+    <link href="http://example.com/archives/eb18e635.html"/>
+    <id>http://example.com/archives/eb18e635.html</id>
+    <published>2022-08-10T09:16:15.000Z</published>
+    <updated>2022-08-16T07:47:08.252Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;XSS跨站脚本&quot;&gt;&lt;a href=&quot;#XSS跨站脚本&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="XSS" scheme="http://example.com/tags/XSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqli-labs靶场18-22</title>
+    <link href="http://example.com/archives/ab52f8fd.html"/>
+    <id>http://example.com/archives/ab52f8fd.html</id>
+    <published>2022-08-09T08:41:56.000Z</published>
+    <updated>2022-08-16T07:47:08.267Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考crow: &lt;a href=&quot;https://github.com/crow821/crowsec&quot;&gt;https://github.com/crow821/crowsec&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;less-18&quot;&gt;&lt;a href=&quot;#less-18&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sqli-labs靶场11-17</title>
+    <link href="http://example.com/archives/9fa8bfd5.html"/>
+    <id>http://example.com/archives/9fa8bfd5.html</id>
+    <published>2022-08-09T07:19:15.000Z</published>
+    <updated>2022-08-25T08:23:08.642Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考crow: &lt;a href=&quot;https://github.com/crow821/crowsec&quot;&gt;https://github.com/crow821/crowsec&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;Less-11&quot;&gt;&lt;a href=&quot;#Less-11&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>信息收集 | Putdownd--Blog</title><meta name="keywords" content="信息收集"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="WEB安全测试信息收集 常规信息收集讲解 单个目标服务器（非web） Web服务器 整个网络拓扑 内网： 网络设备：交换机、路由器、防火墙、ids、等网络中的服务器：文件服务器、dns、http、域控制器等   外网： 相关联的其他服务器（ip关联、服务关联）旁站、c段、邮件服务器、dns服务器、代理服务器等    web方向信息收集域名信息对应ip收集:&gt;相关域名对应ip，相关工具：nsl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息收集">
+<meta property="og:url" content="http://example.com/archives/312e3d12.html">
+<meta property="og:site_name" content="Putdownd--Blog">
+<meta property="og:description" content="WEB安全测试信息收集 常规信息收集讲解 单个目标服务器（非web） Web服务器 整个网络拓扑 内网： 网络设备：交换机、路由器、防火墙、ids、等网络中的服务器：文件服务器、dns、http、域控制器等   外网： 相关联的其他服务器（ip关联、服务关联）旁站、c段、邮件服务器、dns服务器、代理服务器等    web方向信息收集域名信息对应ip收集:&gt;相关域名对应ip，相关工具：nsl">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-07-13T02:02:52.000Z">
+<meta property="article:modified_time" content="2022-08-16T07:47:08.267Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="信息收集">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="/img/5868e2d58ee0499398f987e5a0b30d44.png"><link rel="canonical" href="http://example.com/archives/312e3d12"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '信息收集',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-16 15:47:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd--Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">信息收集</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-13T02:02:52.000Z" title="发表于 2022-07-13 10:02:52">2022-07-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-08-16T07:47:08.267Z" title="更新于 2022-08-16 15:47:08">2022-08-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="信息收集"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>WEB安全测试信息收集</p>
+<h1 id="常规信息收集讲解"><a href="#常规信息收集讲解" class="headerlink" title="常规信息收集讲解"></a>常规信息收集讲解</h1><ul>
+<li>单个目标服务器（非web）</li>
+<li>Web服务器</li>
+<li>整个网络拓扑</li>
+<li>内网：<blockquote>
+<p>网络设备：交换机、路由器、防火墙、ids、等<br>网络中的服务器：文件服务器、dns、http、域控制器等</p>
+</blockquote>
+</li>
+<li>外网：<blockquote>
+<p>相关联的其他服务器（ip关联、服务关联）<br>旁站、c段、邮件服务器、dns服务器、代理服务器等</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="web方向信息收集"><a href="#web方向信息收集" class="headerlink" title="web方向信息收集"></a>web方向信息收集</h1><h2 id="域名信息"><a href="#域名信息" class="headerlink" title="域名信息"></a>域名信息</h2><h3 id="对应ip收集"><a href="#对应ip收集" class="headerlink" title="对应ip收集:"></a>对应ip收集:</h3><pre><code>&gt;相关域名对应ip，相关工具：nslookup、一些工具网站
+</code></pre>
+<h3 id="子域名收集"><a href="#子域名收集" class="headerlink" title="子域名收集:"></a>子域名收集:</h3><pre><code>&gt;工具：layer、subDomainsBrute
+</code></pre>
+<h3 id="whois（注册人）信息查询"><a href="#whois（注册人）信息查询" class="headerlink" title="whois（注册人）信息查询:"></a>whois（注册人）信息查询:</h3><pre><code>&gt; 根据已知域名反查，分析出此域名的注册人、邮箱、电话等
+&gt; 工具：爱站网、站长工具、微步在线（https://x.threatbook.cn）
+&gt; site.ip138.com、searchdns.netcraft.com
+</code></pre>
+<h2 id="敏感目录"><a href="#敏感目录" class="headerlink" title="敏感目录"></a>敏感目录</h2><h3 id="收集方向"><a href="#收集方向" class="headerlink" title="收集方向"></a>收集方向</h3><pre><code>&gt; robots.txt、后台目录、安装包、上传目录、mysql管理接口、安装页面、phpinfo、编辑器、iis短文件,分析网站cms
+</code></pre>
+<h3 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h3><pre><code>&gt; 字典爆破 &gt;&gt; 御剑、dirbuster、wwwscan、IIS_shortname_Scanner等
+&gt; 蜘蛛爬行 &gt;&gt; 爬行菜刀、webrobot，burp等
+</code></pre>
+<h2 id="旁站C段"><a href="#旁站C段" class="headerlink" title="旁站C段"></a>旁站C段</h2><h3 id="旁站：同服务器其他站点"><a href="#旁站：同服务器其他站点" class="headerlink" title="旁站：同服务器其他站点"></a>旁站：同服务器其他站点</h3><h3 id="C段：同一网段其他服务器"><a href="#C段：同一网段其他服务器" class="headerlink" title="C段：同一网段其他服务器"></a>C段：同一网段其他服务器</h3><h3 id="收集方向："><a href="#收集方向：" class="headerlink" title="收集方向："></a>收集方向：</h3><pre><code>&gt; 域名、端口、目录
+</code></pre>
+<h3 id="常用工具："><a href="#常用工具：" class="headerlink" title="常用工具："></a>常用工具：</h3><pre><code>&gt; web : 目录扫描工具
+&gt; 端口 : portscan
+</code></pre>
+<h2 id="整站分析"><a href="#整站分析" class="headerlink" title="整站分析"></a>整站分析</h2><h3 id="服务器类型"><a href="#服务器类型" class="headerlink" title="服务器类型:"></a>服务器类型:</h3><pre><code>&gt; 服务器平台、版本等
+</code></pre>
+<h3 id="网站容器"><a href="#网站容器" class="headerlink" title="网站容器"></a>网站容器</h3><pre><code>&gt; 搭建网站的服务组件，例如：iis、Apache、nginx、tomcat等
+</code></pre>
+<h3 id="脚本类型"><a href="#脚本类型" class="headerlink" title="脚本类型"></a>脚本类型</h3><pre><code>&gt; ASP、PHP、JSP、aspx等
+</code></pre>
+<h3 id="数据库类型"><a href="#数据库类型" class="headerlink" title="数据库类型"></a>数据库类型</h3><pre><code>&gt; access、sqlserver、mysql、oracle、postgresql等
+</code></pre>
+<h3 id="CMS类型"><a href="#CMS类型" class="headerlink" title="CMS类型"></a>CMS类型</h3><h3 id="WAF"><a href="#WAF" class="headerlink" title="WAF"></a>WAF</h3><h2 id="谷歌hacker"><a href="#谷歌hacker" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h2><ul>
+<li>Intext:      <blockquote>
+<p>查找网页中含有xx关键字的网站             例：Intext：管理员登录</p>
+</blockquote>
+</li>
+<li>Intitle：  <blockquote>
+<p>查找某个标题                        例：intitle：后台登录</p>
+</blockquote>
+</li>
+<li>Filetype： <blockquote>
+<p>查找某个文件类型的文件                     例：数据挖掘 filetype：doc</p>
+</blockquote>
+</li>
+<li>Inurl:  <blockquote>
+<p>查找url中带有某字段的网站          例：inurl：php?id&#x3D; </p>
+</blockquote>
+</li>
+<li>Site：       <blockquote>
+<p>在某域名中查找信息  </p>
+</blockquote>
+</li>
+<li>往期文章<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://putdown.top/2022/06/25/%E8%B0%B7%E6%AD%8CHacker%E8%AF%AD%E6%B3%95/</span><br></pre></td></tr></table></figure>
+<h2 id="url采集"><a href="#url采集" class="headerlink" title="url采集"></a>url采集</h2><h3 id="采集相关url的同类网站"><a href="#采集相关url的同类网站" class="headerlink" title="采集相关url的同类网站"></a>采集相关url的同类网站</h3><blockquote>
+<p>例如：<br>php?id&#x3D;<br>漏洞网站<br>相同某种指纹网站</p>
+</blockquote>
+<h3 id="常用工具-1"><a href="#常用工具-1" class="headerlink" title="常用工具"></a>常用工具</h3><h3 id="谷歌hacker-1"><a href="#谷歌hacker-1" class="headerlink" title="谷歌hacker"></a>谷歌hacker</h3><h3 id="url采集器"><a href="#url采集器" class="headerlink" title="url采集器"></a>url采集器</h3><h2 id="服务器方向信息收集"><a href="#服务器方向信息收集" class="headerlink" title="服务器方向信息收集"></a>服务器方向信息收集</h2><h3 id="服务信息收集："><a href="#服务信息收集：" class="headerlink" title="服务信息收集："></a>服务信息收集：</h3><blockquote>
+<p>网络服务：web&#x2F;ftp&#x2F;telnet&#x2F;ssh&#x2F;mail&#x2F;mysql&#x2F;mssql&#x2F;oracle&#x2F;rdp<br>服务版本，漏洞等相关信息收集</p>
+</blockquote>
+<h3 id="系统版本信息收集"><a href="#系统版本信息收集" class="headerlink" title="系统版本信息收集"></a>系统版本信息收集</h3></li>
+</ul>
+<h1 id="网络设备信息收集"><a href="#网络设备信息收集" class="headerlink" title="网络设备信息收集"></a>网络设备信息收集</h1><ul>
+<li>网络开放端口</li>
+<li>路由</li>
+<li>防火墙</li>
+<li>代理服务器等相关设备的收集</li>
+<li>shodan</li>
+</ul>
+<h3 id="Shodan"><a href="#Shodan" class="headerlink" title="Shodan"></a>Shodan</h3><ul>
+<li>shodan网络搜索引擎偏向网络设备以及服务器的搜索。</li>
+<li>地址：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.shodan.io/</span><br></pre></td></tr></table></figure>
+<h3 id="censys"><a href="#censys" class="headerlink" title="censys"></a>censys</h3></li>
+<li>censys搜索引擎功能与shodan类似。</li>
+<li>地址：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.censys.io/</span><br></pre></td></tr></table></figure>
+<h3 id="censys-1"><a href="#censys-1" class="headerlink" title="censys"></a>censys</h3></li>
+<li>FoFa搜索引擎偏向资产搜索。</li>
+<li>地址：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://fofa.so</span><br></pre></td></tr></table></figure>
+<h3 id="钟馗之眼"><a href="#钟馗之眼" class="headerlink" title="钟馗之眼"></a>钟馗之眼</h3></li>
+<li>钟馗之眼搜索引擎偏向web应用层面的搜索。</li>
+<li>地址：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.zoomeye.org/</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="APP及其他资产"><a href="#APP及其他资产" class="headerlink" title="APP及其他资产"></a>APP及其他资产</h1><p>在安全测试中，若WEB无法取得进展或无WEB的情况下，我们需要借助APP或其他资产在进行信息收集,从而开展后续渗透</p>
+<h2 id="APE提取一键反编译提取"><a href="#APE提取一键反编译提取" class="headerlink" title="APE提取一键反编译提取"></a>APE提取一键反编译提取</h2><p>使用反编译工具，尝试获取包了里的源码</p>
+<h2 id="APP抓数据包进行工具配合"><a href="#APP抓数据包进行工具配合" class="headerlink" title="APP抓数据包进行工具配合"></a>APP抓数据包进行工具配合</h2><p>使用burp suite设置代理，或者wireshark抓数据包，进行分析</p>
+<h2 id="各种第三方应用相关探针技术"><a href="#各种第三方应用相关探针技术" class="headerlink" title="各种第三方应用相关探针技术"></a>各种第三方应用相关探针技术</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.shodan.io/">https://www.shodan.io/</a><br><a target="_blank" rel="noopener external nofollow noreferrer" href="https://fofa.so/">https://fofa.so/</a></p>
+<h2 id="各种服务接口信息相关探针技术"><a href="#各种服务接口信息相关探针技术" class="headerlink" title="各种服务接口信息相关探针技术"></a>各种服务接口信息相关探针技术</h2><h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>使用burp代理模拟器时，提示证书错误，后将burp生成的证书导入后正常，导入时需要将.cer改成.der。</p>
+<h1 id="后台查找总结"><a href="#后台查找总结" class="headerlink" title="后台查找总结"></a>后台查找总结</h1><ul>
+<li><p>弱口令默认后台：admin，admin&#x2F;login.asp，manage，login.asp等等常见后台</p>
+</li>
+<li><p>查看网页的链接：一般来说，网站的主页有管理登陆类似的东西，有些可能被管理员删掉</p>
+</li>
+<li><p>查看网站图片的属性</p>
+</li>
+<li><p>查看网站使用的管理系统，从而确定后台</p>
+</li>
+<li><p>用工具查找：wwwscan，intellitamper，御剑</p>
+</li>
+<li><p>robots.txt的帮助：robots.txt文件告诉蜘蛛程序在服务器上什么样的文件可以被查看</p>
+</li>
+<li><p>GoogleHacker</p>
+</li>
+<li><p>查看网站使用的编辑器是否有默认后台</p>
+</li>
+<li><p>短文件利用</p>
+</li>
+<li><p>sqlmap –sql-shell  load_file(‘d:&#x2F;wwroot&#x2F;index.php’);</p>
+<h1 id="CDN绕过总结"><a href="#CDN绕过总结" class="headerlink" title="CDN绕过总结"></a>CDN绕过总结</h1><p>CDN的全称是Content Delivery Network,即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。但在安全测试过程中，若目标存在CDN服务，将会影响到后续的安全测试过程。</p>
+<h2 id="如何判断网站有没有使用CDN"><a href="#如何判断网站有没有使用CDN" class="headerlink" title="如何判断网站有没有使用CDN"></a>如何判断网站有没有使用CDN</h2><blockquote>
+<blockquote>
+<p>看响应时间工具：<a target="_blank" rel="noopener external nofollow noreferrer" href="http://tool.chinaz.com/speedtest">http://tool.chinaz.com/speedtest</a><br>ping ip或域名，看是否会出现变化无<br>nslookup 域名，看是否会有很多节点</p>
+</blockquote>
+</blockquote>
+<h2 id="CDN对测试有何影响-amp-如何绕过"><a href="#CDN对测试有何影响-amp-如何绕过" class="headerlink" title="CDN对测试有何影响&amp;如何绕过"></a>CDN对测试有何影响&amp;如何绕过</h2></li>
+<li><p>子域名查询：有的网站主域名会做CDN，但是子域名可能不会做</p>
+</li>
+<li><p>邮件服务查询：我们访问别人，可能通过CND，但别人访问我们通常不会走CDN</p>
+</li>
+<li><p>国外地址请求：国外没有cdn节点的话，可能直接走原ip</p>
+</li>
+<li><p>遗留文件，扫描全网</p>
+</li>
+<li><p>黑暗引擎搜索特定文件</p>
+</li>
+<li><p>dns历史记录，以量打量：CDN节点是有流量上限的，用光之后就会直通原机，这也是一种流量攻击</p>
+<h2 id="子域名上面的小技巧"><a href="#子域名上面的小技巧" class="headerlink" title="子域名上面的小技巧"></a>子域名上面的小技巧</h2></li>
+<li><p>二级域名和三级域名查到的结果可能不一样</p>
+</li>
+<li><p>主域名和子域名查询到的可能不一样</p>
+</li>
+<li><p>DNs历史记录&#x3D;第三方接口(接口查询)</p>
+</li>
+<li><p>采集&#x2F;国外请求( 同类型访问)</p>
+</li>
+<li><p>邮件源码测试对比第三方查询(地区分析)</p>
+</li>
+<li><p>黑暗引擎(shodan搜指定hash文件)</p>
+</li>
+<li><p>扫全网 fuckcdn，w8 fuckcdn，zmap等工具扫描</p>
+</li>
+<li><p>认为判定，根据网站的域名备案推测</p>
+</li>
+<li><p>本地清下dns，然后hosts里写上得到的ip和域名，如果是cdn可能会出现刷新异常，如果打开很快大概率是原机</p>
+</li>
+</ul>
+<h1 id="KALI-信息收集工具使用"><a href="#KALI-信息收集工具使用" class="headerlink" title="KALI 信息收集工具使用"></a>KALI 信息收集工具使用</h1><h2 id="Robots文件探测"><a href="#Robots文件探测" class="headerlink" title="Robots文件探测"></a>Robots文件探测</h2><ul>
+<li>获取网站隐藏敏感目录活文件</li>
+<li>比如：安装目录，上传目录，编辑器目录，管理目录，管理页面等<h2 id="DNS信息收集"><a href="#DNS信息收集" class="headerlink" title="DNS信息收集"></a>DNS信息收集</h2></li>
+<li>搜集网站域名信息，如子域名，其他域名，解析服务器，区域传送漏洞等</li>
+<li>常用工具：dnsenum、dig、fierce</li>
+</ul>
+<hr>
+<h2 id="dnsenum-可以通过字典或者谷歌猜测可能存在的域名，并对一个网段进行反查。"><a href="#dnsenum-可以通过字典或者谷歌猜测可能存在的域名，并对一个网段进行反查。" class="headerlink" title="dnsenum 可以通过字典或者谷歌猜测可能存在的域名，并对一个网段进行反查。"></a>dnsenum 可以通过字典或者谷歌猜测可能存在的域名，并对一个网段进行反查。</h2><ul>
+<li>获取其他域名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dnsenum --enum xxxxxx.com  </span><br><span class="line">-r 允许用户设置递归查询</span><br><span class="line">-w允许用户设置whois请求。</span><br><span class="line">-o 允许用户指定输入文件位置</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="fierce-工具主要是对子域名进行扫描和收集信息的。使用fierce工具获取一个目标主机上所有ip地址和主机信息。还可以测试区域传送漏洞。"><a href="#fierce-工具主要是对子域名进行扫描和收集信息的。使用fierce工具获取一个目标主机上所有ip地址和主机信息。还可以测试区域传送漏洞。" class="headerlink" title="fierce 工具主要是对子域名进行扫描和收集信息的。使用fierce工具获取一个目标主机上所有ip地址和主机信息。还可以测试区域传送漏洞。"></a>fierce 工具主要是对子域名进行扫描和收集信息的。使用fierce工具获取一个目标主机上所有ip地址和主机信息。还可以测试区域传送漏洞。</h2><ul>
+<li>获取其他域名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fierce -dns baidu.com </span><br><span class="line">--wordlist 指定字典</span><br><span class="line">fierce -dns ns9.baidu.com  --wordlist host.txt /tmp/12.txt</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="dig工具也是一款比较流行的dns侦查工具"><a href="#dig工具也是一款比较流行的dns侦查工具" class="headerlink" title="dig工具也是一款比较流行的dns侦查工具"></a>dig工具也是一款比较流行的dns侦查工具</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig www.xxxxxxxx.com  查询dns</span><br><span class="line">dig -t ns xxxxxxxx.com  找解析域名的授权dns</span><br><span class="line">dig axfr @ns1.dns.net xxxxxxxx.com </span><br></pre></td></tr></table></figure>
+<h2 id="敏感目录探测"><a href="#敏感目录探测" class="headerlink" title="敏感目录探测"></a>敏感目录探测</h2><h3 id="暴力破解"><a href="#暴力破解" class="headerlink" title="暴力破解"></a>暴力破解</h3><p>暴力破解的方法就是需要一个强大的目录名称字典，用来尝试逐个匹配，如果存在通过响应吗的回显来确定目录或者页面是否存在</p>
+<h3 id="目录爬行"><a href="#目录爬行" class="headerlink" title="目录爬行"></a>目录爬行</h3><h2 id="目录爬行原理是通过一些自带网络蜘蛛爬行的工具对网站链接进行快速爬行"><a href="#目录爬行原理是通过一些自带网络蜘蛛爬行的工具对网站链接进行快速爬行" class="headerlink" title="目录爬行原理是通过一些自带网络蜘蛛爬行的工具对网站链接进行快速爬行"></a>目录爬行原理是通过一些自带网络蜘蛛爬行的工具对网站链接进行快速爬行</h2><h4 id="目录暴力破解工具"><a href="#目录暴力破解工具" class="headerlink" title="目录暴力破解工具"></a>目录暴力破解工具</h4><p>dirb 工具是一款非常好用的目录暴力猜解工具，自带强大字典</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dirb http://www.xxxx.com</span><br><span class="line">dirb https://www.xxxx.com</span><br><span class="line">dirb http://www.xxxx.com /usr/wordlist.txt</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="dirbuster工具是一款非常好用的目录暴力猜解工具，自带强大字典"><a href="#dirbuster工具是一款非常好用的目录暴力猜解工具，自带强大字典" class="headerlink" title="dirbuster工具是一款非常好用的目录暴力猜解工具，自带强大字典"></a>dirbuster工具是一款非常好用的目录暴力猜解工具，自带强大字典</h4><hr>
+<h2 id="端口探测"><a href="#端口探测" class="headerlink" title="端口探测"></a>端口探测</h2><p>扫描整个子网,命令如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nmap 192.168.1.1/24</span><br></pre></td></tr></table></figure>
+<p>扫描多个目标,命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nmap 192.168.1.2 192.168.1.5</span><br></pre></td></tr></table></figure>
+<p>扫描一个范围内的目标,如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nmap 192.168.1.1-100 (扫描IP地址为192.168.1.1-192.168.1.100内的所有主机)</span><br></pre></td></tr></table></figure>
+<p>你有一个ip地址列表，将这个保存为一个txt文件，和namp在同一目录下,扫描这个txt内的所有主机，命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nmap -iL target.txt</span><br></pre></td></tr></table></figure>
+<p>你想看到你扫描的所有主机的列表，用以下命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nmap -sL 192.168.1.1/24</span><br></pre></td></tr></table></figure>
+<p>扫描除过某一个ip外的所有子网主机,命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#nmap192.168.1.1/24-exclude192.168.1.1</span><br></pre></td></tr></table></figure>
+<h2 id="整站识别"><a href="#整站识别" class="headerlink" title="整站识别"></a>整站识别</h2><ul>
+<li>whatweb</li>
+<li>用来识别网站cms 及搭建平台环境的工具<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whatweb -v http://www.xxxx.com</span><br></pre></td></tr></table></figure></li>
+<li>平台、脚本、cms、容器、数据库等信息探测<h2 id="Waf探测"><a href="#Waf探测" class="headerlink" title="Waf探测"></a>Waf探测</h2></li>
+<li>wafw00f </li>
+<li>用来识别网站waf的一款工具<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wafw00f  http://www.xxxx.com</span><br></pre></td></tr></table></figure>
+<h2 id="工具型站的使用"><a href="#工具型站的使用" class="headerlink" title="工具型站的使用"></a>工具型站的使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">searchdns.netcraft.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://tool.chinaz.com/ </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.aizhan.com/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shodan.io</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Google hacker</span><br></pre></td></tr></table></figure>
+<h1 id="综合扫描工具–DMitry"><a href="#综合扫描工具–DMitry" class="headerlink" title="综合扫描工具–DMitry"></a>综合扫描工具–DMitry</h1>DMitry（Deepmagic Information Gathering Tool）是一个一体化的信息收集工具。它可以用来收集以下信息：</li>
+</ul>
+<ol>
+<li>端口扫描</li>
+<li>whois主机IP和域名信息</li>
+<li>从Netcraft.com获取主机信息</li>
+<li>子域名</li>
+<li>域名中包含的邮件地址<br>尽管这些信息可以在Kali中通过多种工具获取，但是使用DMitry可以将收集的信息保存在一个文件中，方便查看。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmitry  -wnpb xxxx.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmitry -winse  xxxx.com   扫描网站注册信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmitry  -p xxxx.com  -f -b 查看主机开放端口</span><br></pre></td></tr></table></figure>
+<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/202207191557632.jpeg"></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/archives/312e3d12.html">http://example.com/archives/312e3d12.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Putdownd--Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">信息收集</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/4b510cae.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">http数据包</div></div></a></div><div class="next-post pull-right"><a href="/archives/fafc01e0.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">渗透测试专业术语</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E8%AE%B2%E8%A7%A3"><span class="toc-text">常规信息收集讲解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web%E6%96%B9%E5%90%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">web方向信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E4%BF%A1%E6%81%AF"><span class="toc-text">域名信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%BA%94ip%E6%94%B6%E9%9B%86"><span class="toc-text">对应ip收集:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D%E6%94%B6%E9%9B%86"><span class="toc-text">子域名收集:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whois%EF%BC%88%E6%B3%A8%E5%86%8C%E4%BA%BA%EF%BC%89%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2"><span class="toc-text">whois（注册人）信息查询:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95"><span class="toc-text">敏感目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86%E6%96%B9%E5%90%91"><span class="toc-text">收集方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="toc-text">常用工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%81%E7%AB%99C%E6%AE%B5"><span class="toc-text">旁站C段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%81%E7%AB%99%EF%BC%9A%E5%90%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%B6%E4%BB%96%E7%AB%99%E7%82%B9"><span class="toc-text">旁站：同服务器其他站点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E6%AE%B5%EF%BC%9A%E5%90%8C%E4%B8%80%E7%BD%91%E6%AE%B5%E5%85%B6%E4%BB%96%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">C段：同一网段其他服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86%E6%96%B9%E5%90%91%EF%BC%9A"><span class="toc-text">收集方向：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%EF%BC%9A"><span class="toc-text">常用工具：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E7%AB%99%E5%88%86%E6%9E%90"><span class="toc-text">整站分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">服务器类型:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%AE%B9%E5%99%A8"><span class="toc-text">网站容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-text">脚本类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据库类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS%E7%B1%BB%E5%9E%8B"><span class="toc-text">CMS类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WAF"><span class="toc-text">WAF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%B7%E6%AD%8Chacker"><span class="toc-text">谷歌hacker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#url%E9%87%87%E9%9B%86"><span class="toc-text">url采集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E9%9B%86%E7%9B%B8%E5%85%B3url%E7%9A%84%E5%90%8C%E7%B1%BB%E7%BD%91%E7%AB%99"><span class="toc-text">采集相关url的同类网站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7-1"><span class="toc-text">常用工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%B7%E6%AD%8Chacker-1"><span class="toc-text">谷歌hacker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#url%E9%87%87%E9%9B%86%E5%99%A8"><span class="toc-text">url采集器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%B9%E5%90%91%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">服务器方向信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%EF%BC%9A"><span class="toc-text">服务信息收集：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">系统版本信息收集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">网络设备信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Shodan"><span class="toc-text">Shodan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#censys"><span class="toc-text">censys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#censys-1"><span class="toc-text">censys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%92%9F%E9%A6%97%E4%B9%8B%E7%9C%BC"><span class="toc-text">钟馗之眼</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#APP%E5%8F%8A%E5%85%B6%E4%BB%96%E8%B5%84%E4%BA%A7"><span class="toc-text">APP及其他资产</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#APE%E6%8F%90%E5%8F%96%E4%B8%80%E9%94%AE%E5%8F%8D%E7%BC%96%E8%AF%91%E6%8F%90%E5%8F%96"><span class="toc-text">APE提取一键反编译提取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APP%E6%8A%93%E6%95%B0%E6%8D%AE%E5%8C%85%E8%BF%9B%E8%A1%8C%E5%B7%A5%E5%85%B7%E9%85%8D%E5%90%88"><span class="toc-text">APP抓数据包进行工具配合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%94%E7%94%A8%E7%9B%B8%E5%85%B3%E6%8E%A2%E9%92%88%E6%8A%80%E6%9C%AF"><span class="toc-text">各种第三方应用相关探针技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E4%BF%A1%E6%81%AF%E7%9B%B8%E5%85%B3%E6%8E%A2%E9%92%88%E6%8A%80%E6%9C%AF"><span class="toc-text">各种服务接口信息相关探针技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95"><span class="toc-text">记录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E6%9F%A5%E6%89%BE%E6%80%BB%E7%BB%93"><span class="toc-text">后台查找总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CDN%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93"><span class="toc-text">CDN绕过总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E7%BD%91%E7%AB%99%E6%9C%89%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8CDN"><span class="toc-text">如何判断网站有没有使用CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDN%E5%AF%B9%E6%B5%8B%E8%AF%95%E6%9C%89%E4%BD%95%E5%BD%B1%E5%93%8D-amp-%E5%A6%82%E4%BD%95%E7%BB%95%E8%BF%87"><span class="toc-text">CDN对测试有何影响&amp;如何绕过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E5%9F%9F%E5%90%8D%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-text">子域名上面的小技巧</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#KALI-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="toc-text">KALI 信息收集工具使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Robots%E6%96%87%E4%BB%B6%E6%8E%A2%E6%B5%8B"><span class="toc-text">Robots文件探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-text">DNS信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dnsenum-%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E5%AD%97%E5%85%B8%E6%88%96%E8%80%85%E8%B0%B7%E6%AD%8C%E7%8C%9C%E6%B5%8B%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E7%9A%84%E5%9F%9F%E5%90%8D%EF%BC%8C%E5%B9%B6%E5%AF%B9%E4%B8%80%E4%B8%AA%E7%BD%91%E6%AE%B5%E8%BF%9B%E8%A1%8C%E5%8F%8D%E6%9F%A5%E3%80%82"><span class="toc-text">dnsenum 可以通过字典或者谷歌猜测可能存在的域名，并对一个网段进行反查。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fierce-%E5%B7%A5%E5%85%B7%E4%B8%BB%E8%A6%81%E6%98%AF%E5%AF%B9%E5%AD%90%E5%9F%9F%E5%90%8D%E8%BF%9B%E8%A1%8C%E6%89%AB%E6%8F%8F%E5%92%8C%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF%E7%9A%84%E3%80%82%E4%BD%BF%E7%94%A8fierce%E5%B7%A5%E5%85%B7%E8%8E%B7%E5%8F%96%E4%B8%80%E4%B8%AA%E7%9B%AE%E6%A0%87%E4%B8%BB%E6%9C%BA%E4%B8%8A%E6%89%80%E6%9C%89ip%E5%9C%B0%E5%9D%80%E5%92%8C%E4%B8%BB%E6%9C%BA%E4%BF%A1%E6%81%AF%E3%80%82%E8%BF%98%E5%8F%AF%E4%BB%A5%E6%B5%8B%E8%AF%95%E5%8C%BA%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E%E3%80%82"><span class="toc-text">fierce 工具主要是对子域名进行扫描和收集信息的。使用fierce工具获取一个目标主机上所有ip地址和主机信息。还可以测试区域传送漏洞。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dig%E5%B7%A5%E5%85%B7%E4%B9%9F%E6%98%AF%E4%B8%80%E6%AC%BE%E6%AF%94%E8%BE%83%E6%B5%81%E8%A1%8C%E7%9A%84dns%E4%BE%A6%E6%9F%A5%E5%B7%A5%E5%85%B7"><span class="toc-text">dig工具也是一款比较流行的dns侦查工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%8F%E6%84%9F%E7%9B%AE%E5%BD%95%E6%8E%A2%E6%B5%8B"><span class="toc-text">敏感目录探测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3"><span class="toc-text">暴力破解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%88%AC%E8%A1%8C"><span class="toc-text">目录爬行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%88%AC%E8%A1%8C%E5%8E%9F%E7%90%86%E6%98%AF%E9%80%9A%E8%BF%87%E4%B8%80%E4%BA%9B%E8%87%AA%E5%B8%A6%E7%BD%91%E7%BB%9C%E8%9C%98%E8%9B%9B%E7%88%AC%E8%A1%8C%E7%9A%84%E5%B7%A5%E5%85%B7%E5%AF%B9%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5%E8%BF%9B%E8%A1%8C%E5%BF%AB%E9%80%9F%E7%88%AC%E8%A1%8C"><span class="toc-text">目录爬行原理是通过一些自带网络蜘蛛爬行的工具对网站链接进行快速爬行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E5%B7%A5%E5%85%B7"><span class="toc-text">目录暴力破解工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dirbuster%E5%B7%A5%E5%85%B7%E6%98%AF%E4%B8%80%E6%AC%BE%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8%E7%9A%84%E7%9B%AE%E5%BD%95%E6%9A%B4%E5%8A%9B%E7%8C%9C%E8%A7%A3%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%87%AA%E5%B8%A6%E5%BC%BA%E5%A4%A7%E5%AD%97%E5%85%B8"><span class="toc-text">dirbuster工具是一款非常好用的目录暴力猜解工具，自带强大字典</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%8E%A2%E6%B5%8B"><span class="toc-text">端口探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E7%AB%99%E8%AF%86%E5%88%AB"><span class="toc-text">整站识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Waf%E6%8E%A2%E6%B5%8B"><span class="toc-text">Waf探测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%9E%8B%E7%AB%99%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">工具型站的使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%E2%80%93DMitry"><span class="toc-text">综合扫描工具–DMitry</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE"><span class="toc-text">图</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

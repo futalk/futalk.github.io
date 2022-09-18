@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-17T09:58:47.559Z</updated>
+  <updated>2022-09-18T02:22:36.453Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试</title>
+    <link href="http://example.com/archives/9daba997.html"/>
+    <id>http://example.com/archives/9daba997.html</id>
+    <published>2022-09-18T02:22:36.000Z</published>
+    <updated>2022-09-18T02:22:36.453Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Vulnhub靶机DC系列-DC9</title>
@@ -443,30 +456,6 @@
         
     <summary type="html">&lt;p&gt;参考crow: &lt;a href=&quot;https://github.com/crow821/crowsec&quot;&gt;https://github.com/crow821/crowsec&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;less-18&quot;&gt;&lt;a href=&quot;#less-18&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="靶场" scheme="http://example.com/tags/%E9%9D%B6%E5%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sqli-labs靶场11-17</title>
-    <link href="http://example.com/archives/9fa8bfd5.html"/>
-    <id>http://example.com/archives/9fa8bfd5.html</id>
-    <published>2022-08-09T07:19:15.000Z</published>
-    <updated>2022-08-25T08:23:08.642Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;参考crow: &lt;a href=&quot;https://github.com/crow821/crowsec&quot;&gt;https://github.com/crow821/crowsec&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;Less-11&quot;&gt;&lt;a href=&quot;#Less-11&quot;</summary>
         
       
     

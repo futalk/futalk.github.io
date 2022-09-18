@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/archives/9daba997.html</loc>
+    <lastmod>2022-09-18</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/archives/3470b13b.html</loc>
     <lastmod>2022-09-17</lastmod>
   </url>
@@ -81,11 +85,11 @@
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/4644d087.html</loc>
+    <loc>http://example.com/archives/e5da2ca1.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/e5da2ca1.html</loc>
+    <loc>http://example.com/archives/4644d087.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
@@ -105,11 +109,11 @@
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/f25a4449.html</loc>
+    <loc>http://example.com/archives/2fa9840e.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/2fa9840e.html</loc>
+    <loc>http://example.com/archives/f25a4449.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
@@ -121,7 +125,15 @@
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
+    <loc>http://example.com/archives/adde0752.html</loc>
+    <lastmod>2022-08-16</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/archives/7d0e78ef.html</loc>
+    <lastmod>2022-08-16</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/archives/e4b595d3.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
@@ -129,19 +141,11 @@
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/adde0752.html</loc>
-    <lastmod>2022-08-16</lastmod>
-  </url>
-  <url>
-    <loc>http://example.com/archives/4a17b156.html</loc>
-    <lastmod>2022-08-16</lastmod>
-  </url>
-  <url>
     <loc>http://example.com/archives/46a16768.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/e4b595d3.html</loc>
+    <loc>http://example.com/archives/4a17b156.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
@@ -169,11 +173,11 @@
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/331769dc.html</loc>
+    <loc>http://example.com/archives/2aba2bd0.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>
-    <loc>http://example.com/archives/2aba2bd0.html</loc>
+    <loc>http://example.com/archives/331769dc.html</loc>
     <lastmod>2022-08-16</lastmod>
   </url>
   <url>

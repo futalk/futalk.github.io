@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Putdownd’s Blog</title>
+  <icon>https://blog.putdown.top/icon.png</icon>
+  <subtitle>躺平的BLOG</subtitle>
+  <link href="https://blog.putdown.top/atom.xml" rel="self"/>
+  <link href="https://blog.putdown.top/" rel="hub"/>
+  <link href="https://blog.putdown.top/"/>
+  <updated>2023-11-17T07:58:13.000Z</updated>
+  <id>https://blog.putdown.top/</id>
+  
+  <author>
+    <name>putdown</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.putdown.top/archives/4a17b156.html"/>
+    <id>https://blog.putdown.top/archives/4a17b156.html</id>
+    <published>2023-11-17T07:58:44.691Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Jumpserver  -（CVE-2023-42820）</title>
+    <link href="https://blog.putdown.top/archives/112a2c31.html"/>
+    <id>https://blog.putdown.top/archives/112a2c31.html</id>
+    <published>2023-11-17T07:43:40.956Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Jumpserver随机数种子泄露导致账户劫持漏洞（CVE-2023-42820）&quot;&gt;&lt;a href=&quot;#Jumpserver随机数种子泄露导致账户劫持漏洞（CVE-2023-42820）&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CiCd-Goat</title>
+    <link href="https://blog.putdown.top/archives/7fa35abb.html"/>
+    <id>https://blog.putdown.top/archives/7fa35abb.html</id>
+    <published>2023-11-01T07:06:36.614Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;CiCd-Goat&quot;&gt;&lt;a href=&quot;#CiCd-Goat&quot; class=&quot;headerlink&quot; title=&quot;CiCd-Goat&quot;&gt;&lt;/a&gt;CiCd-Goat&lt;/h1&gt;&lt;h2 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 17 &amp; 18 &amp; 19 &amp; 20</title>
+    <link href="https://blog.putdown.top/archives/d4e3a357.html"/>
+    <id>https://blog.putdown.top/archives/d4e3a357.html</id>
+    <published>2023-10-31T07:11:52.381Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;KubeAudit-Audit-Kubernetes-clusters&quot;&gt;&lt;a href=&quot;#KubeAudit-Audit-Kubernetes-clusters&quot; class=&quot;headerlink&quot; title=&quot;KubeAudit - Audit</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 16 - RBAC least privileges misconfiguration</title>
+    <link href="https://blog.putdown.top/archives/e4359b16.html"/>
+    <id>https://blog.putdown.top/archives/e4359b16.html</id>
+    <published>2023-10-31T07:05:46.254Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;RBAC-least-privileges-misconfiguration&quot;&gt;&lt;a href=&quot;#RBAC-least-privileges-misconfiguration&quot; class=&quot;headerlink&quot; title=&quot;RBAC least</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 15 - Hidden in layers</title>
+    <link href="https://blog.putdown.top/archives/70421bde.html"/>
+    <id>https://blog.putdown.top/archives/70421bde.html</id>
+    <published>2023-10-30T09:27:18.805Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Hidden-in-layers&quot;&gt;&lt;a href=&quot;#Hidden-in-layers&quot; class=&quot;headerlink&quot; title=&quot;Hidden in layers&quot;&gt;&lt;/a&gt;Hidden in layers&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 12 &amp; 13 &amp; 14</title>
+    <link href="https://blog.putdown.top/archives/5d4cc7e4.html"/>
+    <id>https://blog.putdown.top/archives/5d4cc7e4.html</id>
+    <published>2023-10-30T08:10:18.450Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;12-Gaining-environment-information&quot;&gt;&lt;a href=&quot;#12-Gaining-environment-information&quot; class=&quot;headerlink&quot; title=&quot;12: Gaining environment</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 11 -  Kubernetes namespaces bypass</title>
+    <link href="https://blog.putdown.top/archives/ae734c99.html"/>
+    <id>https://blog.putdown.top/archives/ae734c99.html</id>
+    <published>2023-10-30T07:46:04.128Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Kubernetes-namespaces-bypass&quot;&gt;&lt;a href=&quot;#Kubernetes-namespaces-bypass&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes namespaces</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 08 &amp; 09 &amp; 10</title>
+    <link href="https://blog.putdown.top/archives/24c73fc4.html"/>
+    <id>https://blog.putdown.top/archives/24c73fc4.html</id>
+    <published>2023-10-30T07:05:01.546Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;08：NodePort-exposed-services&quot;&gt;&lt;a href=&quot;#08：NodePort-exposed-services&quot; class=&quot;headerlink&quot; title=&quot;08：NodePort exposed</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 07 - Attacking private registry</title>
+    <link href="https://blog.putdown.top/archives/b5ada9a5.html"/>
+    <id>https://blog.putdown.top/archives/b5ada9a5.html</id>
+    <published>2023-10-28T08:56:53.224Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Attacking-private-registry&quot;&gt;&lt;a href=&quot;#Attacking-private-registry&quot; class=&quot;headerlink&quot; title=&quot;Attacking private</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 06 - Kubernetes CIS benchmarks analysis</title>
+    <link href="https://blog.putdown.top/archives/e4db02a3.html"/>
+    <id>https://blog.putdown.top/archives/e4db02a3.html</id>
+    <published>2023-10-28T08:31:14.157Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Kubernetes-CIS-benchmarks-analysis&quot;&gt;&lt;a href=&quot;#Kubernetes-CIS-benchmarks-analysis&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes CIS</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 05 - Docker CIS benchmarks analysis</title>
+    <link href="https://blog.putdown.top/archives/2b8f801f.html"/>
+    <id>https://blog.putdown.top/archives/2b8f801f.html</id>
+    <published>2023-10-28T08:18:32.244Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Docker-CIS-benchmarks-analysis&quot;&gt;&lt;a href=&quot;#Docker-CIS-benchmarks-analysis&quot; class=&quot;headerlink&quot; title=&quot;Docker CIS benchmarks</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 04 - Container escape to the host system</title>
+    <link href="https://blog.putdown.top/archives/a492c983.html"/>
+    <id>https://blog.putdown.top/archives/a492c983.html</id>
+    <published>2023-10-28T07:15:52.766Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Container-escape-to-the-host-system&quot;&gt;&lt;a href=&quot;#Container-escape-to-the-host-system&quot; class=&quot;headerlink&quot; title=&quot;Container escape to</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 03 - SSRF in the Kubernetes (K8S) world</title>
+    <link href="https://blog.putdown.top/archives/aac16837.html"/>
+    <id>https://blog.putdown.top/archives/aac16837.html</id>
+    <published>2023-10-28T06:27:50.621Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;SSRF-in-the-Kubernetes-K8S-world&quot;&gt;&lt;a href=&quot;#SSRF-in-the-Kubernetes-K8S-world&quot; class=&quot;headerlink&quot; title=&quot;SSRF in the Kubernetes</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat 02 - docker in docker</title>
+    <link href="https://blog.putdown.top/archives/6eb77990.html"/>
+    <id>https://blog.putdown.top/archives/6eb77990.html</id>
+    <published>2023-10-27T09:15:58.474Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Kubernetes-Goat-02-docker-in-docker&quot;&gt;&lt;a href=&quot;#Kubernetes-Goat-02-docker-in-docker&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes Goat 02 -</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Kubernetes Goat" scheme="https://blog.putdown.top/tags/Kubernetes-Goat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat  01 </title>
+    <link href="https://blog.putdown.top/archives/807a1231.html"/>
+    <id>https://blog.putdown.top/archives/807a1231.html</id>
+    <published>2023-10-27T07:09:58.210Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Kubernetes-Goat-01&quot;&gt;&lt;a href=&quot;#Kubernetes-Goat-01&quot; class=&quot;headerlink&quot; title=&quot;Kubernetes Goat  01&quot;&gt;&lt;/a&gt;Kubernetes Goat </summary>
+        
+      
+    
+    
+    
+    
+    <category term="Kubernetes Goat" scheme="https://blog.putdown.top/tags/Kubernetes-Goat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kubernetes Goat靶场搭建</title>
+    <link href="https://blog.putdown.top/archives/5055d6d0.html"/>
+    <id>https://blog.putdown.top/archives/5055d6d0.html</id>
+    <published>2023-10-26T07:03:23.770Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot; title=&quot;前提&quot;&gt;&lt;/a&gt;前提&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;前置条件：确保您拥有 Kubernetes</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>k8s-环境搭建</title>
+    <link href="https://blog.putdown.top/archives/a31b6d49.html"/>
+    <id>https://blog.putdown.top/archives/a31b6d49.html</id>
+    <published>2023-10-26T02:58:06.462Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;搭建环境&quot;&gt;&lt;a href=&quot;#搭建环境&quot; class=&quot;headerlink&quot; title=&quot;搭建环境&quot;&gt;&lt;/a&gt;搭建环境&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;虚拟机：Ubuntu</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>curl 命令行工具</title>
+    <link href="https://blog.putdown.top/archives/4ebbe0a6.html"/>
+    <id>https://blog.putdown.top/archives/4ebbe0a6.html</id>
+    <published>2023-10-25T02:06:55.141Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;正常get请求&quot;&gt;&lt;a href=&quot;#正常get请求&quot; class=&quot;headerlink&quot; title=&quot;正常get请求&quot;&gt;&lt;/a&gt;正常get请求&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins未授权访问到Getshell</title>
+    <link href="https://blog.putdown.top/archives/49a81405.html"/>
+    <id>https://blog.putdown.top/archives/49a81405.html</id>
+    <published>2023-10-21T03:10:23.243Z</published>
+    <updated>2023-11-17T07:58:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;实验环境&quot;&gt;&lt;a href=&quot;#实验环境&quot; class=&quot;headerlink&quot; title=&quot;实验环境&quot;&gt;&lt;/a&gt;实验环境&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;ubuntu20 虚拟机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;安装-Jenkins&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

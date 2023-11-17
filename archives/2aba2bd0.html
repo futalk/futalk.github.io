@@ -1,0 +1,246 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>HEXO+butterfly主题博客搭建 | Putdownd’s Blog</title><meta name="keywords" content="hexo"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="个人在Windows10系统下搭建hexo博客框架+butterfly主题的一些过程和遇到的一些问题 安装软件环境安装Nodejs 官网下载地址如下1https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;download&#x2F; 查看node版本1node -v 查看npm版本1npm -v 安装Git 官网下载地址如下1https:&#x2F;&#x2F;git-scm.com&#x2F;  以下命令行内容都可以用Git Bash运行 安装">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO+butterfly主题博客搭建">
+<meta property="og:url" content="https://blog.putdown.top/archives/2aba2bd0.html">
+<meta property="og:site_name" content="Putdownd’s Blog">
+<meta property="og:description" content="个人在Windows10系统下搭建hexo博客框架+butterfly主题的一些过程和遇到的一些问题 安装软件环境安装Nodejs 官网下载地址如下1https:&#x2F;&#x2F;nodejs.org&#x2F;en&#x2F;download&#x2F; 查看node版本1node -v 查看npm版本1npm -v 安装Git 官网下载地址如下1https:&#x2F;&#x2F;git-scm.com&#x2F;  以下命令行内容都可以用Git Bash运行 安装">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.putdown.top/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-06-20T08:39:47.000Z">
+<meta property="article:modified_time" content="2023-11-17T07:58:13.000Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.putdown.top/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/2aba2bd0"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HEXO+butterfly主题博客搭建',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-17 07:58:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd’s Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HEXO+butterfly主题博客搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-20T08:39:47.000Z" title="发表于 2022-06-20 08:39:47">2022-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-17T07:58:13.000Z" title="更新于 2023-11-17 07:58:13">2023-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="HEXO+butterfly主题博客搭建"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>个人在Windows10系统下搭建hexo博客框架+butterfly主题的一些过程和遇到的一些问题</p>
+<h2 id="安装软件环境"><a href="#安装软件环境" class="headerlink" title="安装软件环境"></a>安装软件环境</h2><h3 id="安装Nodejs-官网下载地址如下"><a href="#安装Nodejs-官网下载地址如下" class="headerlink" title="安装Nodejs 官网下载地址如下"></a>安装Nodejs 官网下载地址如下</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://nodejs.org/en/download/</span><br></pre></td></tr></table></figure>
+<h4 id="查看node版本"><a href="#查看node版本" class="headerlink" title="查看node版本"></a>查看node版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h4 id="查看npm版本"><a href="#查看npm版本" class="headerlink" title="查看npm版本"></a>查看npm版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<h3 id="安装Git-官网下载地址如下"><a href="#安装Git-官网下载地址如下" class="headerlink" title="安装Git 官网下载地址如下"></a>安装Git 官网下载地址如下</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://git-scm.com/</span><br></pre></td></tr></table></figure>
+
+<p><b><font size=5>以下命令行内容都可以用Git Bash运行</font></b></p>
+<h2 id="安装淘宝的cnpm-管理器"><a href="#安装淘宝的cnpm-管理器" class="headerlink" title="安装淘宝的cnpm 管理器"></a>安装淘宝的cnpm 管理器</h2><p>由于npmjs.org的服务器在国外，很多“包”的下载速度极慢，在这种环境下阿里巴巴推出了淘宝镜像(即cnpm)，它把npm官方的“包”全部搬到国内，供广大开发者使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=http://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h4 id="查看cnpm版本"><a href="#查看cnpm版本" class="headerlink" title="查看cnpm版本"></a>查看cnpm版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
+<h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h4 id="查看hexo版本"><a href="#查看hexo版本" class="headerlink" title="查看hexo版本"></a>查看hexo版本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<h2 id="创建blog目录"><a href="#创建blog目录" class="headerlink" title="创建blog目录"></a>创建blog目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir C:\blog   #在c盘目录下创建名为blog文件夹（根据自己的实际情况创建），在winsows也可以直接右键新建文件夹</span><br></pre></td></tr></table></figure>
+<h4 id="进入blog目录"><a href="#进入blog目录" class="headerlink" title="进入blog目录"></a>进入blog目录</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog </span><br></pre></td></tr></table></figure>
+<h4 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h4><p>在blog文件夹下生成hexo博客框架，删除hexo框架直接删除blog文件夹即可，备份迁移同理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<h4 id="启动本地博客服务"><a href="#启动本地博客服务" class="headerlink" title="启动本地博客服务"></a>启动本地博客服务</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h4 id="本地访问地址"><a href="#本地访问地址" class="headerlink" title="本地访问地址"></a>本地访问地址</h4><p>在浏览器地址框输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:4000/</span><br></pre></td></tr></table></figure>
+<h4 id="创建新的文章"><a href="#创建新的文章" class="headerlink" title="创建新的文章"></a>创建新的文章</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;我的第一篇文章&quot;</span><br></pre></td></tr></table></figure>
+<p>创建的新文章在C:\blog\source_posts目录下.md的文件格式。</p>
+<h4 id="返回blog目录"><a href="#返回blog目录" class="headerlink" title="返回blog目录"></a>返回blog目录</h4><h5 id="清理"><a href="#清理" class="headerlink" title="清理"></a>清理</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<h5 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h2 id="Github创建一个新的仓库-YourGithubName-github-io"><a href="#Github创建一个新的仓库-YourGithubName-github-io" class="headerlink" title="Github创建一个新的仓库 YourGithubName.github.io"></a>Github创建一个新的仓库 YourGithubName.github.io</h2><p>‘YourGithubName’是你自己注册的github的名字，名字一定要正确不能有空格。</p>
+<h4 id="适用于Hexo的Git部署程序插件"><a href="#适用于Hexo的Git部署程序插件" class="headerlink" title="适用于Hexo的Git部署程序插件"></a>适用于Hexo的Git部署程序插件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<h3 id="配置-config-yml"><a href="#配置-config-yml" class="headerlink" title="配置　_config.yml"></a>配置　_config.yml</h3><p>blog目录下找到_config.yml记事本打开，在最下面找到　# Deployment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:YourGithubName/YourGithubName.github.io.git　#这个链接是你自己YourGithubName.github.io仓库的的SSH的链接</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<p>按照上面的格式填写，把YourGithubName改成自己注册的名字，也可以在GitHub复制这个仓库的SSH的链接</p>
+<h2 id="Windows-环境配置Github-的SSH-key"><a href="#Windows-环境配置Github-的SSH-key" class="headerlink" title="Windows 环境配置Github 的SSH key"></a>Windows 环境配置Github 的SSH key</h2><p><b><font size=3>以下命令行内容用Git Bash运行</font></b></p>
+<h3 id="先设置GitHub的user-name和email"><a href="#先设置GitHub的user-name和email" class="headerlink" title="先设置GitHub的user name和email"></a>先设置GitHub的user name和email</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Git账号&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;Git邮箱&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="使用Git-Bash，生成一个新的SSH密钥"><a href="#使用Git-Bash，生成一个新的SSH密钥" class="headerlink" title="使用Git Bash，生成一个新的SSH密钥"></a>使用Git Bash，生成一个新的SSH密钥</h3><p>打开 Git Bash，输入如下命令，然后连续按三个回车即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="使用GitBash-将SSH私钥添加到-ssh-agent"><a href="#使用GitBash-将SSH私钥添加到-ssh-agent" class="headerlink" title="使用GitBash 将SSH私钥添加到 ssh-agent"></a>使用GitBash 将SSH私钥添加到 ssh-agent</h3><p>打开 Git Bash，在控制台输入如下指令，实现后台启动 ssh-agent</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval $(ssh-agent -s)</span><br></pre></td></tr></table></figure>
+<p>将SSH私钥添加到 ssh-agent</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add /c/Users/Administrator/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<h3 id="将SSH公钥添加到GitHub账户"><a href="#将SSH公钥添加到GitHub账户" class="headerlink" title="将SSH公钥添加到GitHub账户"></a>将SSH公钥添加到GitHub账户</h3><p>1.打开 Git Bash，在控制台输入如下指令,复制SSH公钥的完整内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clip &lt; /c/Users/Administrator/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>2、进入GitHub的设置页面（登录GitHub，在右上角）<br>3、点击左部侧边栏的 SSH keys 选项<br>4、点击 NEW SSH key 按钮<br>5、在Title输入框内，为你的新key取个名字，在Key输入框内，粘贴前面复制好的公钥内容，然后点击 Add key 按钮即可。</p>
+<h3 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h2 id="windows10环境下要在在-hexo-d-之前敲"><a href="#windows10环境下要在在-hexo-d-之前敲" class="headerlink" title="windows10环境下要在在 hexo d 之前敲"></a>windows10环境下要在在 hexo d 之前敲</h2><p>打开 Git Bash，在控制台输入如下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;YourName&quot;</span><br></pre></td></tr></table></figure>
+<p>把<a href="mailto:&#x79;&#x6f;&#117;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;" rel="external nofollow noreferrer">&#x79;&#x6f;&#117;&#64;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a>；YourName改成自己的</p>
+<h2 id="部署到Github仓库里"><a href="#部署到Github仓库里" class="headerlink" title="部署到Github仓库里"></a>部署到Github仓库里</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="安装Butterfly主题"><a href="#安装Butterfly主题" class="headerlink" title="安装Butterfly主题"></a>安装Butterfly主题</h3><p>在你的blog目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+<h3 id="修改hexo根目录下的-config-yml-文件"><a href="#修改hexo根目录下的-config-yml-文件" class="headerlink" title="修改hexo根目录下的 _config.yml 文件"></a>修改hexo根目录下的 _config.yml 文件</h3><p>theme: butterfly</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: butterfly</span><br></pre></td></tr></table></figure>
+<h3 id="安裝butterfly的插件"><a href="#安裝butterfly的插件" class="headerlink" title="安裝butterfly的插件"></a>安裝butterfly的插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<h3 id="配置主题"><a href="#配置主题" class="headerlink" title="配置主题"></a>配置主题</h3><p>butterfly主题的官网，里面有配置文档，按照需求跟着配置即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://butterfly.js.org/</span><br></pre></td></tr></table></figure>
+<h3 id="访问这个地址可以查看博客"><a href="#访问这个地址可以查看博客" class="headerlink" title="访问这个地址可以查看博客"></a>访问这个地址可以查看博客</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://YourGithubName.github.io/</span><br></pre></td></tr></table></figure>
+<h2 id="github的短域名用自己的域名解析"><a href="#github的短域名用自己的域名解析" class="headerlink" title="github的短域名用自己的域名解析"></a>github的短域名用自己的域名解析</h2><h3 id="DNS修改"><a href="#DNS修改" class="headerlink" title="DNS修改"></a>DNS修改</h3><p>你购买域名的管理后台中，打开域名控制台-&gt;基本管理-&gt;DNS修改</p>
+<h3 id="域名添加-DNS-解析"><a href="#域名添加-DNS-解析" class="headerlink" title="域名添加 DNS 解析"></a>域名添加 DNS 解析</h3><p>github官网提供的两个主机ip地址：192.30.252.153 和 192.30.252.153， 将这两个作为主机地址，给域名的DNS解析添加两个 A记录，然后再添加一个 GNAME记录 主机地址填的是我们原本用来访问github博客的地址： githubname.github.io</p>
+<h3 id="创建-GNAME-文件"><a href="#创建-GNAME-文件" class="headerlink" title="创建 GNAME 文件"></a>创建 GNAME 文件</h3><p>在hexo本地目录 source 目录下面新建一个文件，取名为 GNAME (无后缀)，内容就是自己买的域名，以我的为例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">putdown.top</span><br></pre></td></tr></table></figure>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>打开博客在Github中的地址，然后切换到 Settings页，设置Custom domain内容为我们自己的域名值（例如：我的域名是putdown.top），点击Save按钮保存</p>
+<h3 id="博客有修改要使用命令重新启动，常用组合命令如下"><a href="#博客有修改要使用命令重新启动，常用组合命令如下" class="headerlink" title="博客有修改要使用命令重新启动，常用组合命令如下"></a>博客有修改要使用命令重新启动，常用组合命令如下</h3><p>清理 生产 启动本地服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>清理 生产 上传github</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/2aba2bd0.html">https://blog.putdown.top/archives/2aba2bd0.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/f25a4449.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">谷歌Hacker语法</div></div></a></div><div class="next-post pull-right"><a href="/archives/adde0752.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">在windows中常用的DOS命令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/fc67a1c4.html" title="Butterfly侧边栏引入一言"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-20</div><div class="title">Butterfly侧边栏引入一言</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="toc-text">安装软件环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Nodejs-%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E5%A6%82%E4%B8%8B"><span class="toc-text">安装Nodejs 官网下载地址如下</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bnode%E7%89%88%E6%9C%AC"><span class="toc-text">查看node版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bnpm%E7%89%88%E6%9C%AC"><span class="toc-text">查看npm版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Git-%E5%AE%98%E7%BD%91%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80%E5%A6%82%E4%B8%8B"><span class="toc-text">安装Git 官网下载地址如下</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B7%98%E5%AE%9D%E7%9A%84cnpm-%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">安装淘宝的cnpm 管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bcnpm%E7%89%88%E6%9C%AC"><span class="toc-text">查看cnpm版本</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo%E6%A1%86%E6%9E%B6"><span class="toc-text">安装hexo框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bhexo%E7%89%88%E6%9C%AC"><span class="toc-text">查看hexo版本</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAblog%E7%9B%AE%E5%BD%95"><span class="toc-text">创建blog目录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5blog%E7%9B%AE%E5%BD%95"><span class="toc-text">进入blog目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2"><span class="toc-text">生成博客</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E6%9C%8D%E5%8A%A1"><span class="toc-text">启动本地博客服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AE%E5%9C%B0%E5%9D%80"><span class="toc-text">本地访问地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0"><span class="toc-text">创建新的文章</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%94%E5%9B%9Eblog%E7%9B%AE%E5%BD%95"><span class="toc-text">返回blog目录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B8%85%E7%90%86"><span class="toc-text">清理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E6%88%90"><span class="toc-text">生成</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E4%BB%93%E5%BA%93-YourGithubName-github-io"><span class="toc-text">Github创建一个新的仓库 YourGithubName.github.io</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E4%BA%8EHexo%E7%9A%84Git%E9%83%A8%E7%BD%B2%E7%A8%8B%E5%BA%8F%E6%8F%92%E4%BB%B6"><span class="toc-text">适用于Hexo的Git部署程序插件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-config-yml"><span class="toc-text">配置　_config.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEGithub-%E7%9A%84SSH-key"><span class="toc-text">Windows 环境配置Github 的SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E8%AE%BE%E7%BD%AEGitHub%E7%9A%84user-name%E5%92%8Cemail"><span class="toc-text">先设置GitHub的user name和email</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Git-Bash%EF%BC%8C%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84SSH%E5%AF%86%E9%92%A5"><span class="toc-text">使用Git Bash，生成一个新的SSH密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8GitBash-%E5%B0%86SSH%E7%A7%81%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0-ssh-agent"><span class="toc-text">使用GitBash 将SSH私钥添加到 ssh-agent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86SSH%E5%85%AC%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0GitHub%E8%B4%A6%E6%88%B7"><span class="toc-text">将SSH公钥添加到GitHub账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%BF%9E%E6%8E%A5"><span class="toc-text">测试连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E8%A6%81%E5%9C%A8%E5%9C%A8-hexo-d-%E4%B9%8B%E5%89%8D%E6%95%B2"><span class="toc-text">windows10环境下要在在 hexo d 之前敲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0Github%E4%BB%93%E5%BA%93%E9%87%8C"><span class="toc-text">部署到Github仓库里</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Butterfly%E4%B8%BB%E9%A2%98"><span class="toc-text">安装Butterfly主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9hexo%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84-config-yml-%E6%96%87%E4%BB%B6"><span class="toc-text">修改hexo根目录下的 _config.yml 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%9Dbutterfly%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安裝butterfly的插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="toc-text">配置主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E8%BF%99%E4%B8%AA%E5%9C%B0%E5%9D%80%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E5%8D%9A%E5%AE%A2"><span class="toc-text">访问这个地址可以查看博客</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github%E7%9A%84%E7%9F%AD%E5%9F%9F%E5%90%8D%E7%94%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-text">github的短域名用自己的域名解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E4%BF%AE%E6%94%B9"><span class="toc-text">DNS修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%B7%BB%E5%8A%A0-DNS-%E8%A7%A3%E6%9E%90"><span class="toc-text">域名添加 DNS 解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-GNAME-%E6%96%87%E4%BB%B6"><span class="toc-text">创建 GNAME 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%BB%91%E5%AE%9A"><span class="toc-text">域名绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E6%9C%89%E4%BF%AE%E6%94%B9%E8%A6%81%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8%EF%BC%8C%E5%B8%B8%E7%94%A8%E7%BB%84%E5%90%88%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-text">博客有修改要使用命令重新启动，常用组合命令如下</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '92c0b85004c94c3a97297a4fd2f8c93e';
+  var gaud_map_key = '5544b267bba4ecd452e5b3f7327b1b8a';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>

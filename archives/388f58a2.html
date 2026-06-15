@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HEXO后台-QEXO | Putdownd’s Blog</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=" 项目地址： https://github.com/Qexo/Qexo 文档: https://www.oplog.cn/qexo/start.html   "><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "HEXO后台-QEXO",
+  "url": "https://blog.putdown.top/archives/388f58a2.html",
+  "image": "https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png",
+  "datePublished": "2023-08-01T08:46:32.504Z",
+  "dateModified": "2026-06-15T04:36:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "putdown",
+      "url": "https://blog.putdown.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/388f58a2.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HEXO后台-QEXO',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">HEXO后台-QEXO</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">HEXO后台-QEXO</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-01T08:46:32.504Z" title="发表于 2023-08-01 08:46:32">2023-08-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T04:36:32.000Z" title="更新于 2026-06-15 04:36:32">2026-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><ul>
+<li>项目地址： <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Qexo/Qexo">https://github.com/Qexo/Qexo</a></li>
+<li>文档: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://www.oplog.cn/qexo/start.html">https://www.oplog.cn/qexo/start.html</a></li>
+</ul>
+<p><img src="https://gh.putdown.top/https://github.com/futalk/tuchuang/raw/main/img/image_2c7ce6eb611bf57d0d97e8d6777bdcf4.png" alt="https:&#x2F;&#x2F;gh.putdown.top&#x2F;https:&#x2F;&#x2F;github.com&#x2F;futalk&#x2F;tuchuang&#x2F;raw&#x2F;main&#x2F;img&#x2F;image_2c7ce6eb611bf57d0d97e8d6777bdcf4.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/388f58a2.html">https://blog.putdown.top/archives/388f58a2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a></div><div class="post-share"><div class="social-share" data-image="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/ea986bfe.html" title="Clash 梯子负载均衡"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Clash 梯子负载均衡</div></div><div class="info-2"><div class="info-item-1">Clash 负载均衡添加代码   点击把下方代码填入   1234567891011121314151617181920parsers:  - reg: &#x27;slbable$&#x27;    yaml:      append-proxy-groups:        - name: ⚖️ 负载均衡-散列          type: load-balance          url: &#x27;http://www.google.com/generate_204&#x27;          interval: 300          strategy: consistent-hashing        - name: ⚖️ 负载均衡-轮询          type: load-balance          url: &#x27;http://www.google.com/generate_204&#x27;          interval: 300          strategy: round-robin      commands:     ...</div></div></div></a><a class="pagination-related" href="/archives/ab68fb48.html" title="二三年二月"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">二三年二月</div></div><div class="info-2"><div class="info-item-1">工作 ！工作 ？工作 {——}</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/29911663.html" title="博客迁移-旧博客地址"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-07</div><div class="info-item-2">博客迁移-旧博客地址</div></div><div class="info-2"><div class="info-item-1">旧博客地址 https://futalk.github.io/  迁移原因 老版为hexo搭建的静态博客，写文章和整理比较麻烦，过去的就过去吧。 文章的分类也比较杂乱 由 **github page **搭建一些加载也有问题 文章的话就慢慢搬运整理吧  一些问题 本站是把旧版的文章直接导入，阅读顺序被打乱  </div></div></div></a><a class="pagination-related" href="/archives/2aba2bd0.html" title="HEXO+butterfly主题博客搭建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-20</div><div class="info-item-2">HEXO+butterfly主题博客搭建</div></div><div class="info-2"><div class="info-item-1">个人在Windows10系统下搭建hexo博客框架+butterfly主题的一些过程和遇到的一些问题 安装软件环境安装Nodejs 官网下载地址如下1https://nodejs.org/en/download/ 查看node版本1node -v 查看npm版本1npm -v 安装Git 官网下载地址如下1https://git-scm.com/  以下命令行内容都可以用Git Bash运行 安装淘宝的cnpm 管理器由于npmjs.org的服务器在国外，很多“包”的下载速度极慢，在这种环境下阿里巴巴推出了淘宝镜像(即cnpm)，它把npm官方的“包”全部搬到国内，供广大开发者使用。 1npm install -g cnpm --registry=http://registry.npm.taobao.org 查看cnpm版本1cnpm -v 安装hexo框架1cnpm install -g hexo-cli 查看hexo版本1hexo -v 创建blog目录1mkdir C:\blog   #在c盘目录下创建名为blog文件夹（根据自己的实际情况创建），在winsows也可以直接...</div></div></div></a><a class="pagination-related" href="/archives/fc67a1c4.html" title="Butterfly侧边栏引入一言"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-20</div><div class="info-item-2">Butterfly侧边栏引入一言</div></div><div class="info-2"><div class="info-item-1">创建card_hitokoto在主题配置文件Butterfly/_config.yml中的侧边栏设置中添加 card_hitokoto: enable: true aside:   enable: true   mobile: true # display on mobile   position: right # left or right   card_author:     enable: true     description:     button:       icon: fab fa-github       text: Follow Me       link: https://github.com/flipped-1121   card_announcement:     enable: true     content: “My love for &lt;font color=lime&gt;Ni&lt;/font&gt; cannot be measured with an &lt;font color=red&gt;int&lt;/font&gt;, n...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">putdown</div><div class="author-info-description">Welcome to lie down</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://putdown.top/"><i class="fa-solid fa-window-restore"></i><span>我的网站列表</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">网站的目的仅限用于分享和学习！ 如果有错误的地方请多多批评指正，我会第一时间进行修改。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/52ee58b1.html" title="逆向python打包exe程序获取源代码">逆向python打包exe程序获取源代码</a><time datetime="2025-08-20T02:57:05.216Z" title="发表于 2025-08-20 02:57:05">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/ddbf221.html" title="pycdc在windows下编译">pycdc在windows下编译</a><time datetime="2025-08-19T08:08:13.191Z" title="发表于 2025-08-19 08:08:13">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)">镜像运行(vmdk在vmware运行)</a><time datetime="2025-08-19T02:39:31.473Z" title="发表于 2025-08-19 02:39:31">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-1b5705c7.html" title="镜像恢复记录">镜像恢复记录</a><time datetime="2025-08-18T06:49:43.929Z" title="发表于 2025-08-18 06:49:43">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-68282f3d.html" title="若依漏洞环境搭建（4.5版本）">若依漏洞环境搭建（4.5版本）</a><time datetime="2025-02-25T06:38:58.154Z" title="发表于 2025-02-25 06:38:58">2025-02-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

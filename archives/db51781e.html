@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vulfocus搭建第二种方案-镜像下载问题 | Putdownd’s Blog</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="搭建问题 上一篇: https://putdown.top/archives/2454ee1f.html    镜像下载的时候没有反应;下载慢等情况.  官方搭建文档:  https://fofapro.github.io/vulfocus/#/INSTALL?id=docker-compos..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "vulfocus搭建第二种方案-镜像下载问题",
+  "url": "https://blog.putdown.top/archives/db51781e.html",
+  "image": "https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png",
+  "datePublished": "2023-02-13T09:30:58.000Z",
+  "dateModified": "2026-06-15T04:36:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "putdown",
+      "url": "https://blog.putdown.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/db51781e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vulfocus搭建第二种方案-镜像下载问题',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">vulfocus搭建第二种方案-镜像下载问题</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">vulfocus搭建第二种方案-镜像下载问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-13T09:30:58.000Z" title="发表于 2023-02-13 09:30:58">2023-02-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T04:36:32.000Z" title="更新于 2026-06-15 04:36:32">2026-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="搭建问题"><a href="#搭建问题" class="headerlink" title="搭建问题"></a>搭建问题</h1><ul>
+<li>上一篇: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://putdown.top/archives/2454ee1f.html">https://putdown.top/archives/2454ee1f.html</a></li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213093519871.png" alt="image-20230213093519871"></p>
+<ul>
+<li><p>镜像下载的时候没有反应;下载慢等情况.</p>
+</li>
+<li><p>官方搭建文档:  <a target="_blank" rel="noopener external nofollow noreferrer" href="https://fofapro.github.io/vulfocus/#/INSTALL?id=docker-compose-%e5%ae%89%e8%a3%85">https://fofapro.github.io/vulfocus/#/INSTALL?id=docker-compose-%e5%ae%89%e8%a3%85</a></p>
+</li>
+<li><p>第二种方案</p>
+</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213093555699.png" alt="image-20230213093555699"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213093615128.png" alt="image-20230213093615128"></p>
+<h1 id="搭建开始"><a href="#搭建开始" class="headerlink" title="搭建开始"></a>搭建开始</h1><h2 id="拉取-vulfocus-和安装项目依赖"><a href="#拉取-vulfocus-和安装项目依赖" class="headerlink" title="拉取 vulfocus 和安装项目依赖"></a>拉取 vulfocus 和安装项目依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在盘符新建文件夹 data</span><br><span class="line">cd /data</span><br><span class="line">git clone https://github.com/fofapro/vulfocus.git web</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置环境参数"><a href="#配置环境参数" class="headerlink" title="配置环境参数"></a>配置环境参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /data/web</span><br><span class="line">vim docker-compose.yaml</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h2><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213093911496.png" alt="image-20230213093911496"></p>
+<ul>
+<li>下面还有一处， xxx.xxx.xxx.xxx ,忘记修改了，自行修改下</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094018942.png" alt="image-20230213094018942"></p>
+<h2 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这时浏览器地址栏输入本机ip即可访问vulfocus服务</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094312588.png" alt="image-20230213094312588"></p>
+<h1 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094350025.png" alt="image-20230213094350025"></p>
+<h1 id="镜像问题"><a href="#镜像问题" class="headerlink" title="镜像问题"></a>镜像问题</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094442429.png" alt="image-20230213094442429"></p>
+<h2 id="靶场镜像下载"><a href="#靶场镜像下载" class="headerlink" title="靶场镜像下载"></a>靶场镜像下载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://hub.docker.com/u/vulfocus</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>例子</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull vulfocus/nexus-cve_2018_16621</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094614040.png" alt="image-20230213094614040"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094704342.png" alt="image-20230213094704342"></p>
+<ul>
+<li>下载完成后</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094833042.png" alt="image-20230213094833042"></p>
+<ul>
+<li>靶场添加,根据步骤点击后点击前面的选框,点击一键导入即可</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213094946516.png" alt="image-20230213094946516"></p>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213095108451.png" alt="image-20230213095108451"></p>
+<h1 id="另一种下载姿势"><a href="#另一种下载姿势" class="headerlink" title="另一种下载姿势"></a>另一种下载姿势</h1><p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213095321629.png" alt="image-20230213095321629"></p>
+<ul>
+<li>直接复制<code>镜像名称</code>加上<code>docker pull</code></li>
+<li>上面的靶场也是这个样子</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull vulfocus/nexus-cve_2018_16621</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>举例,跟上面的格式是一样的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull vulfocus/django-cve_2021_35042</span><br><span class="line">docker pull vulfocus/kylin-cve_2021_45456:latest</span><br><span class="line">docker pull vulfocus/uwsgi-cve_2018_7490</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这样下载比较方便,不用再切换网站</li>
+</ul>
+<h1 id="优缺点对比"><a href="#优缺点对比" class="headerlink" title="优缺点对比"></a>优缺点对比</h1><h2 id="优"><a href="#优" class="headerlink" title="优"></a>优</h2><ul>
+<li>靶场镜像下载快</li>
+</ul>
+<h2 id="缺"><a href="#缺" class="headerlink" title="缺"></a>缺</h2><ul>
+<li>靶场简介没有</li>
+</ul>
+<p><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/image-20230213095758957.png" alt="image-20230213095758957"></p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><ul>
+<li>打开在线版的进行对比参考</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/db51781e.html">https://blog.putdown.top/archives/db51781e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Docker/">Docker</a><a class="post-meta__tags" href="/tags/%E9%9D%B6%E5%9C%BA/">靶场</a></div><div class="post-share"><div class="social-share" data-image="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/ab68fb48.html" title="二三年二月"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">二三年二月</div></div><div class="info-2"><div class="info-item-1">工作 ！工作 ？工作 {——}</div></div></div></a><a class="pagination-related" href="/archives/aa4a8fde.html" title="漏洞复现-骑士cms任意代码执行（CVE-2020-35339）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">漏洞复现-骑士cms任意代码执行（CVE-2020-35339）</div></div><div class="info-2"><div class="info-item-1">环境   先扫一下后台     123http://192.168.169.233:26889/index.php?m=Admin&amp;c=index&amp;a=login根据靶场提示 账号密码都是 adminadmin   漏洞点   </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/3470b13b.html" title="Vulnhub靶机DC系列-DC2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-05</div><div class="info-item-2">Vulnhub靶机DC系列-DC2</div></div><div class="info-2"><div class="info-item-1">靶场介绍 Name: DC: 2 Date release: 22 Mar 2019 Author: DCAU Series: DC Web page: http://www.five86.com/dc-2.html  描述与 DC-1 非常相似，DC-2 是另一个专门构建的易受攻击的实验室，目的是获得渗透测试领域的经验。 与最初的 DC-1 一样，它的设计考虑到了初学者。 必须具备 Linux 技能和熟悉 Linux 命令行，以及一些基本渗透测试工具的经验。 就像 DC-1 一样，有五个标志，包括最终标志。 再说一次，就像 DC-1 一样，标志对初学者很重要，但对有经验的人来说并不那么重要。 简而言之，唯一真正重要的标志是最终标志。 对于初学者来说，谷歌是你的朋友。好吧，除了所有的隐私问题等等等等。 我还没有探索实现 root 的所有方法，因为我放弃了我一直在研究的以前的版本，并从基本操作系统安装之外完全重新开始。 技术信息DC-2 是基于 Debian 32 位构建的 VirtualBox VM，因此在大多数 PC 上运行它应该没有问题。 虽然我没有在 VMware 环境中测...</div></div></div></a><a class="pagination-related" href="/archives/6be15d5.html" title="Vulnhub-HACKATHONCTF: 1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-28</div><div class="info-item-2">Vulnhub-HACKATHONCTF: 1</div></div><div class="info-2"><div class="info-item-1">描述 Name: HackathonCTF: 1 Date release: 27 Oct 2020 Author: somu sen Series: HackathonCTF  nmap扫描 存活   12kali 192.168.169.220靶机  192.168.169.230   扫描靶机   121 23 80  访问80端口 扫描目录   base64解密   1234c3NoLWJydXRlZm9yY2Utc3Vkb2l0Cg==ssh-bruteforce-sudoit应该是提示 ssh连接 爆破 提权     gobuster Web目录爆破  1gobuster dir -u http://192.168.169.230/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,txt,html,js,php.bak,txt.bak,html.bak,json,git,git.bak,zip,zip.bak   12345/index.html    ...</div></div></div></a><a class="pagination-related" href="/archives/441a45b4.html" title="Vulnhub靶机DC系列-DC7"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-14</div><div class="info-item-2">Vulnhub靶机DC系列-DC7</div></div><div class="info-2"><div class="info-item-1">靶场介绍About ReleaseBack to the Top  Name: DC: 7 Date release: 31 Aug 2019 Author: DCAU Series: DC Web page: http://www.five86.com/dc-7.html  描述DC-7 是另一个特意建造的易受攻击的实验室，旨在获得渗透测试领域的经验。 虽然这不是一个过于技术性的挑战，但也并不容易。 虽然这是较早的 DC 版本的一种合乎逻辑的进展（我不会告诉你是哪一个），但其中涉及到一些新概念，但你需要自己弄清楚这些。:-) 如果您需要使用暴力破解或字典攻击，您可能不会成功。 您需要做的是跳出框框思考。 Waaaaaay“在盒子外面”。:-) 这一挑战的最终目标是获得根并阅读唯一的标志。 必须具备 Linux 技能和熟悉 Linux 命令行，以及一些基本渗透测试工具的经验。 对于初学者来说，谷歌可以提供很大的帮助，但你可以随时在@DCAU7 上给我发推文，寻求帮助，让你重新开始。但请注意：我不会给你答案，相反，我会给你一个关于如何前进的想法。 技术信息DC-7 是基于 Debi...</div></div></div></a><a class="pagination-related" href="/archives/51ba13e9.html" title="Vulnhub-Breakout"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-11</div><div class="info-item-2">Vulnhub-Breakout</div></div><div class="info-2"><div class="info-item-1"> Name: Empire: Breakout Date release: 21 Oct 2021 Author: icex64 &amp; Empire Cybersecurity Series: Empire  Difficulty: Easy This box was created to be an Easy box, but it can be Medium if you get lost. For hints discord Server ( https://discord.gg/7asvAhCEhe )  信息收集靶机开机显示ip nmap 12kali  192.168.169.220靶机   192.168.169.230  靶机ip扫描 端口访问 80、139、445、10000、20000端口 139、445 无法访问  80  123456789101112131415# 查看源代码&lt;!--don&#x27;t worry no one will get here, it&#x27;s safe to share with you my access...</div></div></div></a><a class="pagination-related" href="/archives/aa472e4b.html" title="Vulnhub-DARKHOLE: 1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-01</div><div class="info-item-2">Vulnhub-DARKHOLE: 1</div></div><div class="info-2"><div class="info-item-1">描述 Name: DarkHole: 1  Date release: 18 Jul 2021  Author: Jehad Alqurashi  Series: DarkHole   Difficulty: Easy It’s a box for beginners, but not easy, Good Luck Hint: Don’t waste your time For Brute-Force  nmap 扫描 12kali 192.168.169.220靶机  192.168.169.232  nmap扫描靶机 1端口 22 80  访问80  目录爆破1gobuster dir -u http://192.168.169.232/ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -x php,txt,html,js,php.bak,txt.bak,html.bak,json,git,git.bak,zip,zip.bak    没什么价值  功能点测试 1注册 ad...</div></div></div></a><a class="pagination-related" href="/archives/dd13140e.html" title="Vulnhub靶机DC系列-DC4"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="info-item-2">Vulnhub靶机DC系列-DC4</div></div><div class="info-2"><div class="info-item-1">靶场信息 Name: DC: 4 Date release: 7 Apr 2019 Author: DCAU Series: DC Web page: http://www.five86.com/dc-4.html  描述DC-4 是另一个特意建造的易受攻击的实验室，旨在获得渗透测试领域的经验。 与之前的 DC 版本不同，这个版本主要是为初学者&#x2F;中级者设计的。只有一个标志，但从技术上讲，有多个入口点，就像上次一样，没有线索。 必须具备 Linux 技能和熟悉 Linux 命令行，以及一些基本渗透测试工具的经验。 对于初学者来说，谷歌可以提供很大的帮助，但你可以随时在@DCAU7 上给我发推文，寻求帮助，让你重新开始。但请注意：我不会给你答案，相反，我会给你一个关于如何前进的想法。 技术信息DC-4 是基于 Debian 32 位构建的 VirtualBox VM，因此在大多数 PC 上运行它应该没有问题。 如果在 VMware 中运行此 VM 有任何问题，请通读此内容。 它当前配置为桥接网络，但是，可以根据您的要求进行更改。网络配置为 DHCP。 安装很简单 - 下载它...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E9%97%AE%E9%A2%98"><span class="toc-text">搭建问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%A7%8B"><span class="toc-text">搭建开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%89%E5%8F%96-vulfocus-%E5%92%8C%E5%AE%89%E8%A3%85%E9%A1%B9%E7%9B%AE%E4%BE%9D%E8%B5%96"><span class="toc-text">拉取 vulfocus 和安装项目依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%82%E6%95%B0"><span class="toc-text">配置环境参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">修改文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="toc-text">启动项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E8%A7%88"><span class="toc-text">预览</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E9%97%AE%E9%A2%98"><span class="toc-text">镜像问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%B6%E5%9C%BA%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="toc-text">靶场镜像下载</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E4%B8%8B%E8%BD%BD%E5%A7%BF%E5%8A%BF"><span class="toc-text">另一种下载姿势</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94"><span class="toc-text">优缺点对比</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98"><span class="toc-text">优</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA"><span class="toc-text">缺</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-text">解决办法</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

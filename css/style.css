@@ -1,0 +1,427 @@
+.footer-a
+{
+  color: black;
+}
+
+
+/* ==========================================================
+   滚动条 — 终端光标风格
+   ========================================================== */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 65, 0.5) !important;
+  border-radius: 0 !important;
+  min-height: 30px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 255, 65, 0.9) !important;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent !important;
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(0, 255, 65, 0.5) transparent !important;
+}
+  
+  ::-moz-selection {
+    color: #fff;
+    background-color: #49b1f5;
+  }
+
+
+  /* 鼠标样式 */
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/constown/HexoCustomFile/public/cursors/default.cur),
+      default;
+  }
+  a,
+  img {
+    cursor: url(https://cdn.jsdelivr.net/gh/constown/HexoCustomFile/public/cursors/pointer.cur),
+      default;
+  }
+
+
+
+  /* 页脚footer */
+#footer {
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -o-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -ms-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+  }
+  #footer:before {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .upy {
+    vertical-align:middle;
+    display: inline;
+    }
+  
+  .footer-a {
+    border-bottom:none;
+    color:#4c4948
+    }
+  
+  .footer-a:hover{
+    color:#4c4948
+    } 
+  
+  #footer-wrap, #footer-wrap a{
+    color: #4c4948 !important;
+  }
+  
+  .framework-info {
+    display: none;
+  }
+
+
+  #web_bg {
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -o-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: -ms-linear-gradient(
+      0deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(247, 149, 51, 0.1) 0,
+      rgba(243, 112, 85, 0.1) 15%,
+      rgba(239, 78, 123, 0.1) 30%,
+      rgba(161, 102, 171, 0.1) 44%,
+      rgba(80, 115, 184, 0.1) 58%,
+      rgba(16, 152, 173, 0.1) 72%,
+      rgba(7, 179, 155, 0.1) 86%,
+      rgba(109, 186, 130, 0.1) 100%
+    );
+  }
+
+/* ==========================================================
+   新增美化：毛玻璃质感 (Glassmorphism) 与 霞鹜文楷排版
+   ========================================================== */
+
+/* 1. 全局霞鹜文楷字体注入 */
+body {
+  font-family: 'LXGW WenKai Screen', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, sans-serif !important;
+}
+
+#site-title, #site-subtitle, .post-title, #aside-content .headline {
+  font-family: 'LXGW WenKai Screen', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Lato, Roboto, sans-serif;
+}
+
+/* 2. 毛玻璃质感面板 */
+#nav.show, .card-widget, .recent-post-item, .post-copyright, #local-search .search-dialog {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05) !important;
+}
+
+/* 暗黑模式下毛玻璃面板深度适配 */
+[data-theme="dark"] #nav.show,
+[data-theme="dark"] .card-widget,
+[data-theme="dark"] .recent-post-item,
+[data-theme="dark"] .post-copyright,
+[data-theme="dark"] #local-search .search-dialog {
+  background: rgba(20, 20, 20, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 只有在有大屏背景图的页面，置顶且未滚动时的导航栏才保持完全透明 */
+.full_page #nav, .post-bg #nav {
+  border: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 如果是没有大图的页面，保留导航栏半透明毛玻璃底色，防止白底白字看不清 */
+#page-header.not-top-img #nav {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(12px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] #page-header.not-top-img #nav {
+  background: rgba(20, 20, 20, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* 4. 文章页及普通页面顶部 Banner 默认科技感渐变底色（防止大图加载慢或图片失效时背景一片空白） */
+#page-header {
+  background-color: #49b1f5;
+  background-image: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+/* 3. 卡片 3D 上浮与呼吸发光投影 */
+.recent-post-item, .card-widget {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.recent-post-item:hover, .card-widget:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 12px 30px rgba(73, 177, 245, 0.25) !important;
+}
+
+[data-theme="dark"] .recent-post-item:hover,
+[data-theme="dark"] .card-widget:hover {
+  box-shadow: 0 12px 30px rgba(0, 255, 0, 0.12) !important;
+}
+
+/* 4. 版权声明卡片精细美化 */
+.post-copyright {
+  position: relative;
+  padding: 1.2rem 1.6rem !important;
+  margin: 2rem 0 !important;
+  border-left: 4px solid #49b1f5 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.post-copyright::after {
+  content: "©";
+  position: absolute;
+  right: -10px;
+  bottom: -20px;
+  font-size: 8rem;
+  color: rgba(150, 150, 150, 0.08);
+  font-family: sans-serif;
+  pointer-events: none;
+}
+
+/* ==========================================================
+   迷你终端模拟器 — 侧边栏挂件
+   ========================================================== */
+#mini-terminal {
+  margin-top: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.terminal-header {
+  background: #2d2d2d;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.terminal-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.terminal-dot.red  { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  color: #999;
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.terminal-body {
+  background: #1a1a2e;
+  color: #00ff41;
+  padding: 10px 12px;
+  max-height: 220px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  line-height: 1.6;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.terminal-body .line {
+  white-space: pre-wrap;
+  word-break: break-all;
+  text-align: left;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 2px;
+}
+
+.terminal-prompt {
+  color: #ffbd2e;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.terminal-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  color: #00ff41;
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  caret-color: #00ff41;
+  padding: 0;
+}
+
+[data-theme="dark"] #mini-terminal {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .terminal-body {
+  background: #0d0d1a;
+}
+
+/* ==========================================================
+   AOS 滚动渐入动画 (Intersection Observer)
+   ========================================================== */
+.aos-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.aos-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 代码块从右侧滑入 */
+.aos-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.aos-slide-right.aos-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 图片从下方淡入 */
+.aos-fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.aos-fade-up.aos-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

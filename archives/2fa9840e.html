@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络基础知识 | Putdownd’s Blog</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="网络基础知识网络层次划分 OSI分层OSI RM：开放系统互连参考模型（Open System Interconnection Reference Model）OSI参考模型具有以下优点:  简化了相关的网络操作 提供设备间的兼容性和标准接口 促进标准化工作 结构上可以分隔 易于实现和维护  ..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "网络基础知识",
+  "url": "https://blog.putdown.top/archives/2fa9840e.html",
+  "image": "https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png",
+  "datePublished": "2022-07-11T09:21:21.000Z",
+  "dateModified": "2026-06-15T04:36:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "putdown",
+      "url": "https://blog.putdown.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/2fa9840e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络基础知识',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">网络基础知识</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">网络基础知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-11T09:21:21.000Z" title="发表于 2022-07-11 09:21:21">2022-07-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T04:36:32.000Z" title="更新于 2026-06-15 04:36:32">2026-06-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="网络基础知识"><a href="#网络基础知识" class="headerlink" title="网络基础知识"></a>网络基础知识</h1><h1 id="网络层次划分"><a href="#网络层次划分" class="headerlink" title="网络层次划分"></a>网络层次划分</h1><p><img src="/img/11111.png"><br><img src="/img/5e57f5e6213448d8428cbba2328a85f.jpg"><br><img src="/img/1538030296-8668-20150904095142060-1017190812.gif"></p>
+<h2 id="OSI分层"><a href="#OSI分层" class="headerlink" title="OSI分层"></a>OSI分层</h2><p>OSI RM：开放系统互连参考模型（Open System Interconnection Reference Model）<br>OSI参考模型具有以下优点:</p>
+<ul>
+<li>简化了相关的网络操作</li>
+<li>提供设备间的兼容性和标准接口</li>
+<li>促进标准化工作</li>
+<li>结构上可以分隔</li>
+<li>易于实现和维护</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>应用层</td>
+</tr>
+<tr>
+<td>6</td>
+<td>表示层</td>
+</tr>
+<tr>
+<td>5</td>
+<td>会话层</td>
+</tr>
+<tr>
+<td>4</td>
+<td>传输层</td>
+</tr>
+<tr>
+<td>3</td>
+<td>网络层</td>
+</tr>
+<tr>
+<td>2</td>
+<td>数据链路层</td>
+</tr>
+<tr>
+<td>1</td>
+<td>物理层</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">高层: 5.6.7 负责主机之间的数据传输</span><br><span class="line">底层: 1.2.3 负责网络数据传输</span><br></pre></td></tr></table></figure>
+<h2 id="OSI七层功能"><a href="#OSI七层功能" class="headerlink" title="OSI七层功能"></a>OSI七层功能</h2><table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>应用层</td>
+<td>提供应用程序间通信</td>
+</tr>
+<tr>
+<td>6</td>
+<td>表示层</td>
+<td>处理数据格式、数据加密等</td>
+</tr>
+<tr>
+<td>5</td>
+<td>会话层</td>
+<td>建立、维护和管理会话</td>
+</tr>
+<tr>
+<td>4</td>
+<td>传输层</td>
+<td>建立主机端到端连接</td>
+</tr>
+<tr>
+<td>3</td>
+<td>网络层</td>
+<td>寻址和路由选择</td>
+</tr>
+<tr>
+<td>2</td>
+<td>数据链路层</td>
+<td>提供介质访问、链路管理等</td>
+</tr>
+<tr>
+<td>1</td>
+<td>物理层</td>
+<td>比特流传输</td>
+</tr>
+</tbody></table>
+<h2 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP&#x2F;IP协议"></a>TCP&#x2F;IP协议</h2><ul>
+<li>除了标准的OSI七层模型以外，常见的网络层次划分还有TCP&#x2F;IP四层协议以及TCP&#x2F;IP五层协议</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+<th>.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5</td>
+<td>应用层</td>
+<td>HTTP、Telnet、FTP、TFTP</td>
+<td>提供应用程序网络接口</td>
+</tr>
+<tr>
+<td>4</td>
+<td>传输层</td>
+<td>TCP&#x2F;UDP</td>
+<td>提供应用程序网络接口</td>
+</tr>
+<tr>
+<td>3</td>
+<td>网络层</td>
+<td>IP</td>
+<td>寻址和路由选择</td>
+</tr>
+<tr>
+<td>2</td>
+<td>数据链路层</td>
+<td>Ethernet、802.3、PPP</td>
+<td>物理介质访问</td>
+</tr>
+<tr>
+<td>1</td>
+<td>物理层</td>
+<td>接口和线缆</td>
+<td>二进制数据流传输</td>
+</tr>
+</tbody></table>
+<h2 id="Ip地址"><a href="#Ip地址" class="headerlink" title="Ip地址"></a>Ip地址</h2><ul>
+<li>ip地址在网络层唯一标识一台网络设备</li>
+<li>ip地址包含两部分</li>
+</ul>
+<ul>
+<li>网络位</li>
+<li>主机位</li>
+</ul>
+<h2 id="Ip地址分类"><a href="#Ip地址分类" class="headerlink" title="Ip地址分类"></a>Ip地址分类</h2><p><img src="/img/874126-20180117224704553-1506200749.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/2fa9840e.html">https://blog.putdown.top/archives/2fa9840e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/%E6%9C%AF%E8%AF%AD/">术语</a></div><div class="post-share"><div class="social-share" data-image="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/fafc01e0.html" title="渗透测试专业术语"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">渗透测试专业术语</div></div><div class="info-2"><div class="info-item-1">渗透测试专业术语介绍域名: 由一串用点分隔的名字组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时对计算机的定位标识（有时也指地理位置）.  二级域名： 二级域名：在国际顶级域名下的二级域名 国家顶级域名下二级域名.  域名发现对于安全测试可以给安全测试提供更多的测试点，方便获取更多相关信息 DNS: 域名系统（Domain Name System）。它是一个域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。DNS使用UDP端口53。对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。  本地 HOSTS 与 DNS 的关系: Hosts在本地将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当我们访问域名时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。  常见的 DNS 安全攻击 缓存投毒：它是利用虚假Internet地址替换掉域名系统表中的地址，进而制造破坏。 DNS劫持：是指在劫持的网络范...</div></div></div></a><a class="pagination-related" href="/archives/7d0e78ef.html" title="Windows基础"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Windows基础</div></div><div class="info-2"><div class="info-item-1">windows版本个人&#x2F;普通用户: winxp、win7、win8、win10 win10 等企业&#x2F;公司: winserver03、winserver08、winserver12 winserver16 等 windows常见目录1C:\Windows\System32\drivers\etc\hosts    域名解析ip地址   Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问,也就是说Hosts的请求级别比DNS高。刷新dns命令：ipconfig&#x2F;flushdns 123456C:\Program Files                        ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/fafc01e0.html" title="渗透测试专业术语"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-12</div><div class="info-item-2">渗透测试专业术语</div></div><div class="info-2"><div class="info-item-1">渗透测试专业术语介绍域名: 由一串用点分隔的名字组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时对计算机的定位标识（有时也指地理位置）.  二级域名： 二级域名：在国际顶级域名下的二级域名 国家顶级域名下二级域名.  域名发现对于安全测试可以给安全测试提供更多的测试点，方便获取更多相关信息 DNS: 域名系统（Domain Name System）。它是一个域名和IP地址相互映射的一个分布式数据库，能够使人更方便地访问互联网。DNS使用UDP端口53。对于每一级域名长度的限制是63个字符，域名总长度则不能超过253个字符。  本地 HOSTS 与 DNS 的关系: Hosts在本地将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当我们访问域名时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。  常见的 DNS 安全攻击 缓存投毒：它是利用虚假Internet地址替换掉域名系统表中的地址，进而制造破坏。 DNS劫持：是指在劫持的网络范...</div></div></div></a><a class="pagination-related" href="/archives/4b510cae.html" title="http数据包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-15</div><div class="info-item-2">http数据包</div></div><div class="info-2"><div class="info-item-1">Https&#x2F;Http  HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。 HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP之上，所有传输的内容都经过加密的。 HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，HTTP是80，HTTPS是443。 HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。  Request 请求数据包数据格式1234567891011121314Request HeadersPOST /adduser HTTP/1.1Host: localhost:8030Connection: keep-aliveContent-Length: 16Pragma: no-cacheCache-Control: no-cacheOrigin: chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcmUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64...</div></div></div></a><a class="pagination-related" href="/archives/c5f6125a.html" title="HTTP状态码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-27</div><div class="info-item-2">HTTP状态码</div></div><div class="info-2"><div class="info-item-1">100 Continue 这个临时响应表明，迄今为止的所有内容都是可行的，客户端应该继续请求，如果已经完成，则忽略它。 101 Switching Protocol 该代码是响应客户端的 Upgrade (en-US) 标头发送的，并且指示服务器也正在切换的协议。 102 Processing (WebDAV) 此代码表示服务器已收到并正在处理该请求，但没有响应可用。 103 Early Hints 此状态代码主要用于与Link 链接头一起使用，以允许用户代理在服务器仍在准备响应时开始预加载资源。 200 OK 请求成功。成功的含义取决于HTTP方法。GET：资源已被提取并在消息正文中传输。HEAD：实体标头位于消息正文中。POST：描述动作结果的资源在消息体中传输。TRACE：消息正文包含服务器收到的请求消息。 201 Created 该请求已成功，并因此创建了一个新的资源。这通常是在POST请求，或是某些PUT请求之后返回的响应。 202 Accepted 请求已经接收到，但还未响应，没有结果。意味着不会有一个异步的响应去表明当前请求的结果，预期另外的进程和服务去处理请求，或...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">网络基础知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E6%AC%A1%E5%88%92%E5%88%86"><span class="toc-text">网络层次划分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E5%88%86%E5%B1%82"><span class="toc-text">OSI分层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E4%B8%83%E5%B1%82%E5%8A%9F%E8%83%BD"><span class="toc-text">OSI七层功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ip%E5%9C%B0%E5%9D%80"><span class="toc-text">Ip地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ip%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-text">Ip地址分类</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

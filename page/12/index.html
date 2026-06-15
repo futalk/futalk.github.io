@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Putdownd’s Blog - 躺平的BLOG</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Welcome to lie down"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/page/12/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Putdownd’s Blog',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Putdownd’s Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/71f4c5ab.html" title="metasploit">metasploit</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-28T12:29:35.000Z" title="发表于 2022-07-28 12:29:35">2022-07-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">Metasploit Metasploit就是一个漏洞框架。它的全称叫做The Metasploit Framework，简称叫做MSF。Metasploit作为全球最受欢迎的工具，不仅仅是因为它的方便性和强大性，更重要的是它的框架。它允许使用者开发自己的漏洞脚本，从而进行测试。 本人使用环境 kali  涉及专业术语 渗透攻击（exploit）:测试者利用系统，程序，或服务的漏洞进行攻击的一个过程。 攻击载荷（payload）:攻击者在目标系统上执行的一段攻击代码，该代码具有返弹连接，创建用户，执行其他系统命令的功能 shellcode:在目标机器上运行的一段机器指令，成功执行后会返回一个shell 模块（module）:是指Metasploit框架中所使用的一段软件代码组件。 监听器（listener）:监听器是metasploit中用来等待介入网络连接的组件。  MSF基础知识 运行 msfconsole 即可打开msf命令控制接口. 当打开msfconsole后，这里面清楚的标记了Metasploit所有的利用模块、payload等等. 12345# 启动设置* 注意: ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/e5da2ca1.html" title="sqlmap">sqlmap</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-27T09:51:33.000Z" title="发表于 2022-07-27 09:51:33">2022-07-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a></span></div><div class="content">SQLMAP介绍 sqlmap 是一个由Python语言编写的开源渗透测试工具，它主要用来检测sql注入漏洞，是一款功能强大的sql漏洞检测利用工具。  它可以检测的数据库有：access、mssql、mysql、oracle、postgresql、db2、sqlite等  可以进行 sql盲注、union查询、显错注入、延迟注入、post注入、cookie注入等  其他功能:执行命令、列举用户、检测权限、自动破解、数据导出等功能。   sqlmap安装 下载地址：  1http://www.sqlmap.org  安装首先需要安装python2.7 环境直接解压即可 更新  1sqlmap.py --update  建议直接使用 kali 内置sqlmap.  参数基本参数 123456789101112Sqlmap.py  -h          查看帮助选项is-dba		           当前用户权限dbs				       所有数据库current-db			   网站当前数据库users			       所有数据库用户current-user		   当前数据...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/46a16768.html" title="burpsuite+火狐">burpsuite+火狐</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-27T08:25:18.000Z" title="发表于 2022-07-27 08:25:18">2022-07-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">BurpSuite 安装 往期文章  1https://putdown.top/2022/07/22/BurpSuite-%E5%AE%89%E8%A3%85%E6%BF%80%E6%B4%BB/  火狐配置 首先在burp suite中找到proxy模块，点击options，勾选127.0.0.1:8080 然后在火狐高级选项里设置代理服务器，在输入网址,点击网页右上角下载CA证书  1http://burp  导入CA证书 点击浏览器右上角,进入设置. 左侧菜单选择隐私与安全,右侧出现查看证书. 点击查看证书,导入选择刚才下载好证书.   在火狐中添加插件proxy switchyomega并配置代理服务器.(也可选择同类型插件) 代理服务器&#x2F;IP 填写 127.0.0.1 代理端口&#x2F;端口 填写 &#96;&#96;&#96;8080&#96;&#96;   到这火狐的配置就基本结束  Burp Proxy 基本使用 选择Proxy&gt;Intercept选项卡，确认“Intercept is on”,打开拦截功能 打开浏览器，输入URL，并回车， 选择...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/9e3b89d1.html" title="sqli-labs靶场1-10">sqli-labs靶场1-10</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-26T16:09:31.000Z" title="发表于 2022-07-26 16:09:31">2022-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a></span></div><div class="content">参考crow: https://github.com/crow821/crowsec MySQL连接的当前用户名和主机名： 1SELECT SYSTEM_USER(); MySQL连接的当前用户名和主机名： 1SELECT USER();  MySQL帐户的用户名和主机名： 1current_user() MySQL查看当前数据库 1select database(); MySQL查看当前数据版本 1select version(); MySQL查看安装路径 1@@datadir 当前操作系统 1@@version_compile_os 属于同一组，将属于同一组的列显示出来 1group_concat() A~B 1concat_ws(&#x27;~&#x27;,A,B)  常用命令查库：  1select schema_name from information_schema.schemata; 查表：  1select table_name from information_schema.tables where table_schema=&#x27;security&#x2...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/743c31e9.html" title="python学习笔记">python学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-26T07:27:06.000Z" title="发表于 2022-07-26 07:27:06">2022-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/">运维开发</a></span></div><div class="content">鱼C python笔记(一直更新在此页)1https://www.bilibili.com/video/BV1c4411e77t?p=1&amp;vd_source=cc5a1628821098205422c5d510806bf5 环境搭建python下载 1https://www.python.org/downloads/  下载最新版本即可,安装第一步时点上add python  版本号 to PATH 编辑器使用IDLE  第一行代码1print (&quot;hello world&quot;)  用python设计第一个游戏首先点击左上角file然后new file 123456789101112&quot;&quot;&quot; 用python设计第一个游戏 &quot;&quot;&quot;temp = input (&quot;不妨猜一下我心想的哪个数字&quot;)guess = int(temp)if guess == 8:   print (&quot;haha,猜中了&quot;)else:    print (&quot;猜错了&quot;)prin...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/e73517db.html" title="SQL注入">SQL注入</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-25T07:58:35.000Z" title="发表于 2022-07-25 07:58:35">2022-07-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a></span></div><div class="content">注入漏洞形成原理 sql注入就是在数据交互中，前端数据传到后台时没有做严格的判断，导致传进来的数据被拼接到sql语句中，被当作sql语句的一部分进行执行，从而导致数据泄露，丢失甚至服务器瘫痪。如果代码中没有过滤或者过滤不严谨是会出现漏洞的。  网站分类静态网页： html或者htm，是一种静态的页面格式，不需要服务器解析其中的脚本。由浏览器如(IE、Chrome等)解析。   不依赖数据库 灵活性差，制作、更新、维护麻烦 交互性较差，在功能方面有较大的限制 安全，不存在SQL注入漏洞  动态网页： asp、aspx、php、jsp等，由相应的脚本引擎来解释执行，根据指令生成静态网页。   依赖数据库 灵活性好，维护简便 交互性好，功能强大 存在安全风险，可能存在SQL注入漏洞  SQL注入![](&#x2F;img&#x2F;Sql注入 (2).jpeg) 注入时信息收集![](&#x2F;img&#x2F;Sql注入- 2 (2).jpeg) 判断注入and 1&#x3D;1 正常and 1&#x3D;2 错误可能存在注入，其实归根结底就是看我们的输入会不会对网站造成影响，即我...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/a73cee8b.html" title="Burp Suite 安装">Burp Suite 安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-22T16:08:45.000Z" title="发表于 2022-07-22 16:08:45">2022-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">Burp Suite简介Burp Suite是一个集成化的渗透测试工具，它集合了多种渗透测试组件，使我们自动化地或手工地能更好的完成对web应用的渗透测试和攻击,在渗透测试中，我们使用Burp Suite将使得测试工作变得更加容易和方便，即使在不需要娴熟的技巧的情况下，只有我们熟悉Burp Suite的使用，也使得渗透测试工作变得轻松和高效,Burp Suite是由Java语言编写而成，而Java自身的跨平台性，使得软件的学习和使用更加方便,Burp Suite不像其他的自动化测试工具，它需要你手工的去配置一些参数，触发一些自动化流程，然后它才会开始工作。 配置JAVA环境因为burpsuite是在JAVA环境下运行的，所以首先应该配置好JAVA环境.  下载地址:  1https://www.oracle.com/java/technologies/downloads/  下载好后一直点下一步安装(记住安装目录). 右键桌面上“我的电脑”&gt;&gt;“属性”，在弹出的页面上点击“高级系统设置”。 在弹出的“系统属性”窗口中“高级”标签页下点击“环境变量”按钮。 在弹出的“环...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/4644d087.html" title="操作系统&amp;数据库">操作系统&amp;数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-19T15:29:41.000Z" title="发表于 2022-07-19 15:29:41">2022-07-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">操作系统&amp;数据库![](&#x2F;img&#x2F;系统&amp;数据库 (2).jpeg) 操作系统层面识别操作系统常见方法 看字母大小写，windows对大小写不敏感，Linux敏感 看ping值 –ttl在64左右是linux –ttl在128左右是windows  UNIX及类UNIX操作系统ICMP回显应答的TTL字段值为255Compaq Tru64 5.0 ICMP回显应答的 TTL字段值为64微软Windows NT&#x2F;2K操作系统ICMP回显应答的TTL字段值为128微软Windows 95操作系统ICMP回显应答的 TTL字段值为32LINUX Kernel 2.2.x &amp; 2.4.x ICMP 回显应答的 TTL 字段值为 64    nmap -O ip  简要两者区别及识别意义情况 可以帮助我们明确思路 可以筛选掉不符合系统的情况  操作系统层面漏洞类型对应意义 覆盖面广 获取的权限高 危害性大  数据库层面识别数据库类型常见方法 nmap -O ip nmap ip -p 端口，通过端口开放反推数据库  数据库类型区别及识别意...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/4b510cae.html" title="http数据包">http数据包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-15T08:33:45.000Z" title="发表于 2022-07-15 08:33:45">2022-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">Https&#x2F;Http  HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。 HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL&#x2F;TLS之上，SSL&#x2F;TLS运行在TCP之上，所有传输的内容都经过加密的。 HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，HTTP是80，HTTPS是443。 HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。  Request 请求数据包数据格式1234567891011121314Request HeadersPOST /adduser HTTP/1.1Host: localhost:8030Connection: keep-aliveContent-Length: 16Pragma: no-cacheCache-Control: no-cacheOrigin: chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcmUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/archives/312e3d12.html" title="信息收集">信息收集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-13T10:02:52.000Z" title="发表于 2022-07-13 10:02:52">2022-07-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a></span></div><div class="content">WEB安全测试信息收集 常规信息收集讲解 单个目标服务器（非web） Web服务器 整个网络拓扑 内网： 网络设备：交换机、路由器、防火墙、ids、等网络中的服务器：文件服务器、dns、http、域控制器等   外网： 相关联的其他服务器（ip关联、服务关联）旁站、c段、邮件服务器、dns服务器、代理服务器等    web方向信息收集域名信息对应ip收集:&gt;相关域名对应ip，相关工具：nslookup、一些工具网站  子域名收集:&gt;工具：layer、subDomainsBrute  whois（注册人）信息查询:&gt; 根据已知域名反查，分析出此域名的注册人、邮箱、电话等 &gt; 工具：爱站网、站长工具、微步在线（https://x.threatbook.cn） &gt; site.ip138.com、searchdns.netcraft.com  敏感目录收集方向&gt; robots.txt、后台目录、安装包、上传目录、mysql管理接口、安装页面、phpinfo、编辑器、iis短文件,分析网站cms  常用工具&gt; 字典爆破 &gt;&gt; 御剑、di...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/11/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/#content-inner">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#content-inner">13</a><a class="extend next" rel="next" href="/page/13/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">putdown</div><div class="author-info-description">Welcome to lie down</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://putdown.top/"><i class="fa-solid fa-window-restore"></i><span>我的网站列表</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/futalk" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:burpburpsuite@outlook.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="https://steamcommunity.com/profiles/76561198384837505/" rel="external nofollow noreferrer" target="_blank" title="Steam"><i class="fa-brands fa-steam" style="color: #00adee;"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss" style="color: #f26522;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">网站的目的仅限用于分享和学习！ 如果有错误的地方请多多批评指正，我会第一时间进行修改。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/52ee58b1.html" title="逆向python打包exe程序获取源代码">逆向python打包exe程序获取源代码</a><time datetime="2025-08-20T02:57:05.216Z" title="发表于 2025-08-20 02:57:05">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/ddbf221.html" title="pycdc在windows下编译">pycdc在windows下编译</a><time datetime="2025-08-19T08:08:13.191Z" title="发表于 2025-08-19 08:08:13">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-3b062c9.html" title="镜像运行(vmdk在vmware运行)">镜像运行(vmdk在vmware运行)</a><time datetime="2025-08-19T02:39:31.473Z" title="发表于 2025-08-19 02:39:31">2025-08-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-1b5705c7.html" title="镜像恢复记录">镜像恢复记录</a><time datetime="2025-08-18T06:49:43.929Z" title="发表于 2025-08-18 06:49:43">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/archives/-68282f3d.html" title="若依漏洞环境搭建（4.5版本）">若依漏洞环境搭建（4.5版本）</a><time datetime="2025-02-25T06:38:58.154Z" title="发表于 2025-02-25 06:38:58">2025-02-25</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Kubernetes%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">Kubernetes安全</span><span class="card-category-list-count">15</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vulnhub%E9%9D%B6%E6%9C%BA/"><span class="card-category-list-name">Vulnhub靶机</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Web%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">Web安全</span><span class="card-category-list-count">30</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BA%91%E5%AE%89%E5%85%A8/"><span class="card-category-list-name">云安全</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/"><span class="card-category-list-name">博客相关</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%A4%E7%BD%91-CTF/"><span class="card-category-list-name">护网/CTF</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"><span class="card-category-list-name">渗透测试</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BF%90%E7%BB%B4%E5%BC%80%E5%8F%91/"><span class="card-category-list-name">运维开发</span><span class="card-category-list-count">15</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/XSS-labs/" style="font-size: 1.1em; color: #999">XSS-labs</a> <a href="/tags/%E9%BB%98%E8%AE%A4%E5%AF%86%E7%A0%81/" style="font-size: 1.1em; color: #999">默认密码</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">操作系统&数据库</a> <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" style="font-size: 1.39em; color: #99a4b4">信息收集</a> <a href="/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" style="font-size: 1.1em; color: #999">文件包含</a> <a href="/tags/%E6%90%9C%E7%B4%A2/" style="font-size: 1.16em; color: #999b9e">搜索</a> <a href="/tags/nmap/" style="font-size: 1.1em; color: #999">nmap</a> <a href="/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/" style="font-size: 1.5em; color: #99a9bf">云原生</a> <a href="/tags/%E9%87%8D%E8%A6%81%E7%AB%AF%E5%8F%A3/" style="font-size: 1.1em; color: #999">重要端口</a> <a href="/tags/DVWA/" style="font-size: 1.21em; color: #999ea4">DVWA</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 1.16em; color: #999b9e">文件上传</a> <a href="/tags/sql-labs/" style="font-size: 1.44em; color: #99a7ba">sql-labs</a> <a href="/tags/PostgreSQL/" style="font-size: 1.1em; color: #999">PostgreSQL</a> <a href="/tags/http/" style="font-size: 1.33em; color: #99a2af">http</a> <a href="/tags/SqlServer/" style="font-size: 1.1em; color: #999">SqlServer</a> <a href="/tags/upload-labs/" style="font-size: 1.16em; color: #999b9e">upload-labs</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 1.1em; color: #999">编辑器</a> <a href="/tags/%E6%8A%A4%E7%BD%91/" style="font-size: 1.16em; color: #999b9e">护网</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1.21em; color: #999ea4">环境搭建</a> <a href="/tags/Windows/" style="font-size: 1.21em; color: #999ea4">Windows</a> <a href="/tags/OWASP/" style="font-size: 1.1em; color: #999">OWASP</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 1.16em; color: #999b9e">术语</a> <a href="/tags/Burp-Suite/" style="font-size: 1.39em; color: #99a4b4">Burp Suite</a> <a href="/tags/python/" style="font-size: 1.21em; color: #999ea4">python</a> <a href="/tags/Docker/" style="font-size: 1.44em; color: #99a7ba">Docker</a> <a href="/tags/sqlmap/" style="font-size: 1.1em; color: #999">sqlmap</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/%E9%80%86%E5%90%91/" style="font-size: 1.16em; color: #999b9e">逆向</a> <a href="/tags/%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3/" style="font-size: 1.1em; color: #999">暴力破解</a> <a href="/tags/%E4%BA%91%E5%AE%89%E5%85%A8/" style="font-size: 1.16em; color: #999b9e">云安全</a> <a href="/tags/XSS/" style="font-size: 1.16em; color: #999b9e">XSS</a> <a href="/tags/hexo/" style="font-size: 1.27em; color: #99a0a9">hexo</a> <a href="/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" style="font-size: 1.44em; color: #99a7ba">漏洞复现</a> <a href="/tags/Linux/" style="font-size: 1.21em; color: #999ea4">Linux</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5/" style="font-size: 1.1em; color: #999">命令注入</a> <a href="/tags/Kubernetes-Goat/" style="font-size: 1.5em; color: #99a9bf">Kubernetes Goat</a> <a href="/tags/metasploit/" style="font-size: 1.16em; color: #999b9e">metasploit</a> <a href="/tags/Oracle/" style="font-size: 1.1em; color: #999">Oracle</a> <a href="/tags/CSRF/" style="font-size: 1.1em; color: #999">CSRF</a> <a href="/tags/%E4%BB%A3%E7%90%86/" style="font-size: 1.1em; color: #999">代理</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/"
+            title="查看更多">
+            <i class="fas fa-angle-right"></i>
+          </a>
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/08/">
+            <span class="card-archive-list-date">
+              八月 2025
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/02/">
+            <span class="card-archive-list-date">
+              二月 2025
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/12/">
+            <span class="card-archive-list-date">
+              十二月 2024
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/10/">
+            <span class="card-archive-list-date">
+              十月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/05/">
+            <span class="card-archive-list-date">
+              五月 2024
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2024/01/">
+            <span class="card-archive-list-date">
+              一月 2024
+            </span>
+            <span class="card-archive-list-count">4</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/11/">
+            <span class="card-archive-list-date">
+              十一月 2023
+            </span>
+            <span class="card-archive-list-count">2</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2023/10/">
+            <span class="card-archive-list-date">
+              十月 2023
+            </span>
+            <span class="card-archive-list-count">19</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">128</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-06-15T04:37:42.907Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["永远不要只满足于世界的表象，要敢于探寻未知的可能。"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["永远不要只满足于世界的表象，要敢于探寻未知的可能。"])
+}
+typedJSFn.run(subtitleType)</script></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

